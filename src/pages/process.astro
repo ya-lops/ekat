@@ -1,0 +1,25 @@
+---
+import ProcessView from "@/components/views/ProcessView.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="app-page process-page">
+    <header class="app-page-header">
+      <div class="container">
+        <h1>Процесс работы</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <ProcessView />
+    </div>
+  </div>
+</BaseLayout>
+
+<style lang="scss" is:global>
+  .process-page {
+    min-height: 100dvh;
+    background: var(--ep-color-surface-1);
+  }
+</style>

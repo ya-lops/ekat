@@ -1,0 +1,22 @@
+---
+import AboutView from "@/components/views/AboutView.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="about-page">
+    <div class="container">
+      <AboutView />
+    </div>
+  </div>
+</BaseLayout>
+
+<style lang="scss" is:global>
+  .about-page {
+    min-height: 100dvh;
+    
+    .app-page-header {
+      text-align: left;
+    }
+  }
+</style>

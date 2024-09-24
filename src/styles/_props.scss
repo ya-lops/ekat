@@ -1,0 +1,24 @@
+:root {
+  --ep-color-100: rgba(63, 63, 63, 1);
+  --ep-color-90: rgba(1, 89, 95, 1);
+  --ep-color-80: rgba(46, 162, 167, 1);
+  --ep-color-70: rgba(55, 204, 204, 1);
+  --ep-color-60: rgba(180, 227, 229, 1);
+  --ep-color-50: rgba(192, 205, 205, 1);
+  --ep-color-40: rgba(212, 242, 242, 1);
+  --ep-color-30: rgba(242, 244, 247, 1);
+  --ep-color-00: rgba(255, 255, 255, 1);
+  --ep-color-grey: rgba(154, 161, 161, 1);
+
+  --ep-color-accent: var(--ep-color-70);
+  --ep-color-accent-dark: var(--ep-color-90);
+
+  --ep-color-text-primary: var(--ep-color-100);
+  --ep-color-text-primary-inverse: var(--ep-color-00);
+
+  --ep-color-text-secondary: var(--ep-color-grey);
+  --ep-color-text-secondary-inverse: var(--ep-color-00);
+
+  --ep-color-surface-0: var(--ep-color-00);
+  --ep-color-surface-1: var(--ep-color-30);
+}

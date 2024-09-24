@@ -1,0 +1,70 @@
+---
+import IconPhone from "../icons/IconPhone.astro";
+import IconTelegram from "../icons/IconTelegram.astro";
+import IconWhatsapp from "../icons/IconWhatsapp.astro";
+---
+
+<div class="feedback-form">
+  <div class="_title">Мы всегда готовы ответить на ваши вопросы</div>
+
+  <button class="app-button accent">Хочу задать вопрос</button>
+
+  <div class="_subtitle">Позвоните нам</div>
+
+  <div class="_contacts">
+    <a href="">
+      <IconPhone />
+      <span>+7 (903) 931-03-65</span>
+    </a>
+    <a href="">
+      <IconWhatsapp />
+      <span>Написать в WhatsApp</span>
+    </a>
+    <a href="">
+      <IconTelegram />
+      <span>Написать в Telegram</span>
+    </a>
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  .feedback-form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 24px;
+    padding: 32px;
+    border-radius: 44px;
+    background: var(--ep-color-surface-1);
+    text-align: center;
+
+    ._title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    ._subtitle {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    ._contacts {
+      display: flex;
+      flex-flow: column;
+      gap: 16px;
+
+      a {
+        display: flex;
+        gap: 6px;
+        color: var(--ep-color-text-primary);
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--ep-color-accent);
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,20 @@
+---
+import products from "@/data/products.js";
+import ProductView from "@/components/views/ProductView.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  return products.map((product) => {
+    return {
+      params: { product: product.slug },
+      props: { product },
+    };
+  });
+}
+
+const { product } = Astro.props;
+---
+
+<BaseLayout>
+  <ProductView product={product}/>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import HeroBlock from "@/components/HeroBlock.astro";
+import HomeView from "@/components/views/HomeView.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="not-found">
+    <div class="container">
+      <div class="_code">404</div>
+      <div class="_error">Запрашиваемая вами страница не найдена</div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style lang="scss" is:global>
+.not-found {
+  padding-block: 64px;
+
+  ._code {
+    color: var(--ep-color-accent);
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  ._error {
+    font-size: 24px;
+    font-weight: 300;
+  }
+}
+</style>

@@ -1,0 +1,21 @@
+---
+import GetForm from "@/components/forms/GetForm.astro";
+import CatalogView from "@/components/views/CatalogView.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="app-page catalog-page">
+    <header class="app-page-header">
+      <div class="container">
+        <h1>Каталог</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <CatalogView />
+    </div>
+
+    <GetForm/>
+  </div>
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+
+---
+
+<footer class="app-footer">
+  <div class="container">
+    <div class="_inner">
+      <a class="app-footer-logo" href="/" rel="nofollow">
+        <img src="/images/app-logo.svg" alt="" />
+      </a>
+      <nav class="app-footer-nav">nav</nav>
+      <aside class="app-footer-aside">aside</aside>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss" is:global>
+  .app-footer {
+    background-color: var(--ep-color-90);
+    background-image: url("/images/footer-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    ._inner {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 24px;
+      padding-block: 54px 24px;
+    }
+  }
+
+  .app-footer-logo {
+    max-width: 188px;
+  }
+
+  .app-footer-nav {
+  }
+
+  .app-footer-aside {
+  }
+</style>
