@@ -1,0 +1,20 @@
+---
+import reviews from "@/data/reviews";
+import AboutView from "@/components/views/AboutView.astro";
+import ReviewCard from "@/components/shared/ReviewCard.astro";
+---
+
+<AboutView pageTitle="Отзывы" bottomForm="subscribe">
+  <div class="reviews-list">
+    {reviews.map((review) => <ReviewCard data={review} />)}
+  </div>
+</AboutView>
+
+<style lang="scss" is:global>
+  .reviews-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    align-items: start;
+    gap: 32px;
+  }
+</style>

@@ -1,69 +1,92 @@
 ---
-import FeedbackForm from "@/components/forms/FeedbackForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import GetForm from "../forms/GetForm.astro";
+import SubscribeForm from "../forms/SubscribeForm.astro";
+
+interface Props {
+  pageTitle: string;
+  floatSide?: boolean;
+  bottomForm?: "subscribe" | "getform";
+}
+
+const { pageTitle, floatSide = false, bottomForm } = Astro.props;
 ---
 
-<article class="app-article about-article">
-  <div class="_content">
-    <header>
-      <h1 class="app-page-header">О компании</h1>
-    </header>
-    <p>
-      Компания «ЭлитУпаковка» (до 2015 г. известная как "ЭлитПласт") занимается
-      изготовлением пластиковой упаковки с 2001 года. На счету компании
-      множество проектов, реализованных с учетом потребностей заказчиков. А
-      начиналось все с любви... к мороженому.
-    </p>
+<BaseLayout>
+  <div class="about-view">
+    <div class="container">
+      <article class:list={["about-page", floatSide ? "has-float-side" : ""]}>
+        <div class="_content">
+          <header>
+            <h1 class="app-page-header">{pageTitle}</h1>
+          </header>
+          <slot />
+        </div>
 
-    <p>
-      Когда на российском рынке появилось мороженое «Баскин Роббинс», стало ясно
-      – времена раскисающих вафельных стаканчиков и оберточной фольги для
-      пломбира «по 50 копеек» прошли. Яркая и прочная пластиковая упаковка стала
-      своеобразным знаком качества продукта. Кроме того, теперь мороженого в
-      «ведерке» хватало на всю семью. Что и стало причиной популярности
-      пластмассовых розовых ложек. Были и другие преимущества: по сравнению с
-      металлическими они не охлаждались, у продукта не появлялось никакого
-      привкуса. Ложки и заинтересовали нас для пробы своих сил.
-    </p>
-
-    <p>
-      В 90-х пластиковая упаковка изготавливалась только в США. Однако в Москве
-      на тот момент открылась первая фабрика мороженого «Баскин Роббинс», с
-      высокотехнологичным оборудованием и стандартами качества, и автоматической
-      линией закрытия банок. Рынок сулил новые перспективы. Мы рискнули, и в
-      результате упорных экспериментов, труда и бессонных ночей с 11-ой попытки
-      у нас получился образец ложки, который по цвету и качеству соответствовал
-      заявленным требованиям московской фабрики. Вот так при отсутствии средств,
-      но наличии энтузиазма и веры в себя на свет появилась первая продукция
-      компании «ЭлитПласт» (в 2015 году мы сменили название на "ЭлитУпаковка") в
-      Барнауле.
-    </p>
-
-    <p>
-      Спустя полгода мы приобрели первый станок, затем расширили
-      производственные линии, и предложили партнерам расширенный ассортимент
-      услуг и работ. Прошло 15 лет, и за это время компания из 7 человек
-      превратилась в полноценный производственный цех, непрерывно уделяя
-      внимание техническому развитию и оптимизации рабочих процессов. Мы
-      применяем в своей работе самые современные технологии и оборудование.
-    </p>
-
-    <img src="/images/about-01.jpg" alt="" />
+        {
+          floatSide && (
+            <aside class="_float-side">
+              <slot name="floatSide" />
+            </aside>
+          )
+        }
+      </article>
+    </div>
   </div>
-  <aside class="_float-side">
-    <FeedbackForm />
-  </aside>
-</article>
 
+  {bottomForm == "getform" && <GetForm />}
+  {bottomForm == "subscribe" && <SubscribeForm />}
+</BaseLayout>
+ 
 <style lang="scss" is:global>
-  .about-article {
+  .about-page {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
+    grid-template-columns: 100%;
     align-items: start;
     gap: 18px;
+    padding-block: 52px;
+
+    &.has-float-side {
+      grid-template-columns: minmax(0, 1fr) 320px;
+    }
 
     ._float-side {
       position: sticky;
       top: 56px;
+    }
+
+    header {
+      margin-bottom: 32px;
+    }
+
+    header + h2 {
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 500;
+      margin-block: 32px 24px;
+    }
+
+    p,
+    li {
+      margin-bottom: 24px;
+      font-size: 18px;
+      line-height: 1.66;
+      font-weight: 300;
+    }
+
+    ul {
+      list-style-position: inside;
+
+      li {
+        margin-bottom: 24px;
+
+        &::marker {
+          color: var(--ep-color-70);
+        }
+      }
     }
   }
 </style>
