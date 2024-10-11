@@ -5,11 +5,15 @@ import ClientsBlock from "../ClientsBlock.astro";
 import CatalogPreviewBlock from "../CatalogPreviewBlock.astro";
 import CasesBlock from "../CasesBlock.astro";
 import ReviewsBlock from "../ReviewsBlock.astro";
+import GetForm from "../forms/GetForm.astro";
+import HeroBlock from "../HeroBlock.astro";
 
 
 ---
 
 <article class="home-view">
+  <HeroBlock/>
+
   <CatalogPreviewBlock/>
 
   <BenefitsBlock/>
@@ -21,4 +25,6 @@ import ReviewsBlock from "../ReviewsBlock.astro";
   <CasesBlock/>
 
   <ReviewsBlock/>
+
+  <GetForm/>
 </article>
