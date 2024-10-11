@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+  compressHTML: false,
   build: {
     assets: "static",
     inlineStylesheets: "never",
@@ -10,5 +11,8 @@ export default defineConfig({
     css: {
       devSourcemap: true,
     },
+    build: {
+      minify: false,
+    }
   },
 });
