@@ -1,4 +1,6 @@
 ---
+import AppHeaderNav from "./AppHeaderNav.astro";
+
 
 ---
 
@@ -9,50 +11,8 @@
         <img src="/images/app-logo.svg" alt="" />
       </a>
 
-      <div class="app-header-nav">
-        <!-- Главный Элемент меню -->
-        <div class="_item">
-          <a href="/about">О компании</a>
-          <!-- Главный Элемент меню > Подменю -->
-          <div class="_submenu">
-            <div class="_subitem">
-              <a href="#submenuitem1">Производство</a>
-            </div>
-            <div class="_subitem">
-              <a href="/documents">Сертификаты</a>
-            </div>
-            <div class="_subitem">
-              <a href="#submenuitem3">Технологии</a>
-            </div>
-          </div>
-        </div>
+      <AppHeaderNav/>
 
-        <div class="_item">
-          <a href="/catalog">Каталог</a>
-          <div class="_submenu">
-            <div class="_subitem">
-              <a href="#submenuitem1">Стаканы пластиковые/бумажные</a>
-            </div>
-            <div class="_subitem">
-              <a href="#submenuitem2">Крышки пластиковые/бумажные</a>
-            </div>
-            <div class="_subitem">
-              <a href="#submenuitem3">Контейнеры</a>
-            </div>
-            <div class="_subitem">
-              <a href="#submenuitem3">Индивидуальные решения</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="_item">
-          <a href="/blog">Блог</a>
-        </div>
-
-        <div class="_item">
-          <a href="/contacts">Контакты</a>
-        </div>
-      </div>
       <div class="app-header__actions">
         <a href="/favorites">FAV</a>
       </div>
@@ -82,45 +42,5 @@
     }
   }
 
-  .app-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-
-    ._item {
-      position: relative;
-      color: var(--ep-color-text-primary-inverse);
-    }
-
-    ._submenu {
-      position: absolute;
-      top: 100%;
-      left: -18px;
-      display: none;
-      padding: 18px;
-      border-radius: 10px;
-      background: var(--ep-color-90);
-    }
-
-    ._item:hover ._submenu {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    ._subitem {
-      width: max-content;
-      font-size: 14px;
-      font-weight: 400;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-
-      &:hover {
-        color: var(--ep-color-accent);
-      }
-    }
-  }
+  
 </style>
