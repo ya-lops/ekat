@@ -7,26 +7,36 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 <BaseLayout>
   <div class="not-found">
     <div class="container">
-      <div class="_code">404</div>
-      <div class="_error">Запрашиваемая вами страница не найдена</div>
+      <div class="_inner">
+        <div class="_code">404</div>
+        <div class="text-center">
+          <div class="font-24 font-bold">Упс! Страница не найдена.</div>
+          <div class="font-18 font-light">
+            Страница которую вы запросили отсутствует на сайте
+          </div>
+        </div>
+        <a href="/" class="app-button accent">Перейти на главную</a>
+      </div>
     </div>
   </div>
 </BaseLayout>
 
 <style lang="scss" is:global>
-.not-found {
-  padding-block: 64px;
+  .not-found {
+    ._inner {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      padding-block: 96px;
+      gap: 32px;
+    }
 
-  ._code {
-    color: var(--ep-color-accent);
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 24px;
+    ._code {
+      color: var(--ep-color-40);
+      font-size: 196px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 32px;
+    }
   }
-
-  ._error {
-    font-size: 24px;
-    font-weight: 300;
-  }
-}
 </style>
