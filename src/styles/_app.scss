@@ -22,12 +22,6 @@ body {
   height: 100%;
 }
 
-.app-page-header {
-  text-align: center;
-  font-size: 34px;
-  font-weight: 700;
-}
-
 .app-section {
   padding-block: 96px;
 }
@@ -35,22 +29,6 @@ body {
 :where(h1, h2, h3) {
   font-size: inherit;
   font-weight: inherit;
-}
-
-// ВСЕ ЧТО СВЯЗАНО СО СТАТЬЕЙ
-.app-article {
-  padding-block: 52px;
-
-  header {
-    margin-bottom: 32px;
-  }
-
-  p {
-    margin-bottom: 32px;
-    font-size: 18px;
-    line-height: 1.66;
-    font-weight: 300;
-  }
 }
 
 // КНОПКА
@@ -78,7 +56,7 @@ body {
     &:hover {
       background: var(--ep-color-80);
     }
-  } 
+  }
 
   &.ghost {
     color: inherit;

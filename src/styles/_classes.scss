@@ -34,6 +34,12 @@
   text-align: center;
 }
 
+.text-page-header {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+}
+
 .hide-on-pointer-fine {
   @media (pointer: fine) {
     display: none;

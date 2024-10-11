@@ -1,30 +1,195 @@
 ---
-import BenefitsBlock from "@/components/BenefitsBlock.astro";
-import CatalogShortcutsBlock from "@/components/CatalogShortcutsBlock.astro";
-import ClientsBlock from "../ClientsBlock.astro";
-import CatalogPreviewBlock from "../CatalogPreviewBlock.astro";
-import CasesBlock from "../CasesBlock.astro";
-import ReviewsBlock from "../ReviewsBlock.astro";
-import GetForm from "../forms/GetForm.astro";
-import HeroBlock from "../HeroBlock.astro";
+import reviews from "@/data/reviews";
+import blog from "@/data/blog";
+import clients from "@/data/clients";
+import shortcuts from "@/data/shortcuts";
+import products from "@/data/products";
+import benefits from "@/data/benefits";
 
-
+import HeroBlock from "@/components/HeroBlock.astro";
+import Section from "@/components/shared/Section.astro";
+import ProductCard from "@/components/shared/ProductCard.astro";
+import ReviewCard from "@/components/shared/ReviewCard.astro";
+import BlogCard from "@/components/shared/BlogCard.astro";
+import GetForm from "@/components/forms/GetForm.astro";
 ---
 
 <article class="home-view">
-  <HeroBlock/>
+  <HeroBlock />
 
-  <CatalogPreviewBlock/>
+  <Section
+    title="Стандартные упаковочные решения"
+    actionHref="/catalog"
+    actionLabel="Смотреть каталог"
+  >
+    <div class="catalog-block">
+      {
+        products
+          .slice(0, 3)
+          .map((product) => (
+            <ProductCard
+              slug={product.slug}
+              name={product.name}
+              image={product.image}
+              description={product.description}
+            />
+          ))
+      }
+    </div>
+  </Section>
 
-  <BenefitsBlock/>
+  <Section title="Почему мы?" darkBg>
+    <div class="benefits-block">
+      {
+        benefits.map((item) => (
+          <div class="benefits-card">
+            <img src={item.image} alt="" />
+            <p>{item.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
 
-  <CatalogShortcutsBlock/>
+  <Section title="Упаковка для продукции">
+    <div class="shortcuts-block">
+      {
+        shortcuts.map((item) => (
+          <a href={item.href} class="catalog-shortcut">
+            <img src={"/images/categories/" + item.icon} alt="" />
+            <span>{item.name}</span>
+          </a>
+        ))
+      }
+    </div>
+  </Section>
 
-  <ClientsBlock/>
+  <Section title="Наши клиенты" darkBg>
+    <div class="clients-block">
+      {
+        clients.map((item) => (
+          <a href={item.href} class="client-shortcut">
+            <img src={"/images/logos/" + item.logo} title={item.name} alt="" />
+          </a>
+        ))
+      }
+    </div>
+  </Section>
 
-  <CasesBlock/>
+  <Section
+    title="Наши кейсы"
+    actionHref="/blog/cases"
+    actionLabel="Все кейсы"
+  >
+    <div class="cases-block">
+      {blog.map((item) => <BlogCard data={item} />)}
+    </div>
+  </Section>
 
-  <ReviewsBlock/>
+  <Section title="За что нас ценят">
+    <div class="reviews-block">
+      {
+        reviews
+          .slice(Math.max(reviews.length - 3, 0))
+          .map((review) => <ReviewCard data={review} />)
+      }
+    </div>
+  </Section>
 
-  <GetForm/>
+  <!-- ФОРМА -->
+  <GetForm />
 </article>
+
+<style lang="scss" is:global>
+  .catalog-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+  }
+
+  .benefits-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+
+    .benefits-card {
+      display: grid;
+      grid-template-rows: max-content auto;
+      gap: 12px;
+      padding-inline: 12px;
+      padding-bottom: 32px;
+      border-radius: 44px;
+      background: var(--ep-color-40);
+      text-align: center;
+
+      img {
+        max-width: 100%;
+        aspect-ratio: 1;
+      }
+
+      p {
+        padding-inline: 12px;
+        font-size: 20px;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .shortcuts-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+
+    .catalog-shortcut {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 190px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: var(--ep-color-surface-1);
+      text-decoration: none;
+      color: var(--ep-color-text-primary);
+
+      &:hover {
+        background: var(--ep-color-40);
+      }
+
+      img {
+        width: auto;
+        max-height: 44px;
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .clients-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 24px 64px;
+
+    .client-shortcut {
+      display: inline-flex;
+      text-decoration: none;
+
+      &:hover {
+        scale: 1.05;
+      }
+    }
+  }
+
+  .cases-block,
+  .reviews-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    align-items: center;
+    gap: 32px;
+  }
+</style>

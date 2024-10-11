@@ -1,0 +1,48 @@
+---
+interface Props {
+  title?: string;
+  actionHref?: string;
+  actionLabel?: string;
+  darkBg?: boolean;
+}
+
+const { title, actionHref, actionLabel, darkBg = false } = Astro.props;
+---
+
+<section class:list={["app-section", darkBg ? 'has-dark-bg':'']}>
+  <div class="container">
+    <header class="_header text-page-header">
+      <h2>{title}</h2>
+    </header>
+    <slot />
+    {
+      actionHref && actionLabel && (
+        <div class="_action">
+          <a href={actionHref} class="app-button accent">
+            {actionLabel}
+          </a>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  .app-section {
+    background: var(--ep-color-surface-0);
+
+    &.has-dark-bg {
+      background: var(--ep-color-surface-1);
+    }
+
+    .container > ._header {
+      margin-bottom: 64px;
+    }
+
+    .container > ._action {
+      display: flex;
+      justify-content: center;
+      margin-top: 64px;
+    }
+  }
+</style>
