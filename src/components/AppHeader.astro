@@ -1,20 +1,23 @@
 ---
 import AppHeaderNav from "./AppHeaderNav.astro";
-
-
+import IconHeart from "./icons/IconHeart.astro";
 ---
 
 <header class="app-header">
   <div class="container">
     <div class="_inner">
-      <a class="app-header__logo" href="/" rel="nofollow">
+      <a class="_logo" href="/" rel="nofollow">
         <img src="/images/app-logo.svg" alt="" />
       </a>
 
-      <AppHeaderNav/>
+      <div class="_nav">
+        <AppHeaderNav />
+      </div>
 
-      <div class="app-header__actions">
-        <a href="/favorites">FAV</a>
+      <div class="_actions">
+        <a href="/catalog/favorites">
+          <IconHeart/>
+        </a>
       </div>
     </div>
   </div>
@@ -22,25 +25,53 @@ import AppHeaderNav from "./AppHeaderNav.astro";
 
 <style lang="scss" is:global>
   .app-header {
+    position: relative;
+    z-index: 5;
     background: var(--ep-color-90);
+
+    @media (pointer: coarse) {
+      position: sticky;
+      top: 0;
+    }
+
+    .container {
+      @media (pointer: coarse) {
+        width: 100%;
+        padding-inline: 20px;
+      }
+    }
 
     ._inner {
       display: flex;
       align-items: center;
       gap: 54px;
       padding-block: 18px;
+
+      @media (pointer: coarse) {
+        justify-content: space-between;
+      }
     }
 
-    &__logo {
+    ._logo {
       img {
         max-width: 163px;
       }
     }
 
-    &__actions {
-      margin-left: auto;
+    ._nav {
+      @media (pointer: coarse) {
+        order: -1;
+      }
+    }
+
+    ._actions {
+      a {
+        display: flex;
+      }
+
+      @media (pointer: fine) {
+        margin-left: auto;
+      }
     }
   }
-
-  
 </style>

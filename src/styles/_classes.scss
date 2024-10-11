@@ -25,3 +25,9 @@
 .color-60 {
   color: var(--ep-color-60);
 }
+
+.hide-on-pointer-fine {
+  @media (pointer: fine) {
+    display: none;
+  }
+}
