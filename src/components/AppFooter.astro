@@ -1,41 +1,116 @@
 ---
-
+import AppFooterNav from "./AppFooterNav.astro";
 ---
 
 <footer class="app-footer">
   <div class="container">
     <div class="_inner">
-      <a class="app-footer-logo" href="/" rel="nofollow">
-        <img src="/images/app-logo.svg" alt="" />
-      </a>
-      <nav class="app-footer-nav">nav</nav>
-      <aside class="app-footer-aside">aside</aside>
+      <div class="_a">
+        <a class="_logo" href="/" rel="nofollow">
+          <img src="/images/app-logo.svg" alt="" />
+        </a>
+        <div class="app-button ghost">Оставить заявку</div>
+      </div>
+
+      <nav class="_b">
+        <AppFooterNav />
+      </nav>
+
+      <div class="_c">
+        <div class="_copy font-light">
+          <span>2024</span>г. ООО «Элитпласт+»
+        </div>
+
+        <aside class="_sidelinks font-light">
+          <a href="#agreement">Пользовательское соглашение ООО "ЭлитПласт+"</a>
+          <a href="#personal1">Конфиденциальность персональной информации</a>
+          <a href="#personal2">Политика в отношении персональных данных</a>
+        </aside>
+      </div>
     </div>
   </div>
 </footer>
 
 <style lang="scss" is:global>
   .app-footer {
+    --_c: rgba(1, 80, 95, 0.6);
+
     background-color: var(--ep-color-90);
-    background-image: url("/images/footer-bg.jpg");
+    background-image: linear-gradient(var(--_c), var(--_c)),
+      url("/images/footer-bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    color: var(--ep-color-text-primary-inverse);
 
     ._inner {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 24px;
       padding-block: 54px 24px;
+
+      @media (width < 950px) {
+        grid-template-columns: 100%;
+        justify-items: center;
+      }
+
+      ._a,
+      ._c {
+        display: flex;
+        flex-flow: column;
+        gap: 32px;
+      }
+
+      ._a {
+        align-items: flex-start;
+      }
+
+      ._a,
+      ._b {
+        @media (width < 950px) {
+          display: none;
+        }
+      }
+
+      ._c {
+        gap: 6px;
+        grid-column: 1/-1;
+      }
     }
-  }
 
-  .app-footer-logo {
-    max-width: 188px;
-  }
+    ._logo {
+      width: 200px;
+    }
 
-  .app-footer-nav {
-  }
+    ._copy {
+      opacity: 0.5;
+      text-align: right;
 
-  .app-footer-aside {
+      @media (width < 950px) {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+    }
+
+    ._sidelinks {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+
+      @media (width < 950px) {
+        flex-direction: column;
+      }
+
+      a {
+        font-size: 12px;
+        color: var(--ep-color-text-primary-inverse);
+        text-decoration: none;
+        opacity: 0.5;
+
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+    }
   }
 </style>

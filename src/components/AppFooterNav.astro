@@ -1,0 +1,67 @@
+---
+import nav from "@/data/nav";
+---
+
+<div class="app-footer-nav">
+  <div class="_items">
+    {
+      nav.map((menuitem) => (
+        <div class="_item">
+          <a href={menuitem.href}>{menuitem.label}</a>
+
+          {menuitem.sublinks && (
+            <div class="_submenu">
+              {menuitem.sublinks.map((subitem) => (
+                <div class="_subitem">
+                  <a href={subitem.href}>{subitem.label}</a>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  .app-footer-nav {
+    ._items {
+      display: inline-grid;
+      grid-auto-flow: dense column;
+      gap: 24px;
+
+      a {
+        color: var(--ep-color-text-primary-inverse);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    ._item {
+      padding-right: 24px;
+
+      &:not(:last-child) {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      &:has(> ._submenu) {
+        grid-row-end: span 2;
+      }
+    }
+
+    ._submenu {
+      display: flex;
+      flex-flow: column;
+      gap: 6px;
+      margin-top: 24px;
+      font-size: 12px;
+    }
+
+    ._subitem {
+    }
+  }
+</style>
