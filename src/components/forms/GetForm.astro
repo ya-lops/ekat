@@ -1,22 +1,111 @@
 ---
 
 ---
-<div class="get-form">
+
+<div class="get-form-block">
   <div class="container">
     <div class="_inner">
-      <div>Свяжитесь с нами</div>
-      <div>Консультируем по любым вопросам про упаковку</div>
-      <button class="app-button big accent">
-        Заказать образцы
-      </button>
+      <form action="" class="get-form">
+        <header class="_header">
+          <h3 class="text-form-header">Свяжитесь с нами</h3>
+          <p class="text-form-subheader">
+            Консультируем по любым вопросам про упаковку
+          </p>
+        </header>
+
+        <div class="_body">
+          <input type="text" placeholder="ФИО" required />
+          <input type="text" placeholder="Телефон" required />
+
+          <div class="_radio-list">
+            <p>Предпочтительный способ связи:</p>
+
+            <div>
+              <input type="radio" name="getFormRadio" id="getFormCall" checked />
+              <label for="getFormCall">Позвонить</label>
+            </div>
+
+            <div>
+              <input type="radio" name="getFormRadio" id="getFormTelegram" />
+              <label for="getFormTelegram">Написать в телеграм</label>
+            </div>
+
+            <div>
+              <input type="radio" name="getFormRadio" id="getFormWhatsapp" />
+              <label for="getFormWhatsapp">Позвонить в ватсап</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="_footer">
+          <button class="app-button big accent"> Заказать образцы </button>
+        </div>
+      </form>
+      <div class="_image">
+        <picture>
+          <source srcset="/images/cups.png" media="(min-width: 768px)" />
+          <img src="/images/cup.png" alt="" />
+        </picture>
+      </div>
     </div>
   </div>
 </div>
 
 <style lang="scss" is:global>
-  .get-form {
+  .get-form-block {
     margin-top: auto;
     padding-block: 96px;
     background: var(--ep-color-surface-1);
+
+    ._inner {
+      display: grid;
+      grid-template-columns: minmax(400px, 6fr) minmax(0, 5fr);
+      align-items: center;
+      column-gap: clamp(32px, 8vw, 120px);
+
+      @media (width < 768px) {
+        grid-template-columns: 100%;
+        justify-items: center;
+        gap: 24px;
+      }
+    }
+
+    ._image {
+      @media (width < 768px) {
+        width: 318px;
+      }
+    }
+
+    .get-form {
+      @media (width < 768px) {
+        align-items: center;
+      }
+    }
+  }
+
+  .get-form {
+    display: flex;
+    flex-flow: column;
+    gap: 36px;
+
+    ._header {
+      display: flex;
+      flex-flow: column;
+      gap: 6px;
+    }
+
+    ._body {
+      display: flex;
+      flex-flow: column;
+      gap: 18px;
+    }
+
+    ._radio-list {
+      display: flex;
+      flex-flow: column;
+      gap: 12px;
+    }
+
+    ._footer {}
   }
 </style>

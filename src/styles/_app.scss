@@ -1,11 +1,15 @@
 // ОБЩИЕ ПРАВИЛА ДЛЯ ПРИЛОЖЕНИЯ
+:root {
+  --ep-font-family-primary: "Inter", sans-serif;
+}
+
 html,
 body {
   min-height: 100dvh;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: var(--ep-font-family-primary);
   color: var(--ep-color-text-primary);
   font-size: 16px;
 }
@@ -65,5 +69,30 @@ body {
     &:hover {
       background: color-mix(in oklab, var(--ep-color-90) 10%, transparent);
     }
+  }
+}
+
+// Формы
+input[type="text"] {
+  max-width: 330px;
+  padding: 16px 24px;
+  border: 1px solid var(--ep-color-50); 
+  border-radius: 44px;
+  outline: 0;
+  background: var(--ep-color-surface-0);
+  color: var(--ep-color-text-primary);
+  font-family: var(--ep-font-family-primary);
+
+  &::placeholder {
+    color: var(--ep-color-50);
+    font-family: var(--ep-font-family-primary);
+  }
+
+  &:hover {
+    border-color: var(--ep-color-60);
+  }
+
+  &:focus {
+    border-color: var(--ep-color-70);
   }
 }

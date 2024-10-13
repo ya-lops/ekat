@@ -44,6 +44,16 @@
   font-weight: 700;
 }
 
+.text-form-header {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.text-form-subheader {
+  font-size: 18px;
+  font-weight: 300;
+}
+
 .hide-on-pointer-fine {
   @media (pointer: fine) {
     display: none;
