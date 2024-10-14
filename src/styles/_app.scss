@@ -29,7 +29,7 @@ body {
 }
 
 .app-view {
-  padding-block: 64px;
+  padding-block: 56px 96px;
 }
 
 .app-section {
@@ -39,6 +39,14 @@ body {
 :where(h1, h2, h3) {
   font-size: inherit;
   font-weight: inherit;
+}
+
+.app-link {
+  color: var(--ep-color-70);
+
+  &:hover {
+    color: var(--ep-color-80);
+  }
 }
 
 // КНОПКА
@@ -107,5 +115,37 @@ input[type="text"] {
 
   &:focus {
     border-color: var(--ep-color-70);
+  }
+}
+
+// Хлебные крошки
+.app-breadcrumbs {
+  display: flex;
+  padding-bottom: 32px;
+  gap: 12px;
+
+  > ._item {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+
+    &:not(:last-child)::after {
+      content: "•";
+      color: var(--ep-color-50);
+    }
+  }
+
+  a {
+    color: var(--ep-color-50);
+    text-decoration: none;
+
+    &:hover { 
+      color: var(--ep-color-100);
+    }
+  }
+
+  span {
+    color: var(--ep-color-80);
+    cursor: default;
   }
 }

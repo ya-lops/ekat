@@ -1,0 +1,65 @@
+---
+import IconSadSmile from "@/components/icons/IconSadSmile.astro";
+import ProductCard from "@/components/shared/ProductCard.astro";
+import CatalogView from "@/components/views/CatalogView.astro";
+import products from "@/data/products";
+
+const empty = true;
+
+interface Props {
+  pageTitle: string;
+  bottomForm?: "subscribe" | "getform";
+}
+---
+
+<CatalogView pageTitle="Крышки" bottomForm="getform">
+  <div class="product-list">
+    {
+      !empty &&
+        products.map((product) => (
+          <ProductCard
+            slug={product.slug}
+            name={product.name}
+            image={product.image}
+            description={product.description}
+          />
+        ))
+    }
+
+    {
+      // Если в избранном чтото пусто
+      empty && (
+        <div class="empty-search">
+          <IconSadSmile />
+          <p class="fs-18 font-light text-center">
+            По вашему запросу товары не найдены.
+            <br />
+            Попробуйте изменить параметры поиска.
+          </p>
+        </div>
+      )
+    }
+  </div>
+</CatalogView>
+
+<style lang="scss" is:global>
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+
+    .empty-search {
+      grid-column: 1/-1;
+    }
+  }
+
+  .empty-search {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    p {
+      margin-top: 24px;
+    }
+  }
+</style>

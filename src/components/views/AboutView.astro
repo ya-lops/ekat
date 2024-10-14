@@ -21,6 +21,18 @@ const {
 <BaseLayout>
   <div class="about-view app-view">
     <div class="container">
+      <ul class="app-breadcrumbs">
+        <div class="_item"><a href="/">Главная</a></div>
+        {
+          Astro.request.url.split("/").pop() !== "about" && (
+            <div class="_item">
+              <a href="/about">О компании</a>
+            </div>
+          )
+        }
+        <div class="_item"><span>{pageTitle}</span></div>
+      </ul>
+
       <article
         class:list={[
           "about-page",

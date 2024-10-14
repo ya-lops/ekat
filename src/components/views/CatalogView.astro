@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import GetForm from "../forms/GetForm.astro";
 import SubscribeForm from "../forms/SubscribeForm.astro";
+import CatalogFilter from "../shared/CatalogFilter.astro";
 
 interface Props {
   pageTitle: string;
@@ -14,10 +15,22 @@ const { pageTitle, bottomForm } = Astro.props;
 <BaseLayout>
   <div class="catalog-view app-view">
     <div class="container">
+      <ul class="app-breadcrumbs">
+        <div class="_item"><a href="/">Главная</a></div>
+        {
+          Astro.request.url.split("/").pop() !== "catalog" && (
+            <div class="_item">
+              <a href="/catalog">Каталог</a>
+            </div>
+          )
+        }
+        <div class="_item"><span>{pageTitle}</span></div>
+      </ul>
       <article class:list={["catalog-page"]}>
         <header>
           <h1 class="text-page-header text-center">{pageTitle}</h1>
         </header>
+        <CatalogFilter/>
         <slot />
       </article>
     </div>

@@ -15,7 +15,7 @@ const nav = [
     href: '/catalog',
     sublinks: [
       {label: 'Стаканы', href: '/catalog'},
-      {label: 'Крышки', href: '/catalog'},
+      {label: 'Крышки', href: '/catalog/caps'},
       {label: 'Ложки', href: '/catalog'},
       {label: 'Контейнеры', href: '/catalog'},
       {label: 'Индивидуальные решения', href: '/catalog/individual'},
