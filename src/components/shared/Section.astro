@@ -11,7 +11,7 @@ const { title, actionHref, actionLabel, darkBg = false } = Astro.props;
 
 <section class:list={["app-section", darkBg ? 'has-dark-bg':'']}>
   <div class="container">
-    <header class="_header text-page-header">
+    <header class="_header text-page-header text-center">
       <h2>{title}</h2>
     </header>
     <slot />

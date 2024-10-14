@@ -1,0 +1,36 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import GetForm from "../forms/GetForm.astro";
+import SubscribeForm from "../forms/SubscribeForm.astro";
+
+interface Props {
+  pageTitle: string;
+  bottomForm?: "subscribe" | "getform";
+}
+
+const { pageTitle, bottomForm } = Astro.props;
+---
+
+<BaseLayout>
+  <div class="contacts-view app-view">
+    <div class="container">
+      <article class:list={["contacts-page"]}>
+        <header>
+          <h1 class="text-page-header text-center">{pageTitle}</h1>
+        </header>
+        <slot />
+      </article>
+    </div>
+  </div>
+
+  {bottomForm == "getform" && <GetForm />}
+  {bottomForm == "subscribe" && <SubscribeForm />}
+</BaseLayout>
+
+<style lang="scss" is:global>
+  .contacts-page {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 64px;
+  }
+</style>

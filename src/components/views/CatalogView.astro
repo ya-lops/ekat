@@ -3,10 +3,11 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import GetForm from "../forms/GetForm.astro";
 import SubscribeForm from "../forms/SubscribeForm.astro";
 
-// import CatalogFilter from "../shared/CatalogFilter.astro";
-// import ProductCard from "../shared/ProductCard.astro";
+interface Props {
+  pageTitle: string;
+  bottomForm?: "subscribe" | "getform";
+}
 
-// import products from "@/data/products";
 const { pageTitle, bottomForm } = Astro.props;
 ---
 
@@ -15,7 +16,7 @@ const { pageTitle, bottomForm } = Astro.props;
     <div class="container">
       <article class:list={["catalog-page"]}>
         <header>
-          <h1 class="text-page-header">{pageTitle}</h1>
+          <h1 class="text-page-header text-center">{pageTitle}</h1>
         </header>
         <slot />
       </article>
