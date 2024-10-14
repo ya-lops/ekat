@@ -6,16 +6,28 @@ import SubscribeForm from "../forms/SubscribeForm.astro";
 interface Props {
   pageTitle: string;
   floatSide?: boolean;
+  blogpost?: boolean;
   bottomForm?: "subscribe" | "getform";
 }
 
-const { pageTitle, floatSide = false, bottomForm } = Astro.props;
+const {
+  pageTitle,
+  floatSide = false,
+  bottomForm,
+  blogpost = false,
+} = Astro.props;
 ---
 
 <BaseLayout>
   <div class="about-view app-view">
     <div class="container">
-      <article class:list={["about-page", floatSide ? "has-float-side" : ""]}>
+      <article
+        class:list={[
+          "about-page",
+          floatSide ? "has-float-side" : "",
+          blogpost ? "as-blogpost" : "",
+        ]}
+      >
         <div class="_content">
           <header>
             <h1 class="text-page-header text-center">{pageTitle}</h1>
@@ -37,7 +49,7 @@ const { pageTitle, floatSide = false, bottomForm } = Astro.props;
   {bottomForm == "getform" && <GetForm />}
   {bottomForm == "subscribe" && <SubscribeForm />}
 </BaseLayout>
- 
+
 <style lang="scss" is:global>
   .about-page {
     display: grid;
@@ -58,36 +70,38 @@ const { pageTitle, floatSide = false, bottomForm } = Astro.props;
       }
     }
 
-    header {
-      margin-bottom: 64px;
-    }
+    &.as-blogpost {
+      header {
+        margin-bottom: 64px;
+      }
 
-    header + h2 {
-      margin-top: 0;
-    }
+      header + h2 {
+        margin-top: 0;
+      }
 
-    h2 {
-      font-size: 28px;
-      font-weight: 500;
-      margin-block: 32px 24px;
-    }
+      h2 {
+        font-size: 28px;
+        font-weight: 500;
+        margin-block: 32px 24px;
+      }
 
-    p,
-    li {
-      margin-bottom: 24px;
-      font-size: 18px;
-      line-height: 1.66;
-      font-weight: 300;
-    }
-
-    ul {
-      list-style-position: inside;
-
+      p,
       li {
         margin-bottom: 24px;
+        font-size: 18px;
+        line-height: 1.66;
+        font-weight: 300;
+      }
 
-        &::marker {
-          color: var(--ep-color-70);
+      ul {
+        list-style-position: inside;
+
+        li {
+          margin-bottom: 24px;
+
+          &::marker {
+            color: var(--ep-color-70);
+          }
         }
       }
     }
