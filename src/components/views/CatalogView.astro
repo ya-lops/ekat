@@ -1,37 +1,35 @@
 ---
-import CatalogFilter from "../shared/CatalogFilter.astro";
-import ProductCard from "../shared/ProductCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import GetForm from "../forms/GetForm.astro";
+import SubscribeForm from "../forms/SubscribeForm.astro";
 
-import products from "@/data/products";
+// import CatalogFilter from "../shared/CatalogFilter.astro";
+// import ProductCard from "../shared/ProductCard.astro";
+
+// import products from "@/data/products";
+const { pageTitle, bottomForm } = Astro.props;
 ---
 
-<article class="catalog-view">
-  <CatalogFilter />
+<BaseLayout>
+  <div class="catalog-view app-view">
+    <div class="container">
+      <article class:list={["catalog-page"]}>
+        <header>
+          <h1 class="text-page-header">{pageTitle}</h1>
+        </header>
+        <slot />
+      </article>
+    </div>
+  </div>
 
-  <section class="_inner">
-    {
-      products.map((product) => (
-        <ProductCard
-          slug={product.slug}
-          name={product.name}
-          image={product.image}
-          description={product.description}
-        />
-      ))
-    }
-  </section>
-</article>
+  {bottomForm == "getform" && <GetForm />}
+  {bottomForm == "subscribe" && <SubscribeForm />}
+</BaseLayout>
 
 <style lang="scss" is:global>
-  .catalog-view {
-    display: flex;
-    flex-flow: column;
+  .catalog-page {
+    display: grid;
+    grid-template-columns: 100%;
     gap: 64px;
-
-    ._inner {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 32px;
-    }
   }
 </style>

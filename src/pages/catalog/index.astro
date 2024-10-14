@@ -1,21 +1,33 @@
 ---
-import GetForm from "@/components/forms/GetForm.astro";
+import ProductCard from "@/components/shared/ProductCard.astro";
 import CatalogView from "@/components/views/CatalogView.astro";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import products from "@/data/products";
+
+interface Props {
+  pageTitle: string;
+  bottomForm?: "subscribe" | "getform";
+}
 ---
 
-<BaseLayout>
-  <div class="app-page catalog-page">
-    <header class="text-page-header">
-      <div class="container">
-        <h1>Каталог</h1>
-      </div>
-    </header>
-
-    <div class="container">
-      <CatalogView />
-    </div>
-
-    <GetForm/>
+<CatalogView pageTitle="Каталог" bottomForm="subscribe">
+  <div class="product-list">
+    {
+      products.map((product) => (
+        <ProductCard
+          slug={product.slug}
+          name={product.name}
+          image={product.image}
+          description={product.description}
+        />
+      ))
+    }
   </div>
-</BaseLayout>
+</CatalogView>
+
+<style lang="scss" is:global>
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+  }
+</style>

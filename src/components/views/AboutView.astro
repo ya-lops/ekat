@@ -13,7 +13,7 @@ const { pageTitle, floatSide = false, bottomForm } = Astro.props;
 ---
 
 <BaseLayout>
-  <div class="about-view">
+  <div class="about-view app-view">
     <div class="container">
       <article class:list={["about-page", floatSide ? "has-float-side" : ""]}>
         <div class="_content">
@@ -44,7 +44,6 @@ const { pageTitle, floatSide = false, bottomForm } = Astro.props;
     grid-template-columns: 100%;
     align-items: start;
     gap: 18px;
-    padding-block: 52px;
 
     &.has-float-side {
       @media (width > 900px) {
@@ -60,7 +59,7 @@ const { pageTitle, floatSide = false, bottomForm } = Astro.props;
     }
 
     header {
-      margin-bottom: 32px;
+      margin-bottom: 64px;
     }
 
     header + h2 {
