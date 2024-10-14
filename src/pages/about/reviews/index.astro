@@ -4,7 +4,7 @@ import AboutView from "@/components/views/AboutView.astro";
 import ReviewCard from "@/components/shared/ReviewCard.astro";
 ---
 
-<AboutView pageTitle="Отзывы" bottomForm="subscribe">
+<AboutView pageTitle="Отзывы" blogpost bottomForm="subscribe">
   <div class="reviews-list">
     {reviews.map((review) => <ReviewCard data={review} />)}
   </div>
