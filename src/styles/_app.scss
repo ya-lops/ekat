@@ -45,6 +45,7 @@ body {
 .app-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   height: 44px;
   border: 0;
   padding-inline: 32px;
@@ -53,6 +54,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
+  text-align: center;
 
   &.big {
     height: 56px;
@@ -79,6 +81,10 @@ body {
 }
 
 // Формы
+label {
+  cursor: pointer;
+}
+
 input[type="text"] {
   max-width: 330px;
   padding: 16px 24px;

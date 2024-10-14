@@ -1,19 +1,87 @@
 ---
 
 ---
-<div class="subscribe-form">
+
+<div class="subscribe-form-block">
   <div class="container">
     <div class="_inner">
-      <div>Хотите получать лучшие статьи от экспертов?</div>
-      <button class="app-button big accent"> Подписаться </button>
+      <form action="" class="subscribe-form">
+        <header class="_header">
+          <h3 class="text-form-header text-center">
+            Хотите получать лучшие статьи от экспертов?
+          </h3>
+        </header>
+        <div class="_body">
+          <input type="text" placeholder="Ваше имя" required />
+          <input type="text" placeholder="Email" required />
+          <button class="app-button big accent">Подписаться</button>
+        </div>
+        <div class="_footer">
+          <div>
+            <input
+              type="checkbox"
+              name="subsribe"
+              id="subsribeAgreement"
+              required
+            />
+            <label for="subsribeAgreement"
+              >Согласен на обработку персональных данных и рассылку статьей</label
+            >
+          </div>
+        </div>
+        <div class="_image">
+          <picture>
+            <source srcset="/images/fly-mail.png" media="(min-width: 768px)" />
+            <img src="/images/fly-mail.png" alt="" />
+          </picture>
+        </div>
+      </form>
     </div>
   </div>
 </div>
 
 <style lang="scss" is:global>
-  .subscribe-form {
+  .subscribe-form-block {
     margin-top: auto;
     padding-block: 96px;
     background: var(--ep-color-surface-1);
+
+    .subscribe-form {
+      display: grid;
+      grid-template-columns: minmax(336px, 1fr) minmax(0, 3fr);
+      grid-template-areas: "header header" "body image" "footer footer";
+      align-items: center;
+      column-gap: clamp(32px, 2vw, 48px);
+      row-gap: 44px;
+
+      @media (width < 768px) {
+        grid-template-columns: 100%;
+        grid-template-areas: 'header''image''body''footer';
+        justify-items: center;
+        gap: 24px;
+      }
+
+      ._header {
+        grid-area: header;
+        margin-bottom: 20px;
+      }
+
+      ._body {
+        grid-area: body;
+        display: flex;
+        flex-flow: column;
+        gap: 18px;
+      }
+
+      ._footer {
+        grid-area: footer;
+        font-size: 14px;
+        font-weight: 300;
+      }
+
+      ._image {
+        grid-area: image;
+      }
+    }
   }
 </style>
