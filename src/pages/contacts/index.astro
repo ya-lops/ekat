@@ -1,4 +1,5 @@
 ---
+import IconChevronDown from "@/components/icons/IconChevronDown.astro";
 import IconLocation from "@/components/icons/IconLocation.astro";
 import IconMail from "@/components/icons/IconMail.astro";
 import IconPersona from "@/components/icons/IconPersona.astro";
@@ -9,15 +10,11 @@ import ContactsView from "@/components/views/ContactsView.astro";
 <ContactsView pageTitle="Контакты">
   <div class="contacts">
     <section class="contact-block">
+      <input class="contact-block__switcher" type="checkbox" name="" id="block01" />
       <label class="contact-block__switcher-label" for="block01"
-        >Офис в москве</label
+        ><span>Офис в москве</span>
+        <div class="_icon"><IconChevronDown /></div></label
       >
-      <input
-        class="contact-block__switcher"
-        type="checkbox"
-        name=""
-        id="block01"
-      />
       <div class="_wrap">
         <div class="contact-block__content">
           <div class="_info">
@@ -27,16 +24,13 @@ import ContactsView from "@/components/views/ContactsView.astro";
             <div class="contact-block__info-item">
               <div class="_icon"><IconLocation /></div>
               <div class="_label">Адрес</div>
-              <div class="_value">
-                г. Москва, ул. Сергея Эйзенштейна, 8с1, офис 323
-              </div>
+              <div class="_value">г. Москва, ул. Сергея Эйзенштейна, 8с1, офис 323</div>
             </div>
             <div class="contact-block__info-item">
               <div class="_icon"><IconMail /></div>
               <div class="_label">Email</div>
               <div class="_value">
-                <a href="mailto:sales@elitupakovka.ru">sales@elitupakovka.ru</a
-                ><br />
+                <a href="mailto:sales@elitupakovka.ru">sales@elitupakovka.ru</a><br />
                 <a href="mailto:elitplastm@gmail.com">elitplastm@gmail.com</a>
               </div>
             </div>
@@ -57,22 +51,20 @@ import ContactsView from "@/components/views/ContactsView.astro";
           </div>
           <div class="_map">
             <!-- TODO!!!! ЭТОТ КОД НУЖНО ЗАМЕНИТЬ ИЗ ДРУГОЙ УЧЕТНОЙ ЗАПИСИ ЯНДЕКС!!!! -->
-            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aca2d746e746530a49b1fcf8a9304f59d5919a612b36f546fb9def311030d3d1f&amp;source=constructor" height="400" frameborder="0"></iframe>
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3Aca2d746e746530a49b1fcf8a9304f59d5919a612b36f546fb9def311030d3d1f&source=constructor"
+              height="400"
+              frameborder="0"></iframe>
           </div>
         </div>
       </div>
     </section>
 
     <section class="contact-block">
+      <input class="contact-block__switcher" type="checkbox" name="" id="block02" />
       <label class="contact-block__switcher-label" for="block02"
-        >Офис в Барнауле</label
+        ><span>Офис в Барнауле</span><div class="_icon"><IconChevronDown /></div></label
       >
-      <input
-        class="contact-block__switcher"
-        type="checkbox"
-        name=""
-        id="block02"
-      />
       <div class="_wrap">
         <div class="contact-block__content">
           <div class="_info">
@@ -88,8 +80,7 @@ import ContactsView from "@/components/views/ContactsView.astro";
               <div class="_icon"><IconMail /></div>
               <div class="_label">Email</div>
               <div class="_value">
-                <a href="mailto:sales@elitupakovka.ru">sales@elitupakovka.ru</a
-                ><br />
+                <a href="mailto:sales@elitupakovka.ru">sales@elitupakovka.ru</a><br />
                 <a href="mailto:elitplastm@gmail.com">elitplastm@gmail.com</a>
               </div>
             </div>
@@ -111,7 +102,10 @@ import ContactsView from "@/components/views/ContactsView.astro";
           </div>
           <div class="_map">
             <!-- TODO!!!! ЭТОТ КОД НУЖНО ЗАМЕНИТЬ ИЗ ДРУГОЙ УЧЕТНОЙ ЗАПИСИ ЯНДЕКС!!!! -->
-            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae5bb54ca2855b66305dbe9f2095fe38d3348e25753e0fd84cbef49a25266194f&amp;source=constructor" height="400" frameborder="0"></iframe>
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae5bb54ca2855b66305dbe9f2095fe38d3348e25753e0fd84cbef49a25266194f&source=constructor"
+              height="400"
+              frameborder="0"></iframe>
           </div>
         </div>
       </div>
@@ -141,6 +135,8 @@ import ContactsView from "@/components/views/ContactsView.astro";
 
     &__switcher-label {
       display: flex;
+      align-items: center;
+      gap: 10px;
       padding: 16px 24px;
       border-radius: 20px;
       background: var(--ep-color-30);
@@ -151,6 +147,19 @@ import ContactsView from "@/components/views/ContactsView.astro";
 
       @media (width > 768px) {
         display: none;
+      }
+
+      ._icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+      }
+
+      :checked + & {
+        ._icon {
+          scale: -1;
+        }
       }
     }
 
