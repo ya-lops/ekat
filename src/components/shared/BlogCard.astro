@@ -1,58 +1,23 @@
 ---
 const { data } = Astro.props;
-const blogHref = '/blog/';
+const blogHref = "/blog/";
 ---
 
-<article class="block-card">
-  <div class="_image">
+<article class="blog-card">
+  <div class="blog-card__image">
     <img src={data.image} alt="" />
   </div>
-  <div class="_date">{data.date}</div>
-  <header class="_title font-bold">
-    <a href={blogHref + data.slug}>{data.title}</a>
-  </header>
-  <p class="_description font-14 font-light">
-    {data.description}
-  </p>
+  <div class="blog-card__content">
+    <div class="_date">{data.date}</div>
+    <header class="_title font-bold">
+      <a href={blogHref + data.slug}>{data.title}</a>
+    </header>
+    <p class="_description font-14 font-light">
+      {data.description}
+    </p>
+  </div>
 </article>
 
 <style lang="scss" is:global>
-  .block-card {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    ._image {
-      border-radius: 40px;
-      overflow: hidden;
-    }
-
-    ._date {
-      &:empty {
-        display: none;
-      }
-    }
-
-    ._title {
-      margin-top: 12px;
-      color: var(--ep-color-text-primary);
-      font-size: 20px;
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    ._description {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 4;
-      overflow: hidden;
-    }
-  }
+  // _blog.scss
 </style>

@@ -76,13 +76,9 @@ import GetForm from "@/components/forms/GetForm.astro";
     </div>
   </Section>
 
-  <Section
-    title="Наши кейсы"
-    actionHref="/blog/cases"
-    actionLabel="Все кейсы"
-  >
-    <div class="cases-block">
-      {blog.map((item) => <BlogCard data={item} />)}
+  <Section title="Наши кейсы" actionHref="/blog/cases" actionLabel="Все кейсы">
+    <div class="blogposts-block">
+      {blog.map((item) => item.group == "cases" && <BlogCard data={item} />)}
     </div>
   </Section>
 
@@ -185,7 +181,6 @@ import GetForm from "@/components/forms/GetForm.astro";
     }
   }
 
-  .cases-block,
   .reviews-block {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
