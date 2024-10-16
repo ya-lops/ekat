@@ -1,4 +1,4 @@
-@layer reset, app;
+@layer reset, app, pages;
 
 @layer reset {
   @import "reset";
@@ -8,7 +8,13 @@
   @import "fonts";
   @import "props";
   @import "app";
+}
+
+@layer pages {
+  @import "about";
+  @import "catalog";
   @import "blog";
+  @import "contacts";
 }
 
 @import "classes";
