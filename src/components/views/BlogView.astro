@@ -6,9 +6,12 @@ import SubscribeForm from "../forms/SubscribeForm.astro";
 interface Props {
   pageTitle: string;
   bottomForm?: "subscribe" | "getform";
+  thisPage: string;
 }
 
-const { pageTitle, bottomForm } = Astro.props;
+const currentPage = Astro.request.url.split("/").pop();
+
+const { pageTitle, bottomForm, thisPage } = Astro.props;
 ---
 
 <BaseLayout>
@@ -17,13 +20,19 @@ const { pageTitle, bottomForm } = Astro.props;
       <ul class="app-breadcrumbs">
         <div class="_item"><a href="/">Главная</a></div>
         {
-          Astro.request.url.split("/").pop() !== "blog" && (
+          currentPage == "blog" && (
+          <div class="_item"><span>Блог</span></div>
+          )
+        }
+        
+        {
+          currentPage !== "blog" && (
             <div class="_item">
               <a href="/blog">Блог</a>
             </div>
+            <div class="_item"><span>{pageTitle}</span></div>
           )
         }
-        <div class="_item"><span>{pageTitle}</span></div>
       </ul>
 
       <article class:list={["blog-page"]}>
@@ -31,9 +40,9 @@ const { pageTitle, bottomForm } = Astro.props;
           <h1 class="text-page-header text-center">{pageTitle}</h1>
         </header>
         <div class="_blog-links">
-          <a href="/blog/news" class:list={[Astro.request.url.split("/").pop() == "news" ? 'is-current' : '']}>Новости</a>
-          <a href="/blog/cases" class:list={[Astro.request.url.split("/").pop() == "cases" ? 'is-current' : '']}>Кейсы</a>
-          <a href="/blog/articles" class:list={[Astro.request.url.split("/").pop() == "articles" ? 'is-current' : '']}>Статьи</a>
+          <a href="/blog/news" class:list={[thisPage == 'news' ? 'is-current' : '']}>Новости</a>
+          <a href="/blog/cases" class:list={[thisPage == 'cases' ? 'is-current' : '']}>Кейсы</a>
+          <a href="/blog/articles" class:list={[thisPage == 'articles' ? 'is-current' : '']}>Статьи</a>
         </div>
         <slot />
       </article>
@@ -43,7 +52,3 @@ const { pageTitle, bottomForm } = Astro.props;
   {bottomForm == "getform" && <GetForm />}
   {bottomForm == "subscribe" && <SubscribeForm />}
 </BaseLayout>
-
-<style lang="scss" is:global>
-  // _blog.scss
-</style>

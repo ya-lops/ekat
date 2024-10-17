@@ -8,13 +8,17 @@ interface Props {
   floatSide?: boolean;
   blogpost?: boolean;
   bottomForm?: "subscribe" | "getform";
+  thisPage?: string;
 }
+
+const currentPage = Astro.request.url.split("/").pop();
 
 const {
   pageTitle,
   floatSide = false,
   bottomForm,
   blogpost = false,
+  thisPage
 } = Astro.props;
 ---
 
@@ -24,13 +28,19 @@ const {
       <ul class="app-breadcrumbs">
         <div class="_item"><a href="/">Главная</a></div>
         {
-          Astro.request.url.split("/").pop() !== "about" && (
+          currentPage == "about" && (
+          <div class="_item"><span>О компании</span></div>
+          )
+        }
+        
+        {
+          currentPage !== "about" && (
             <div class="_item">
               <a href="/about">О компании</a>
             </div>
+            <div class="_item"><span>{pageTitle}</span></div>
           )
         }
-        <div class="_item"><span>{pageTitle}</span></div>
       </ul>
 
       <article
@@ -61,7 +71,3 @@ const {
   {bottomForm == "getform" && <GetForm />}
   {bottomForm == "subscribe" && <SubscribeForm />}
 </BaseLayout>
-
-<style lang="scss" is:global>
-  // _about.scss
-</style>

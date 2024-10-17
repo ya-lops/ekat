@@ -5,14 +5,10 @@ import BlogView from "@/components/views/BlogView.astro";
 import BlogCard from "@/components/shared/BlogCard.astro";
 ---
 
-<BlogView pageTitle="Статьи">
+<BlogView pageTitle="Статьи" thisPage="articles">
   <div class="blogposts-block">
     {blog.map((item) => (
       item.group == 'articles' && <BlogCard data={item} />
     ))}
   </div>
 </BlogView>
-
-<style lang="scss" is:global>
-  // _blog.scss
-</style>
