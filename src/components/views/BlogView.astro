@@ -9,8 +9,6 @@ interface Props {
   thisPage: string;
 }
 
-const currentPage = Astro.request.url.split("/").pop();
-
 const { pageTitle, bottomForm, thisPage } = Astro.props;
 ---
 
@@ -20,13 +18,13 @@ const { pageTitle, bottomForm, thisPage } = Astro.props;
       <ul class="app-breadcrumbs">
         <div class="_item"><a href="/">Главная</a></div>
         {
-          currentPage == "blog" && (
+          thisPage == "blog" && (
           <div class="_item"><span>Блог</span></div>
           )
         }
         
         {
-          currentPage !== "blog" && (
+          thisPage !== "blog" && (
             <div class="_item">
               <a href="/blog">Блог</a>
             </div>
