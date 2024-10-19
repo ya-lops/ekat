@@ -1,7 +1,5 @@
 import { defineConfig } from 'astro/config';
 
-import vercel from "@astrojs/vercel/serverless";
-
 // https://astro.build/config
 export default defineConfig({
   compressHTML: false,
@@ -18,8 +16,5 @@ export default defineConfig({
     build: {
       minify: false,
     }
-  },
-
-  output: "server",
-  adapter: vercel(),
+  }
 });
