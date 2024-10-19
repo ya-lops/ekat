@@ -113,6 +113,10 @@
       a {
         text-decoration: none;
         color: var(--ep-color-text-primary);
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

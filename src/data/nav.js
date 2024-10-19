@@ -18,6 +18,9 @@ const nav = [
       {label: 'Крышки', href: '/catalog/caps'},
       {label: 'Ложки', href: '/catalog'},
       {label: 'Контейнеры', href: '/catalog'},
+      {label: 'Банки', href: '/catalog'},
+      {label: 'Банки-тубы', href: '/catalog'},
+      {label: 'Крышки-пломбы', href: '/catalog'},
       {label: 'Индивидуальные решения', href: '/catalog/individual'},
     ]
   },

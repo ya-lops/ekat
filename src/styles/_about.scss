@@ -163,10 +163,7 @@
   }
 }
 
-// Отзывы
-// fix it!
-.reviews-list,
-.reviews-block {
+.reviews-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   align-items: start;

@@ -1,0 +1,16 @@
+.clients-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px 64px;
+
+  .client-shortcut {
+    display: inline-flex;
+    text-decoration: none;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}

@@ -1,4 +1,7 @@
 ---
+import IconTelegramSmall from "../icons/IconTelegramSmall.astro";
+import IconWhatsappSmall from "../icons/IconWhatsappSmall.astro";
+
 
 ---
 
@@ -23,16 +26,16 @@
             </div>
             <div>
               <input type="radio" name="getFormRadio" id="getFormTelegram" />
-              <label for="getFormTelegram">Написать в телеграм</label>
+              <label for="getFormTelegram">Написать <IconTelegramSmall/></label>
             </div>
             <div>
               <input type="radio" name="getFormRadio" id="getFormWhatsapp" />
-              <label for="getFormWhatsapp">Позвонить в ватсап</label>
+              <label for="getFormWhatsapp">Написать <IconWhatsappSmall/></label>
             </div>
           </div>
         </div>
         <div class="_footer">
-          <button class="app-button big accent">Заказать образцы</button>
+          <button class="app-button accent">Заказать образцы</button>
         </div>
       </form>
       <div class="_image">
@@ -91,13 +94,15 @@
     ._body {
       display: flex;
       flex-flow: column;
-      gap: 18px;
+      gap: 24px;
     }
 
     ._radio-list {
       display: flex;
       flex-flow: column;
       gap: 12px;
+      font-size: 14px;
+      font-weight: 300;
     }
 
     ._footer {}

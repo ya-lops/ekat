@@ -1,0 +1,32 @@
+.shortcuts-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+
+  .catalog-shortcut {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 190px;
+    padding: 6px 24px;
+    border-radius: 22px;
+    background: var(--ep-color-surface-1);
+    text-decoration: none;
+    color: var(--ep-color-text-primary);
+
+    &:hover {
+      background: var(--ep-color-40);
+    }
+
+    img {
+      width: auto;
+      max-height: 44px;
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+}

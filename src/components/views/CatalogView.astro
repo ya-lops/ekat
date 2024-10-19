@@ -7,9 +7,11 @@ import CatalogFilter from "../shared/CatalogFilter.astro";
 interface Props {
   pageTitle: string;
   bottomForm?: "subscribe" | "getform";
+  thisPage?: string;
+  noFilter?: boolean;
 }
 
-const { pageTitle, bottomForm } = Astro.props;
+const { pageTitle, bottomForm, noFilter = false, thisPage } = Astro.props;
 ---
 
 <BaseLayout>
@@ -18,19 +20,27 @@ const { pageTitle, bottomForm } = Astro.props;
       <ul class="app-breadcrumbs">
         <div class="_item"><a href="/">Главная</a></div>
         {
-          Astro.request.url.split("/").pop() !== "catalog" && (
+          thisPage == "catalog" && (
+          <div class="_item"><span>Каталог</span></div>
+          )
+        }
+        
+        {
+          thisPage !== "catalog" && (
             <div class="_item">
               <a href="/catalog">Каталог</a>
             </div>
+            <div class="_item"><span>{pageTitle}</span></div>
           )
         }
-        <div class="_item"><span>{pageTitle}</span></div>
       </ul>
       <article class:list={["catalog-page"]}>
         <header>
           <h1 class="text-page-header text-center">{pageTitle}</h1>
         </header>
-        <CatalogFilter/>
+        {
+          !noFilter && <CatalogFilter/>
+        }
         <slot />
       </article>
     </div>

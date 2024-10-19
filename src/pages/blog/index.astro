@@ -5,7 +5,7 @@ import BlogView from "@/components/views/BlogView.astro";
 import BlogCard from "@/components/shared/BlogCard.astro";
 ---
 
-<BlogView pageTitle="Блог" thisPage="blog">
+<BlogView pageTitle="Блог" thisPage="blog" bottomForm="subscribe">
   <div class="blogposts-block">
     {blog.map((item) => <BlogCard data={item} />)}
   </div>

@@ -8,10 +8,11 @@
   @import "fonts";
   @import "props";
   @import "app";
+  @import "app-header-nav";
 }
 
 @layer pages {
-  @import "home";
+  @import "homeview";
   @import "about";
   @import "catalog";
   @import "blog";
