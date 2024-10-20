@@ -1,22 +1,14 @@
-@layer reset, app, pages;
+@import "reset";
 
-@layer reset {
-  @import "reset";
-}
+@import "fonts";
+@import "props";
+@import "app";
+@import "app-header-nav";
 
-@layer app {
-  @import "fonts";
-  @import "props";
-  @import "app";
-  @import "app-header-nav";
-}
-
-@layer pages {
-  @import "homeview";
-  @import "about";
-  @import "catalog";
-  @import "blog";
-  @import "contacts";
-}
+@import "homeview";
+@import "aboutview";
+@import "catalog";
+@import "blog";
+@import "contacts";
 
 @import "classes";

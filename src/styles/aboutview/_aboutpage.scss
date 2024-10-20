@@ -1,0 +1,55 @@
+.about-page {
+  display: grid;
+  grid-template-columns: 100%;
+  align-items: start;
+  gap: 18px;
+
+  &.has-float-side {
+    @media (width > 900px) {
+      grid-template-columns: minmax(0, 1fr) 320px;
+    }
+  }
+
+  ._float-side {
+    @media (width > 900px) {
+      position: sticky;
+      top: 56px;
+    }
+  }
+
+  &.as-blogpost {
+    header {
+      margin-bottom: 64px;
+    }
+
+    header + h2 {
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 500;
+      margin-block: 32px 24px;
+    }
+
+    p,
+    li {
+      margin-bottom: 24px;
+      font-size: 18px;
+      line-height: 1.66;
+      font-weight: 300;
+    }
+
+    ul {
+      list-style-position: inside;
+
+      li {
+        margin-bottom: 24px;
+
+        &::marker {
+          color: var(--ep-color-70);
+        }
+      }
+    }
+  }
+}
