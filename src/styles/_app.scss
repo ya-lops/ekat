@@ -21,6 +21,16 @@ body {
   width: min(100%, 1024px);
   margin-inline: auto;
   padding-inline: 24px;
+
+  .app-content & {
+    @media (width < 1024px) {
+      width: min(100%, 640px);
+    }
+
+    @media (width < 768px) {
+      width: min(100%, 576px);
+    }
+  }
 }
 
 .app-page {
