@@ -1,105 +1,56 @@
 ---
-const { product } = Astro.props;
+import products from "@/data/products";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import GetForm from "../forms/GetForm.astro";
+import SubscribeForm from "../forms/SubscribeForm.astro";
+import Section from "../shared/Section.astro";
+import ProductCard from "@/components/shared/ProductCard.astro";
+
+interface Props {
+  pageTitle: string;
+  bottomForm?: "subscribe" | "getform";
+  thisPage?: string;
+}
+
+const { pageTitle, bottomForm } = Astro.props;
 ---
-
-<div class="product-view app-view">
-  <div class="container">
-    <article class="product">
-      <div class="product-gallery">
-        <div class="_main-image">
-          <img src={product.image} alt={product.name} />
+<BaseLayout>
+  <div class="product-view app-view">
+    <div class="container">
+      <ul class="app-breadcrumbs">
+        <div class="_item"><a href="/">Главная</a></div>
+        <div class="_item">
+          <a href="/catalog">Каталог</a>
         </div>
-      </div>
+        <div class="_item"><span>{pageTitle}</span></div>
+      </ul>
 
-      <div class="product-info">
-        <h1 class="_title">{product.name}</h1>
-
-        <div class="_actions">
-          <button class="app-button outline">Запросить цену</button>
-          <button class="app-button outline">Скачать спецификацию</button>
-        </div>
-
-        {
-          product.specs && (
-            <div class="product-specs">
-              {product.specs.map((spec) => (
-                <div class="_item">
-                  <span class="_label">{spec.label}</span>
-                  <span class="_value">{spec.value}</span>
-                </div>
-              ))}
-            </div>
-          )
-        }
-
-        <div class="_order">
-          <button class="app-button accent">Заказать образцы</button>
-        </div>
-
-        <p>{product.description}</p>
-
-        {
-          product.logistics && (
-            <div class="product-specs">
-              <div class="_title">Логистика</div>
-              {product.logistics.map((l) => (
-                <div class="_item">
-                  <span class="_label">{l.label}</span>
-                  <span class="_value">{l.value}</span>
-                </div>
-              ))}
-            </div>
-          )
-        }
-      </div>
-    </article>
+      <slot />
+    </div>
   </div>
-</div>
 
-<style lang="scss" is:global>
-  .product-view {
-  }
 
-  .product {
-    display: grid;
-    grid-template-columns: minmax(0, 4fr) minmax(0, 5fr);
-    gap: 52px;
-    padding-block: 96px;
-  }
+  <!-- Здесь мы должны фильтрануть по типу товара. -->
+  <!-- Сейчас показываем только 3 -->
+  <Section
+    title="Похожие товары"
+    actionHref="/catalog"
+    actionLabel="Смотреть все"
+  >
+    <div class="catalog-block">
+      {
+        products
+          .slice(0, 3)
+          .map((product) => (
+            <ProductCard
+              product={product}
+            />
+          ))
+      }
+    </div>
+  </Section>
 
-  .product-info {
-    ._title {
-      font-size: 34px;
-      font-weight: 700;
-    }
-  }
-
-  .product-gallery {
-    ._main-image {
-      padding: 32px;
-      background: var(--ep-color-surface-1);
-      border-radius: 44px;
-    }
-  }
-
-  .product-specs {
-    display: flex;
-    flex-flow: column;
-    gap: 10px;
-    padding-block: 16px;
-
-    ._item {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-    }
-
-    ._label {
-      color: var(--ep-color-text-secondary);
-    }
-
-    ._value {
-      color: var(--ep-color-90);
-    }
-  }
-</style>
+  {bottomForm == "getform" && <GetForm />}
+  {bottomForm == "subscribe" && <SubscribeForm />}
+</BaseLayout>

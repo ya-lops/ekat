@@ -1,30 +1,66 @@
 ---
-const { slug, name, favorite, image, props, description } = Astro.props;
+import IconHeart from "../icons/IconHeart.astro";
+
+const { product } = Astro.props;
 ---
 
-<div class="product-card">
-  <div class="_image">
-    <img src={image} alt="" />
+<div class="product-card" class:list={[product.favorite ? "is-fav" : ""]}>
+  <div class="_wrap">
+    <a class="_image" href={"/catalog/" + product.slug}>
+      <img src={product.image} alt="" />
+    </a>
+
+    <div class="_props">
+      {
+        product.previewSpecs.map((l) => (
+          <span class="_item">
+            {l.label}: {l.value}
+          </span>
+        ))
+      }
+    </div>
   </div>
-  <a class="_title" href={'/catalog/'+slug}>
-    {name}
+
+  <a class="_title" href={"/catalog/" + product.slug}>
+    {product.name}
   </a>
-  <div class="_description">
-    {description}
+
+  {product.description && <div class="_description">{product.description}</div>}
+
+  <div class="product-card__favorite">
+    <div class="_text">В избранное</div>
+    <div class:list={["_icon", product.favorite ? "is-fav" : ""]}>
+      <IconHeart />
+    </div>
   </div>
 </div>
 
 <style lang="scss" is:global>
   .product-card {
+    position: relative;
     display: flex;
     flex-flow: column;
     gap: 12px;
     padding: 26px;
     padding-top: 32px;
-    border-radius: 44px;
-    background: var(--ep-color-80);
+
+    @media (width > 768px) {
+      border-radius: 44px;
+      background-color: var(--ep-color-80);
+    }
+
+    ._wrap {
+      @media (width > 768px) {
+        display: contents;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
 
     ._image {
+      order: -1;
       max-height: 200px;
       aspect-ratio: 1;
 
@@ -35,19 +71,100 @@ const { slug, name, favorite, image, props, description } = Astro.props;
       }
     }
 
+    ._props {
+      order: 3;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+
+      @media (width > 768px) {
+        order: 10;
+      }
+
+      ._item {
+        padding: 2px 6px;
+        border-radius: 12px;
+        background: rgba(180, 227, 229, 0.7);
+        color: var(--ep-color-accent-dark);
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+
     ._title {
+      order: 5;
       color: var(--ep-color-text-primary-inverse);
       font-size: 20px;
       font-weight: 700;
       text-align: center;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     ._description {
+      order: 50;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
       overflow: hidden;
       font-size: 12px;
+    }
+  }
+
+  .product-card__favorite {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 10px;
+    background: rgba(180, 227, 229, 0.5);
+    cursor: pointer;
+    user-select: none;
+
+    .product-card:not(.is-fav) & {
+      opacity: 0;
+    }
+
+    .product-card:not(.is-fav):hover & {
+      opacity: 1;
+    }
+
+    ._text {
+      max-width: 0;
+      padding-right: 0px;
+      color: var(--ep-color-90);
+      font-size: 12px;
+      font-weight: 500;
+      overflow: hidden;
+      transition: all .33s linear;
+      white-space: nowrap;
+    }
+
+    &:hover ._text {
+      max-width: 300px;
+      padding-right: 8px;
+    }
+
+    ._icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg path {
+        stroke: var(--ep-color-90);
+      }
+
+      &.is-fav {
+        svg {
+          fill: var(--ep-color-90);
+        }
+      }
     }
   }
 </style>

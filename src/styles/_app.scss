@@ -88,6 +88,16 @@ body {
       background: color-mix(in oklab, var(--ep-color-90) 10%, transparent);
     }
   }
+
+  &.ghost.accent {
+    color: var(--ep-color-accent-dark);
+    border: 1px solid var(--ep-color-70);
+    background: transparent;
+
+    &:hover {
+      background: color-mix(in oklab, var(--ep-color-70) 10%, transparent);
+    }
+  }
 }
 
 // Формы
