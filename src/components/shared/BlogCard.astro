@@ -4,13 +4,13 @@ const blogHref = "/blog/";
 ---
 
 <article class="blog-card">
-  <div class="blog-card__image">
+  <div class="blog-card__image image-wrap fit-cover">
     <img src={data.image} alt="" />
   </div>
   <div class="blog-card__content">
     <div class="_date">{data.date}</div>
     <header class="_title font-bold">
-      <a href={blogHref + data.slug}>{data.title}</a>
+      <a href={blogHref + data.group + "/" + data.slug}>{data.title}</a>
     </header>
     <p class="_description font-14 font-light">
       {data.description}

@@ -8,7 +8,7 @@ const products = [
     article: {
       title: "Преимущество IML упаковки",
       img: "/images/blog/blog-case-2.jpg",
-      href: "/blog/blog-case-2",
+      href: "/blog/articles/article-iml",
     },
     image: "/images/products/product-1.png",
     imgs: [

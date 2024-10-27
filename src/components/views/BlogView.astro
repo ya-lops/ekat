@@ -7,9 +7,10 @@ interface Props {
   pageTitle: string;
   bottomForm?: "subscribe" | "getform";
   thisPage: string;
+  pageType?: 'blogpost';
 }
 
-const { pageTitle, bottomForm, thisPage } = Astro.props;
+const { pageTitle, bottomForm, thisPage, pageType } = Astro.props;
 ---
 
 <BaseLayout>
@@ -35,13 +36,19 @@ const { pageTitle, bottomForm, thisPage } = Astro.props;
 
       <article class:list={["blog-page"]}>
         <header>
-          <h1 class="text-page-header text-center">{pageTitle}</h1>
+          <h1 class:list={['text-page-header', pageType == 'blogpost' ? 'text-left' : 'text-center']}>{pageTitle}</h1>
         </header>
-        <div class="_blog-links">
-          <a href="/blog/news" class:list={[thisPage == 'news' ? 'is-current' : '']}>Новости</a>
-          <a href="/blog/cases" class:list={[thisPage == 'cases' ? 'is-current' : '']}>Кейсы</a>
-          <a href="/blog/articles" class:list={[thisPage == 'articles' ? 'is-current' : '']}>Статьи</a>
-        </div>
+
+        { 
+          pageType !== 'blogpost' && (
+            <div class="_blog-links">
+              <a href="/blog/news" class:list={[thisPage == 'news' ? 'is-current' : '']}>Новости</a>
+              <a href="/blog/cases" class:list={[thisPage == 'cases' ? 'is-current' : '']}>Кейсы</a>
+              <a href="/blog/articles" class:list={[thisPage == 'articles' ? 'is-current' : '']}>Статьи</a>
+            </div>
+          )
+        }
+        
         <slot />
       </article>
     </div>
