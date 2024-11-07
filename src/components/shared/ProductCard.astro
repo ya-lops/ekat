@@ -30,7 +30,7 @@ const { product } = Astro.props;
 
   {product.description && <div class="_description">{product.description}</div>}
 
-  <div class="product-card__favorite">
+  <div class="product-favorite">
     <div class="_text">В избранное</div>
     <div class:list={["_icon", product.favorite ? "is-fav" : ""]}>
       <IconHeart />
