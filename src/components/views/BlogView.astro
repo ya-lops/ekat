@@ -2,10 +2,11 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import GetForm from "../forms/GetForm.astro";
 import SubscribeForm from "../forms/SubscribeForm.astro";
+import IMLForm from "../forms/IMLForm.astro";
 
 interface Props {
   pageTitle: string;
-  bottomForm?: "subscribe" | "getform";
+  bottomForm?: "subscribe" | "getform" | "iml";
   thisPage: string;
   pageType?: 'blogpost';
 }
@@ -56,4 +57,5 @@ const { pageTitle, bottomForm, thisPage, pageType } = Astro.props;
 
   {bottomForm == "getform" && <GetForm />}
   {bottomForm == "subscribe" && <SubscribeForm />}
+  {bottomForm == "iml" && <IMLForm/>}
 </BaseLayout>
