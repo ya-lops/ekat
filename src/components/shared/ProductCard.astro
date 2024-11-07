@@ -15,8 +15,8 @@ const { product } = Astro.props;
       {
         product.previewSpecs.map((l) => (
           <Tag>
-            <span class="font-medium">
-              {l.label}: {l.value}
+            <span class="font-medium" title={l.label}>
+              {l.value}
             </span>
           </Tag>
         ))

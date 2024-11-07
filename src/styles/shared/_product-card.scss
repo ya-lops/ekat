@@ -28,7 +28,9 @@
   }
 
   ._props {
-    order: 3;
+    position: absolute;
+    left: 24px;
+    top: 24px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -45,6 +47,7 @@
     font-size: 20px;
     font-weight: 700;
     text-align: center;
+    text-wrap: balance;
 
     &:hover {
       text-decoration: underline;
