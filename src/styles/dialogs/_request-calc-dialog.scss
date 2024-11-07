@@ -1,0 +1,58 @@
+.request-calc-dialog {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  width: clamp(320px, 90vw, 716px);
+
+  ._close {
+    position: relative;
+    display: inline-flex;
+    align-self: flex-start;
+    transition: scale 0.125s linear;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      scale: 1.5;
+    }
+
+    &:hover {
+      cursor: pointer;
+      scale: 1.2;
+    }
+  }
+
+  ._header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  ._header,
+  ._body {
+    grid-column: span 2;
+  }
+
+  ._body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 32px;
+
+    & > * {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+.js-requestCalcDialog {
+  &.is-shown {
+    display: block;
+    position: fixed;
+    top: 240px;
+    left: 50%;
+    translate: -50% 0;
+    z-index: 10;
+  }
+}

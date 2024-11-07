@@ -5,15 +5,20 @@ import IconTelegram from "../icons/IconTelegram.astro";
 import IconWhatsapp from "../icons/IconWhatsapp.astro";
 ---
 
-<div class="app-dialog js-getPriceDialog">
+<div
+  class="app-dialog js-getPriceDialog"
+  :class="{'is-shown' : getPriceDialogOpen}"
+  x-show="getPriceDialogOpen"
+  x-on:click.outside="getPriceDialogOpen = false"
+>
   <div class="app-dialog__body">
     <div class="get-price-dialog">
       <div class="_title">
         Точная цена будет определена после расчета конструктора
       </div>
       <button
-        class="app-button accent js-request-calc-dialog-btn"
-        id="requestCalcDialogBtn"
+        class="app-button accent"
+        x-on:click="getPriceDialogOpen = false, requestCalcDialogOpen = true"
       >
         <IconWrite />
         <span>Заявка на расчет</span>
@@ -35,69 +40,3 @@ import IconWhatsapp from "../icons/IconWhatsapp.astro";
     </div>
   </div>
 </div>
-
-<style lang="scss" is:global>
-  .get-price-dialog {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    gap: 18px;
-    max-width: 344px;
-    text-align: center;
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: -8px;
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      background: var(--ep-color-surface-1);
-      transform: rotate(45deg);
-    }
-
-    ._title {
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    ._contacts {
-      display: flex;
-      flex-flow: column;
-      gap: 16px;
-
-      a {
-        display: flex;
-        gap: 6px;
-        color: var(--ep-color-text-primary);
-        font-size: 14px;
-        font-weight: 700;
-        text-decoration: none;
-
-        &:hover {
-          color: var(--ep-color-accent);
-        }
-      }
-    }
-  }
-
-  .js-get-price-btn {
-    position: relative;
-
-    &:focus-within .js-getPriceDialog {
-      position: absolute;
-      top: 75%;
-      left: 50%;
-      display: flex;
-      translate: -50% 0;
-    }
-  }
-</style>
-
-<script is:inline>
-  $(".js-request-calc-dialog-btn").on("click", function () {
-    $(".js-requestCalcDialog").addClass("opened");
-    console.log('click')
-  });
-</script>

@@ -18,7 +18,7 @@ const { product } = Astro.props;
 ---
 
 <ProductView pageTitle={product.name} bottomForm="subscribe">
-  <article class="product">
+  <article class="product" x-data="{getPriceDialogOpen: false, requestCalcDialogOpen: false}">
     <div class="_col">
       <section class="product-gallery">
         <div class="_main-image">
@@ -88,8 +88,8 @@ const { product } = Astro.props;
         }
 
         <div class="_actions">
-          <div class="js-get-price-btn">
-            <button class="app-button ghost accent">Запросить цену</button>
+          <div style="position: relative;">
+            <button class="app-button ghost accent" x-on:click="getPriceDialogOpen = true">Запросить цену</button>
             <GetPriceDialog/>
           </div>
           <button class="app-button ghost accent">Скачать спецификацию</button>

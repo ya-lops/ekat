@@ -8,6 +8,10 @@
   transition-property: opacity, display;
   transition-duration: 0.25s;
 
+  &.is-shown {
+    display: block;
+  }
+
   @starting-style {
     opacity: 0;
   }
