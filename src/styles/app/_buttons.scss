@@ -28,6 +28,14 @@
     }
   }
 
+  &.accent.dark {
+    background: var(--ep-color-80);
+
+    &:hover {
+      background: var(--ep-color-85);
+    }
+  }
+
   &.ghost {
     color: inherit;
     border: 2px solid currentColor;

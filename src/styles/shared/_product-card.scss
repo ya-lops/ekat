@@ -1,4 +1,6 @@
 .product-card {
+  --_product-card-bg: var(--ep-color-80);
+
   position: relative;
   display: flex;
   flex-flow: column;
@@ -6,9 +8,13 @@
   padding: 26px;
   padding-top: 32px;
 
+  &:hover {
+    --_product-card-bg: var(--ep-color-85);
+  }
+
   @media (width > 768px) {
     border-radius: 44px;
-    background-color: var(--ep-color-80);
+    background-color: var(--_product-card-bg);
   }
 
   ._wrap {
