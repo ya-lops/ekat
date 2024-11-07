@@ -17,5 +17,12 @@ import AppHeader from "@/components/AppHeader.astro";
       <slot />
     </div>
     <AppFooter />
+    <script is:inline src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script is:inline src="/scripts/jquery.selectric.min.js"></script>
+    <script is:inline>
+      $(function () {
+        $("select").selectric();
+      });
+    </script>
   </body>
 </html>

@@ -5,23 +5,48 @@
 <section class="catalog-filter">
   <div class="_fields">
     <select name="" id="">
-      <option value="">123</option>
-      <option value="">123</option>
-      <option value="">123</option>
+      <option value="">Все</option>
+      <option value="">Стаканы пластиковые/бумажные</option>
+      <option value="">Крышки пластиковые/бумажные</option>
+      <option value="">Ложки</option>
+      <option value="">Контейнеры</option>
+      <option value="">Банки овальные/круглые</option>
+      <option value="">Банки-тубы для сыпучих продуктов</option>
     </select>
 
-    <input type="text" placeholder="Объем от, мл">
+    <input type="text" placeholder="Объем от, мл" />
 
-    <input type="text" placeholder="Объем до, мл">
+    <input type="text" placeholder="Объем до, мл" />
 
-    <select name="" id="" >
-      <option value="">123</option>
-      <option value="">123</option>
-      <option value="">123</option>
+    <select name="" id="">
+      <option value="">Все</option>
+      <option value="">Мороженое</option>
+      <option value="">Йогурт</option>
+      <option value="">Десерты</option>
     </select>
   </div>
-  <div class="app-checkbox">
-    <input type="checkbox" name="" id="asd" />
-    <label for="asd">Возможность IML-декорирования</label>
+  <div class="_fields">
+    <div class="app-checkbox">
+      <input type="checkbox" name="" id="asd" />
+      <label for="asd">Возможность IML-декорирования</label>
+    </div>
   </div>
 </section>
+
+<style lang="scss" is:global>
+  .catalog-filter {
+    display: grid;
+    gap: 32px;
+
+    ._fields {
+      display: grid;
+      grid-template-columns: 2fr minmax(0,1fr) minmax(0,1fr) 1.5fr;
+      align-items: start;
+      gap: 24px;
+
+      @media (width < 1024px) {
+        grid-template-columns: 100%;
+      }
+    }
+  }
+</style>

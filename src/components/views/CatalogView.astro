@@ -38,13 +38,9 @@ const { pageTitle, bottomForm, noFilter = false, thisPage } = Astro.props;
         <header>
           <h1 class="text-page-header text-center">{pageTitle}</h1>
         </header>
-          <!-- Пока убираю недоделанный фильтр -->
-          <!-- Нужно понять как он будет функционировать -->
-        <div style="display: none;">
-          {
-            !noFilter && <CatalogFilter/>
-          }
-        </div>
+        {
+          !noFilter && <CatalogFilter/>
+        }
         <slot />
       </article>
     </div>
