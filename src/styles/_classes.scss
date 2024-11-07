@@ -62,3 +62,24 @@
     display: none;
   }
 }
+
+.image-wrap {
+  border-radius: 44px;
+  overflow: hidden;
+}
+
+.fit-contain {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.fit-cover {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

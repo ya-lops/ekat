@@ -1,0 +1,17 @@
+.not-found {
+  ._inner {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding-block: 96px;
+    gap: 32px;
+  }
+
+  ._code {
+    color: var(--ep-color-40);
+    font-size: 196px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+}

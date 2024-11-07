@@ -1,0 +1,55 @@
+// Карточка блога
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__image {
+    height: 200px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+
+    ._date {
+      padding: 3px 7px;
+      border-radius: 44px;
+      background: color-mix(
+        in oklab,
+        var(--ep-color-accent) 30%,
+        transparent
+      );
+      color: var(--ep-color-accent-dark);
+      font-size: 12px;
+      font-weight: 300;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    ._title {
+      color: var(--ep-color-text-primary);
+      font-size: 20px;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    ._description {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+    }
+  }
+}

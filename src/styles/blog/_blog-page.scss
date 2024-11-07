@@ -1,0 +1,34 @@
+// Страница типа блога / новости / кейсы / статьи
+.blog-page {
+  display: grid;
+  grid-template-columns: 100%;
+  align-items: start;
+  gap: 24px;
+
+  // Ссылки по типам блога
+  ._blog-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+
+    a {
+      padding: 6px 24px;
+      border-radius: 44px;
+      background-color: var(--ep-color-30);
+      color: var(--ep-color-text-secondary);
+      font-weight: 300;
+      text-decoration: none;
+
+      &.is-current {
+        background-color: var(--ep-color-40);
+        color: var(--ep-color-accent-dark);
+      }
+
+      &:hover {
+        color: var(--ep-color-accent-dark);
+      }
+    }
+  }
+}

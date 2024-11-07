@@ -1,0 +1,51 @@
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--ep-color-90);
+
+  @media (pointer: coarse) {
+    position: sticky;
+    top: 0;
+  }
+
+  .container {
+    @media (pointer: coarse) {
+      width: 100%;
+      padding-inline: 20px;
+    }
+  }
+
+  ._inner {
+    display: flex;
+    align-items: center;
+    gap: 54px;
+    padding-block: 18px;
+
+    @media (pointer: coarse) {
+      justify-content: space-between;
+    }
+  }
+
+  ._logo {
+    img {
+      max-width: 163px;
+    }
+  }
+
+  ._nav {
+    @media (pointer: coarse) {
+      order: -1;
+    }
+  }
+
+  ._actions {
+    a {
+      display: flex;
+    }
+
+    @media (pointer: fine) {
+      margin-left: auto;
+    }
+  }
+}

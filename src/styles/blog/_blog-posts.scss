@@ -1,0 +1,8 @@
+// Блок с карточками / листинг
+.blogposts-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  column-gap: 32px;
+  row-gap: 64px;
+}
+

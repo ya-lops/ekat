@@ -1,0 +1,81 @@
+// ОБЩИЕ ПРАВИЛА ДЛЯ ПРИЛОЖЕНИЯ
+:root {
+  --ep-font-family-primary: "Inter", sans-serif;
+}
+
+html,
+body {
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--ep-font-family-primary);
+  color: var(--ep-color-text-primary);
+  font-size: 16px;
+  accent-color: var(--ep-color-accent);
+  overflow-y: scroll;
+}
+
+.container {
+  width: min(100%, 1024px);
+  margin-inline: auto;
+  padding-inline: 24px;
+
+  .app-content & {
+    @media (width < 1024px) {
+      width: min(100%, 640px);
+    }
+
+    @media (width < 768px) {
+      width: min(100%, 576px);
+    }
+  }
+}
+
+.app {
+  display: grid;
+  grid-template-rows: auto minmax(0,1fr) auto;
+}
+
+.app-page {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.app-view {
+  padding-block: 56px 96px;
+}
+
+.app-section {
+  padding-block: 96px;
+  background: var(--ep-color-surface-0);
+
+  &.has-dark-bg {
+    background: var(--ep-color-surface-1);
+  }
+
+  .container > ._header {
+    margin-bottom: 64px;
+  }
+
+  .container > ._action {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+  }
+}
+
+:where(h1, h2, h3) {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.app-link {
+  color: var(--ep-color-70);
+
+  &:hover {
+    color: var(--ep-color-80);
+  }
+}

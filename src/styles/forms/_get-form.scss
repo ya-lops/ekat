@@ -1,0 +1,56 @@
+.get-form-block {
+  margin-top: auto;
+  padding-block: 96px;
+  background: var(--ep-color-surface-1);
+
+  ._inner {
+    display: grid;
+    grid-template-columns: minmax(400px, 6fr) minmax(0, 5fr);
+    align-items: center;
+    column-gap: clamp(32px, 8vw, 120px);
+
+    @media (width < 768px) {
+      grid-template-columns: 100%;
+      justify-items: center;
+      gap: 24px;
+    }
+  }
+
+  ._image {
+    @media (width < 768px) {
+      width: 318px;
+    }
+  }
+
+  .get-form {
+    @media (width < 768px) {
+      align-items: center;
+    }
+  }
+}
+
+.get-form {
+  display: flex;
+  flex-flow: column;
+  gap: 36px;
+
+  ._header {
+    display: flex;
+    flex-flow: column;
+    gap: 6px;
+  }
+
+  ._body {
+    display: flex;
+    flex-flow: column;
+    gap: 24px;
+  }
+
+  ._radio-list {
+    display: flex;
+    flex-flow: column;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 300;
+  }
+}

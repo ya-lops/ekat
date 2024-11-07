@@ -15,63 +15,10 @@ import IconHeart from "./icons/IconHeart.astro";
       </div>
 
       <div class="_actions">
-        <a href="/catalog/favorites">
+        <a href="/catalog/favorites" data-fav-count="27">
           <IconHeart/>
         </a>
       </div>
     </div>
   </div>
 </header>
-
-<style lang="scss" is:global>
-  .app-header {
-    position: relative;
-    z-index: 5;
-    background: var(--ep-color-90);
-
-    @media (pointer: coarse) {
-      position: sticky;
-      top: 0;
-    }
-
-    .container {
-      @media (pointer: coarse) {
-        width: 100%;
-        padding-inline: 20px;
-      }
-    }
-
-    ._inner {
-      display: flex;
-      align-items: center;
-      gap: 54px;
-      padding-block: 18px;
-
-      @media (pointer: coarse) {
-        justify-content: space-between;
-      }
-    }
-
-    ._logo {
-      img {
-        max-width: 163px;
-      }
-    }
-
-    ._nav {
-      @media (pointer: coarse) {
-        order: -1;
-      }
-    }
-
-    ._actions {
-      a {
-        display: flex;
-      }
-
-      @media (pointer: fine) {
-        margin-left: auto;
-      }
-    }
-  }
-</style>

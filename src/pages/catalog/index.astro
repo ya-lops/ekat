@@ -14,11 +14,3 @@ interface Props {
     {products.map((p) => <ProductCard product={p} />)}
   </div>
 </CatalogView>
-
-<style lang="scss" is:global>
-  .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 32px;
-  }
-</style>

@@ -26,23 +26,3 @@ const { title, actionHref, actionLabel, darkBg = false } = Astro.props;
     }
   </div>
 </section>
-
-<style lang="scss" is:global>
-  .app-section {
-    background: var(--ep-color-surface-0);
-
-    &.has-dark-bg {
-      background: var(--ep-color-surface-1);
-    }
-
-    .container > ._header {
-      margin-bottom: 64px;
-    }
-
-    .container > ._action {
-      display: flex;
-      justify-content: center;
-      margin-top: 64px;
-    }
-  }
-</style>

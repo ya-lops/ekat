@@ -1,0 +1,33 @@
+// Формы
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  max-width: 330px;
+  padding: 16px 24px;
+  border: 1px solid var(--ep-color-50);
+  border-radius: 44px;
+  outline: 0;
+  background: var(--ep-color-surface-0);
+  color: var(--ep-color-text-primary);
+  font-family: var(--ep-font-family-primary);
+  caret-color: var(--ep-color-accent);
+
+  &::placeholder {
+    color: var(--ep-color-50);
+    font-family: var(--ep-font-family-primary);
+  }
+
+  &:hover {
+    border-color: var(--ep-color-60);
+  }
+
+  &:focus {
+    border-color: var(--ep-color-70);
+  }
+}

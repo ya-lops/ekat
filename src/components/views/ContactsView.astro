@@ -26,11 +26,3 @@ const { pageTitle, bottomForm } = Astro.props;
   {bottomForm == "getform" && <GetForm />}
   {bottomForm == "subscribe" && <SubscribeForm />}
 </BaseLayout>
-
-<style lang="scss" is:global>
-  .contacts-page {
-    display: grid;
-    grid-template-columns: 100%;
-    gap: 64px;
-  }
-</style>
