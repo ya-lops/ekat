@@ -1,0 +1,112 @@
+---
+import IconCross from "../icons/IconCross.astro";
+import IconTelegramSmall from "../icons/IconTelegramSmall.astro";
+import IconWhatsappSmall from "../icons/IconWhatsappSmall.astro";
+---
+
+<div class="app-dialog js-requestCalcDialog">
+  <div class="app-dialog__body">
+    <form action="" class="request-calc-dialog">
+      <header class="_header">
+        <h3 class="text-form-header">Заявка на расчет</h3>
+        <div class="_close js-close-btn">
+          <IconCross />
+        </div>
+      </header>
+
+      <div class="_body">
+        <input type="text" placeholder="Ваше имя" required />
+        <input type="text" placeholder="Email" required />
+        <input type="text" placeholder="Интересующая продукция" required />
+        <input type="text" placeholder="Телефон" required />
+      </div>
+
+      <div class="_radio-list">
+        <p>Предпочтительный способ связи:</p>
+        <div>
+          <input type="radio" name="getFormRadio" id="getFormCall" checked />
+          <label for="getFormCall">Позвонить</label>
+        </div>
+        <div>
+          <input type="radio" name="getFormRadio" id="getFormTelegram" />
+          <label for="getFormTelegram">Написать <IconTelegramSmall /></label>
+        </div>
+        <div>
+          <input type="radio" name="getFormRadio" id="getFormWhatsapp" />
+          <label for="getFormWhatsapp">Написать <IconWhatsappSmall /></label>
+        </div>
+      </div>
+
+      <div class="_footer">
+        <button class="app-button accent">Оставить заявку</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script is:inline>
+  $(".js-close-btn").on("click", function () {
+    $(this).closest(".app-dialog").removeClass("opened");
+  });
+</script>
+
+<style lang="scss">
+  .js-requestCalcDialog {
+    &.opened {
+      display: block;
+      position: fixed;
+      top: 240px;
+      left: 50%;
+      translate: -50% 0;
+      z-index: 10;
+    }
+  }
+
+  .request-calc-dialog {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    width: clamp(320px, 90vw, 716px);
+
+    ._close {
+      position: relative;
+      display: inline-flex;
+      align-self: flex-start;
+      transition: scale 0.125s linear;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        scale: 1.5;
+      }
+
+      &:hover {
+        cursor: pointer;
+        scale: 1.2;
+      }
+    }
+
+    ._header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    ._header,
+    ._body {
+      grid-column: span 2;
+    }
+
+    ._body {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 32px;
+
+      & > * {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+</style>

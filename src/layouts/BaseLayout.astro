@@ -10,13 +10,7 @@ import AppHeader from "@/components/AppHeader.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <title>ЭЛИТУПАКОВКА – только готовые решения</title>
-  </head>
-  <body class="app">
-    <AppHeader />
-    <div class="app-content">
-      <slot />
-    </div>
-    <AppFooter />
+    <script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script is:inline src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script is:inline src="/scripts/jquery.selectric.min.js"></script>
     <script is:inline>
@@ -24,5 +18,12 @@ import AppHeader from "@/components/AppHeader.astro";
         $("select").selectric();
       });
     </script>
+  </head>
+  <body class="app">
+    <AppHeader />
+    <div class="app-content">
+      <slot />
+    </div>
+    <AppFooter />
   </body>
 </html>

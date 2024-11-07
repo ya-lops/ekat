@@ -2,6 +2,8 @@
 import products from "@/data/products.js";
 import ProductView from "@/components/views/ProductView.astro";
 import IconHeart from "@/components/icons/IconHeart.astro";
+import GetPriceDialog from "@/components/dialogs/GetPriceDialog.astro";
+import RequestCalcDialog from "@/components/dialogs/RequestCalcDialog.astro";
 
 export async function getStaticPaths() {
   return products.map((product) => {
@@ -86,7 +88,10 @@ const { product } = Astro.props;
         }
 
         <div class="_actions">
-          <button class="app-button ghost accent">Запросить цену</button>
+          <div class="js-get-price-btn">
+            <button class="app-button ghost accent">Запросить цену</button>
+            <GetPriceDialog/>
+          </div>
           <button class="app-button ghost accent">Скачать спецификацию</button>
         </div>
 
@@ -139,5 +144,8 @@ const { product } = Astro.props;
         )
       }
     </div>
+
+    <!-- Форма "Заявка на расчет" -->
+    <RequestCalcDialog/>
   </article>
 </ProductView>

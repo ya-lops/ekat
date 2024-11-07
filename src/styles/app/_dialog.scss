@@ -1,0 +1,13 @@
+.app-dialog {
+  display: none;
+  padding: 32px;
+  border-radius: 44px;
+  background: var(--ep-color-surface-1);
+  opacity: 1;
+  transition-property: opacity, display;
+  transition-duration: 0.25s;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
