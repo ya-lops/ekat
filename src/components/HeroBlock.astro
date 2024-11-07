@@ -1,8 +1,9 @@
 ---
+import CompanyVideoDialog from "./dialogs/CompanyVideoDialog.astro";
 import IconVideo from "./icons/IconVideo.astro";
 ---
 
-<section class="hero-section">
+<section class="hero-section" x-data="{companyVideoDialog: false}">
   <div class="container">
     <div class="_inner">
       <header class="_header">
@@ -38,12 +39,14 @@ import IconVideo from "./icons/IconVideo.astro";
       </div>
 
       <div class="_actions">
-        <a class="app-button ghost" href="#video">
+        <button class="app-button ghost" x-on:click="companyVideoDialog = true">
           <IconVideo />
           <span>О производстве</span>
-        </a>
+        </button>
         <a class="app-button ghost" href="/about">История компании</a>
       </div>
+
+      <CompanyVideoDialog />
     </div>
   </div>
 </section>

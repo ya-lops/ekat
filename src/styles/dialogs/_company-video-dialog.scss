@@ -1,0 +1,18 @@
+.js-companyVideoDialog {
+  &.is-shown {
+    display: block;
+    position: fixed;
+    top: 240px;
+    left: 50%;
+    translate: -50% 0;
+    z-index: 10;
+  }
+}
+
+.company-video-dialog {
+  ._header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,20 @@
+---
+import IconTelegramSmall from "../icons/IconTelegramSmall.astro";
+import IconWhatsappSmall from "../icons/IconWhatsappSmall.astro";
+---
+
+<div class="preferred-contacts">
+  <p>Предпочтительный способ связи:</p>
+  <div>
+    <input type="radio" name="getFormRadio" id="getFormCall" checked />
+    <label for="getFormCall">Позвонить</label>
+  </div>
+  <div>
+    <input type="radio" name="getFormRadio" id="getFormTelegram" />
+    <label for="getFormTelegram">Написать <IconTelegramSmall /></label>
+  </div>
+  <div>
+    <input type="radio" name="getFormRadio" id="getFormWhatsapp" />
+    <label for="getFormWhatsapp">Написать <IconWhatsappSmall /></label>
+  </div>
+</div>

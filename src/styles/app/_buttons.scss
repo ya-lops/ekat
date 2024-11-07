@@ -41,6 +41,7 @@
   &.ghost {
     color: inherit;
     border: 2px solid currentColor;
+    background: transparent;
 
     &:hover {
       background: color-mix(in oklab, var(--ep-color-90) 10%, transparent);

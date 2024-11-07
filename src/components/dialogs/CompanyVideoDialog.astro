@@ -1,0 +1,31 @@
+---
+import IconCross from "../icons/IconCross.astro";
+---
+
+<div
+  class="app-dialog js-companyVideoDialog"
+  :class="{'is-shown' : companyVideoDialog}"
+  x-show="companyVideoDialog"
+  x-on:click.outside="companyVideoDialog = false"
+>
+  <div class="app-dialog__body">
+    <div class="company-video-dialog">
+      <header class="_header">
+        <div>&nbsp;</div>
+        <div class="_close" x-on:click="companyVideoDialog = false">
+          <IconCross />
+        </div>
+      </header>
+
+      <iframe
+        width="720"
+        height="405"
+        src="https://rutube.ru/play/embed/c6cc4d620b1d4338901770a44b3e82f4"
+        frameBorder="0"
+        allow="clipboard-write; autoplay"
+        webkitAllowFullScreen
+        mozallowfullscreen
+        allowFullScreen></iframe>
+    </div>
+  </div>
+</div>

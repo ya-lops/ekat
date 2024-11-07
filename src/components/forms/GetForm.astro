@@ -1,8 +1,5 @@
 ---
-import IconTelegramSmall from "../icons/IconTelegramSmall.astro";
-import IconWhatsappSmall from "../icons/IconWhatsappSmall.astro";
-
-
+import PreferredContacts from "../shared/PreferredContacts.astro";
 ---
 
 <div class="get-form-block">
@@ -18,21 +15,7 @@ import IconWhatsappSmall from "../icons/IconWhatsappSmall.astro";
         <div class="_body">
           <input type="text" placeholder="Ваше имя" required />
           <input type="text" placeholder="Телефон" required />
-          <div class="_radio-list">
-            <p>Предпочтительный способ связи:</p>
-            <div>
-              <input type="radio" name="getFormRadio" id="getFormCall" checked />
-              <label for="getFormCall">Позвонить</label>
-            </div>
-            <div>
-              <input type="radio" name="getFormRadio" id="getFormTelegram" />
-              <label for="getFormTelegram">Написать <IconTelegramSmall/></label>
-            </div>
-            <div>
-              <input type="radio" name="getFormRadio" id="getFormWhatsapp" />
-              <label for="getFormWhatsapp">Написать <IconWhatsappSmall/></label>
-            </div>
-          </div>
+          <PreferredContacts />
         </div>
         <div class="_footer">
           <button class="app-button accent">Заказать образцы</button>
