@@ -5,7 +5,7 @@ import Tag from "./Tag.astro";
 const { product } = Astro.props;
 ---
 
-<div class="product-card" class:list={[product.favorite ? "is-fav" : ""]}>
+<div class="product-card">
   <div class="_wrap">
     <a class="_image fit-contain" href={"/catalog/" + product.slug}>
       <img src={product.image} alt="" />

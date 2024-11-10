@@ -8,6 +8,8 @@ const { product } = Astro.props;
   class="product-favorite"
   :class="{'is-fav' : inFav}"
   data-slug={product.slug}
+  data-name={product.name}
+  data-image={product.image}
   x-data="product()"
   @click=`toFav()`
 >
