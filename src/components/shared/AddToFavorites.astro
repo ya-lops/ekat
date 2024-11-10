@@ -1,0 +1,18 @@
+---
+import IconHeart from "@/components/icons/IconHeart.astro";
+
+const { product } = Astro.props;
+---
+
+<div
+  class="product-favorite"
+  :class="{'is-fav' : inFav}"
+  data-slug={product.slug}
+  x-data="product()"
+  @click=`toFav()`
+>
+  <div class="_text">В избранное</div>
+  <div class="_icon">
+    <IconHeart />
+  </div>
+</div>

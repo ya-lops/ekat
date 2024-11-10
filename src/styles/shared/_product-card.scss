@@ -82,12 +82,17 @@
   background: rgba(180, 227, 229, 0.5);
   cursor: pointer;
   user-select: none;
+  opacity: 0;
 
-  .product-card:not(.is-fav) & {
-    opacity: 0;
+  .product & {
+    opacity: 1;
   }
 
-  .product-card:not(.is-fav):hover & {
+  .product-card:hover & {
+    opacity: 1;
+  }
+
+  .product-card &.is-fav {
     opacity: 1;
   }
 
@@ -115,11 +120,11 @@
     svg path {
       stroke: var(--ep-color-90);
     }
+  }
 
-    &.is-fav {
-      svg {
-        fill: var(--ep-color-90);
-      }
+  &.is-fav {
+    svg {
+      fill: var(--ep-color-90);
     }
   }
 }

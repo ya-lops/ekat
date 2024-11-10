@@ -15,8 +15,9 @@ import IconHeart from "./icons/IconHeart.astro";
       </div>
 
       <div class="_actions">
-        <a href="/catalog/favorites" data-fav-count="27">
+        <a class="app-favorites" href="/catalog/favorites">
           <IconHeart/>
+          <span x-text="getCartCount()"></span>
         </a>
       </div>
     </div>

@@ -12,11 +12,9 @@ import RequestCalcDialog from "@/components/dialogs/RequestCalcDialog.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <title>ЭЛИТУПАКОВКА – только готовые решения</title>
+    <script is:inline src="/scripts/add-to-favorite.js"></script>
   </head>
-  <body
-    class="app"
-    x-data="{requestCalcDialogOpen: false, btnLabel: 'Заказать', formTitle: 'Заявка'}"
-  >
+  <body class="app" x-data="ekat()">
     <AppHeader />
 
     <div class="app-content">

@@ -1,7 +1,7 @@
 ---
 import products from "@/data/products.js";
 import ProductView from "@/components/views/ProductView.astro";
-import IconHeart from "@/components/icons/IconHeart.astro";
+import AddToFavorites from "@/components/shared/AddToFavorites.astro";
 
 export async function getStaticPaths() {
   return products.map((product) => {
@@ -16,16 +16,11 @@ const { product } = Astro.props;
 ---
 
 <ProductView pageTitle={product.name} bottomForm="subscribe">
-  <article class="product" >
+  <article class="product" x-data="product()">
     <div class="_col">
       <section class="product-gallery">
         <div class="_main-image">
-          <div class="product-favorite">
-            <div class="_text">В избранное</div>
-            <div class:list={["_icon", product.favorite ? "is-fav" : ""]}>
-              <IconHeart />
-            </div>
-          </div>
+          <AddToFavorites product={product} />
 
           <img src={product.image} alt={product.name} />
         </div>
