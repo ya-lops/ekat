@@ -1,0 +1,15 @@
+.catalog-filter {
+  display: grid;
+  gap: 32px;
+
+  ._fields {
+    display: grid;
+    grid-template-columns: 2fr minmax(0,1fr) minmax(0,1fr) 1.5fr;
+    align-items: start;
+    gap: 24px;
+
+    @media (width < 1024px) {
+      grid-template-columns: 100%;
+    }
+  }
+}

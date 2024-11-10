@@ -41,25 +41,3 @@ interface Props {
     }
   </div>
 </CatalogView>
-
-<style lang="scss" is:global>
-  .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 32px;
-
-    .empty-search {
-      grid-column: 1/-1;
-    }
-  }
-
-  .empty-search {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-
-    p {
-      margin-top: 24px;
-    }
-  }
-</style>

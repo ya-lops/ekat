@@ -1,0 +1,54 @@
+.individual {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 128px;
+  padding-block: 64px;
+
+  &__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0,2.15fr) minmax(0,3fr) minmax(0,2fr);
+    grid-template-areas: 'num image text';
+    gap: 24px;
+    height: 226px;
+    padding: 44px 64px 44px 22px;
+    border-radius: 44px;
+    background: var(--ep-color-30);
+
+    aside {
+      position: absolute;
+      bottom: 0px;
+      grid-area: num;
+    }
+
+    ._num {
+      width: 0;
+      color: var(--ep-color-60);
+      font-size: 300px;
+      line-height: 44px;
+      font-weight: 700;
+    }
+
+    ._stage {
+      font-size: 32px;
+      font-weight: 700;
+      writing-mode: vertical-rl;
+      rotate: 180deg;
+      color: var(--ep-color-80);
+    }
+
+    ._image {
+      grid-area: image;
+      position: absolute;
+      top: -84px;
+    }
+
+    p {
+      grid-area: text;
+      align-self: end;
+      font-size: 18px;
+      font-weight: 300;
+      text-wrap: balance;
+    }
+  }
+}

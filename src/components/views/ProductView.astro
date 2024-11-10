@@ -19,17 +19,16 @@ const { pageTitle, bottomForm } = Astro.props;
   <div class="product-view app-view">
     <div class="container">
       <ul class="app-breadcrumbs">
-        <div class="_item"><a href="/">Главная</a></div>
-        <div class="_item">
+        <li class="_item"><a href="/">Главная</a></li>
+        <li class="_item">
           <a href="/catalog">Каталог</a>
-        </div>
-        <div class="_item"><span>{pageTitle}</span></div>
+        </li>
+        <li class="_item"><span>{pageTitle}</span></li>
       </ul>
 
       <slot />
     </div>
   </div>
-
 
   <!-- Здесь мы должны фильтрануть по типу товара. -->
   <!-- Сейчас показываем только 3 -->

@@ -24,19 +24,19 @@ const {
   <div class="about-view app-view">
     <div class="container">
       <ul class="app-breadcrumbs">
-        <div class="_item"><a href="/">Главная</a></div>
+        <li class="_item"><a href="/">Главная</a></li>
         {
           thisPage == "about" && (
-          <div class="_item"><span>О компании</span></div>
+          <li class="_item"><span>О компании</span></li>
           )
         }
         
         {
           thisPage !== "about" && (
-            <div class="_item">
+            <li class="_item">
               <a href="/about">О компании</a>
-            </div>
-            <div class="_item"><span>{pageTitle}</span></div>
+            </li>
+            <li class="_item"><span>{pageTitle}</span></li>
           )
         }
       </ul>

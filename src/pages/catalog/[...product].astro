@@ -2,8 +2,6 @@
 import products from "@/data/products.js";
 import ProductView from "@/components/views/ProductView.astro";
 import IconHeart from "@/components/icons/IconHeart.astro";
-import GetPriceDialog from "@/components/dialogs/GetPriceDialog.astro";
-import RequestCalcDialog from "@/components/dialogs/RequestCalcDialog.astro";
 
 export async function getStaticPaths() {
   return products.map((product) => {
@@ -18,7 +16,7 @@ const { product } = Astro.props;
 ---
 
 <ProductView pageTitle={product.name} bottomForm="subscribe">
-  <article class="product" x-data="{getPriceDialogOpen: false, requestCalcDialogOpen: false}">
+  <article class="product" >
     <div class="_col">
       <section class="product-gallery">
         <div class="_main-image">
@@ -88,10 +86,7 @@ const { product } = Astro.props;
         }
 
         <div class="_actions">
-          <div style="position: relative;">
-            <button class="app-button ghost accent" x-on:click="getPriceDialogOpen = true">Запросить цену</button>
-            <GetPriceDialog/>
-          </div>
+          <button class="app-button ghost accent" x-on:click="requestCalcDialogOpen = true, btnLabel = 'Отправить', formTitle = 'Запросить цену'">Запросить цену</button>
           <button class="app-button ghost accent">Скачать спецификацию</button>
         </div>
 
@@ -111,7 +106,7 @@ const { product } = Astro.props;
       </section>
 
       <section class="product-order">
-        <button class="app-button accent">Заказать образцы</button>
+        <button class="app-button accent" x-on:click="requestCalcDialogOpen = true, btnLabel = 'Заказать', formTitle = 'Заявка на образцы'">Заказать образцы</button>
       </section>
 
       <!-- Блок пропсов-иконок, если есть -->
@@ -144,8 +139,5 @@ const { product } = Astro.props;
         )
       }
     </div>
-
-    <!-- Форма "Заявка на расчет" -->
-    <RequestCalcDialog/>
   </article>
 </ProductView>

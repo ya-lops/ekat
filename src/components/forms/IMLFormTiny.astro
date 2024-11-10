@@ -1,24 +1,19 @@
 ---
 import RequestCalcDialog from "../dialogs/RequestCalcDialog.astro";
+
+
 ---
 
 <div class="iml-form-block">
   <div class="container">
     <div class="_inner">
-      <div class="iml-form">
+      <div class="iml-form +tiny">
         <header class="_header">
           <h3 class="text-form-header">Остались вопросы по IML упаковке?</h3>
           <p class="text-form-subheader">Мы готовы ответить</p>
         </header>
         <div class="_body">
-          <button
-            class="app-button accent"
-            x-on:click="requestCalcDialogOpen = true, btnLabel = 'Отправить', formTitle = 'Заявка на звонок'"
-            >Задать вопрос</button
-          >
-        </div>
-        <div class="_image">
-          <img src="/images/iml-cup.png" alt="" />
+          <button class="app-button accent" x-on:click="requestCalcDialogOpen = true">Задать вопрос</button>
         </div>
       </div>
     </div>

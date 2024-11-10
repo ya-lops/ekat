@@ -12,10 +12,17 @@
     display: flex;
     gap: 12px;
     font-size: 14px;
+    max-width: min(25ch, 250px);
 
     &:not(:last-child)::after {
       content: "•";
       color: var(--ep-color-50);
+    }
+
+    :where(span, a) {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -23,7 +30,7 @@
     color: var(--ep-color-50);
     text-decoration: none;
 
-    &:hover { 
+    &:hover {
       color: var(--ep-color-100);
     }
   }

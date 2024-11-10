@@ -3,10 +3,11 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import GetForm from "../forms/GetForm.astro";
 import SubscribeForm from "../forms/SubscribeForm.astro";
 import IMLForm from "../forms/IMLForm.astro";
+import IMLFormTiny from "../forms/IMLFormTiny.astro";
 
 interface Props {
   pageTitle: string;
-  bottomForm?: "subscribe" | "getform" | "iml";
+  bottomForm?: "subscribe" | "getform" | "iml" | "iml-tiny";
   thisPage: string;
   pageType?: 'blogpost';
 }
@@ -18,19 +19,19 @@ const { pageTitle, bottomForm, thisPage, pageType } = Astro.props;
   <div class="blog-view app-view">
     <div class="container">
       <ul class="app-breadcrumbs">
-        <div class="_item"><a href="/">Главная</a></div>
+        <li class="_item"><a href="/">Главная</a></li>
         {
           thisPage == "blog" && (
-          <div class="_item"><span>Блог</span></div>
+          <li class="_item"><span>Блог</span></li>
           )
         }
         
         {
           thisPage !== "blog" && (
-            <div class="_item">
+            <li class="_item">
               <a href="/blog">Блог</a>
-            </div>
-            <div class="_item"><span>{pageTitle}</span></div>
+            </li>
+            <li class="_item"><span>{pageTitle}</span></li>
           )
         }
       </ul>
@@ -58,4 +59,5 @@ const { pageTitle, bottomForm, thisPage, pageType } = Astro.props;
   {bottomForm == "getform" && <GetForm />}
   {bottomForm == "subscribe" && <SubscribeForm />}
   {bottomForm == "iml" && <IMLForm/>}
+  {bottomForm == "iml-tiny" && <IMLFormTiny/>}
 </BaseLayout>

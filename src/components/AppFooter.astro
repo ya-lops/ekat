@@ -9,7 +9,7 @@ import AppFooterNav from "./AppFooterNav.astro";
         <a class="_logo" href="/" rel="nofollow">
           <img src="/images/app-logo.svg" alt="" />
         </a>
-        <div class="app-button ghost">Оставить заявку</div>
+        <div class="app-button ghost" x-on:click="requestCalcDialogOpen = true, btnLabel = 'Заказать', formTitle = 'Заявка на образцы'">Оставить заявку</div>
       </div>
 
       <nav class="_b">

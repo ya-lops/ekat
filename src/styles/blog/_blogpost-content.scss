@@ -20,22 +20,22 @@
     }
   }
 
-  header {
+  header:not([class]) {
     margin-bottom: 64px;
   }
 
-  header + h2 {
+  header:not([class]) + h2:not([class]) {
     margin-top: 0;
   }
 
-  h2 {
+  h2:not([class]) {
     font-size: 28px;
     font-weight: 500;
     margin-block: 32px 24px;
   }
 
-  p,
-  li {
+  p:not([class]),
+  li:not([class]) {
     font-size: 18px;
     line-height: 1.66;
     font-weight: 300;
@@ -45,10 +45,10 @@
     }
   }
 
-  ul {
+  ul:not([class]) {
     list-style-position: inside;
 
-    li {
+    li:not([class]) {
       margin-bottom: 24px;
 
       &::marker {

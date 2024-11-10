@@ -5,16 +5,16 @@ import IconWhatsappSmall from "../icons/IconWhatsappSmall.astro";
 
 <div class="preferred-contacts">
   <p>Предпочтительный способ связи:</p>
-  <div>
+  <div class="app-checkbox">
     <input type="radio" name="getFormRadio" id="getFormCall" checked />
     <label for="getFormCall">Позвонить</label>
   </div>
-  <div>
-    <input type="radio" name="getFormRadio" id="getFormTelegram" />
+  <div class="app-checkbox">
+    <input type="checkbox" name="getFormRadio" id="getFormTelegram" />
     <label for="getFormTelegram">Написать <IconTelegramSmall /></label>
   </div>
-  <div>
-    <input type="radio" name="getFormRadio" id="getFormWhatsapp" />
+  <div class="app-checkbox">
+    <input type="checkbox" name="getFormRadio" id="getFormWhatsapp" />
     <label for="getFormWhatsapp">Написать <IconWhatsappSmall /></label>
   </div>
 </div>

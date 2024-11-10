@@ -18,19 +18,19 @@ const { pageTitle, bottomForm, noFilter = false, thisPage } = Astro.props;
   <div class="catalog-view app-view">
     <div class="container">
       <ul class="app-breadcrumbs">
-        <div class="_item"><a href="/">Главная</a></div>
+        <li class="_item"><a href="/">Главная</a></li>
         {
           thisPage == "catalog" && (
-          <div class="_item"><span>Каталог</span></div>
+          <li class="_item"><span>Каталог</span></li>
           )
         }
         
         {
           thisPage !== "catalog" && (
-            <div class="_item">
+            <li class="_item">
               <a href="/catalog">Каталог</a>
-            </div>
-            <div class="_item"><span>{pageTitle}</span></div>
+            </li>
+            <li class="_item"><span>{pageTitle}</span></li>
           )
         }
       </ul>
@@ -49,11 +49,3 @@ const { pageTitle, bottomForm, noFilter = false, thisPage } = Astro.props;
   {bottomForm == "getform" && <GetForm />}
   {bottomForm == "subscribe" && <SubscribeForm />}
 </BaseLayout>
-
-<style lang="scss" is:global>
-  .catalog-page {
-    display: grid;
-    grid-template-columns: 100%;
-    gap: 64px;
-  }
-</style>

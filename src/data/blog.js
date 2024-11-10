@@ -1,6 +1,6 @@
 const blog = [
   {
-    slug: "article-iml",
+    slug: "production-startup",
     group: "cases",
     date: "01.07.2024",
     title: "Продуктовый стартап",

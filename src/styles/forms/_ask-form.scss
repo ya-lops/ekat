@@ -1,0 +1,62 @@
+.ask-form-block {
+  width: 100%;
+  padding: 32px;
+  border-radius: 44px;
+  background-image: linear-gradient(
+    165deg,
+    var(--ep-color-60),
+    var(--ep-color-30),
+    var(--ep-color-40)
+  );
+}
+
+.ask-form {
+  display: grid;
+  gap: 24px;
+
+  ._body {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  @media (width < 1024px) {
+    ._body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .app-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      padding: 0;
+
+      &._call {
+        background: hsl(182, 57%, 42%);
+
+        svg {
+          scale: 2;
+        }
+      }
+
+      &._whatsapp {
+        background: hsl(198, 100%, 45%);
+      }
+
+      &._telegram {
+        background: hsl(125, 59%, 61%);
+      }
+
+      svg {
+        scale: 2.2;
+      }
+    }
+
+    ._btn-label {
+      display: none;
+    }
+  }
+}

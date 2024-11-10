@@ -6,30 +6,52 @@ import PreferredContacts from "../shared/PreferredContacts.astro";
 <div
   class="app-dialog js-requestCalcDialog"
   :class="{'is-shown' : requestCalcDialogOpen}"
+  x-data="{submit: false}"
   x-show="requestCalcDialogOpen"
-  x-on:click.outside="requestCalcDialogOpen = false"
+  x-on:click.outside="requestCalcDialogOpen = false, submit = false"
 >
   <div class="app-dialog__body">
-    <form action="" class="request-calc-dialog">
+    <form class="request-calc-dialog" :class="{'is-hidden' : submit}">
       <header class="_header">
-        <h3 class="text-form-header">Заявка на расчет</h3>
-        <div class="_close" x-on:click="requestCalcDialogOpen = false">
+        <h3 class="text-form-header" x-text="formTitle">Заявка на расчет</h3>
+        <div
+          class="_close"
+          x-on:click="requestCalcDialogOpen = false, submit = false"
+        >
           <IconCross />
         </div>
       </header>
-
       <div class="_body">
         <input type="text" placeholder="Ваше имя" required />
         <input type="text" placeholder="Email" required />
-        <input type="text" placeholder="Интересующая продукция" required />
-        <input type="text" placeholder="Телефон" required />
       </div>
 
       <PreferredContacts />
-
-      <div class="_footer">
-        <button class="app-button accent">Оставить заявку</button>
-      </div>
+      <button
+        type="button"
+        class="app-button accent"
+        x-on:click="submit = !submit"
+        x-text="btnLabel">Оставить заявку</button
+      >
     </form>
+
+    <!-- после сабмита -->
+    <div class="form-submit-message" :class="{'is-shown' : submit}">
+      <div>
+        <div class="font-24 color-70 font-bold text-center">
+          Ваша заявка отправлена!
+        </div>
+        <p class="font-light text-center">
+          С вами свяжется первый освободившийся менеджер.
+        </p>
+      </div>
+
+      <button
+        class="app-button ghost accent"
+        x-on:click="requestCalcDialogOpen = false, submit = false"
+      >
+        Понятно
+      </button>
+    </div>
   </div>
 </div>
