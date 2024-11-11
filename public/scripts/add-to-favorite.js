@@ -4,16 +4,16 @@ document.addEventListener("alpine:init", () => {
 
 function ekat() {
   return {
+    requestCalcDialogOpen: false,
+    btnLabel: "Заказать",
+    formTitle: "Заявка",
+    
     init() {
       items = JSON.parse(localStorage.favorites || "[]");
       count = JSON.parse(localStorage.favoritesCount || 0);
-      
+
       Alpine.store("favStore", items);
       Alpine.store("favCountStore", count);
-
-      requestCalcDialogOpen = false;
-      btnLabel = 'Заказать';
-      formTitle = 'Заявка';
     },
 
     product() {
@@ -43,8 +43,7 @@ function ekat() {
         items.push(product);
         count = ++count;
         this.updateStorage();
-      }
-      else {
+      } else {
         items = Alpine.store("favStore").filter((e) => e.slug !== product.slug);
         count = Alpine.store("favCountStore") - 1;
         this.inFav = false;
@@ -68,7 +67,9 @@ function ekat() {
     },
 
     getCartCount() {
-      return Alpine.store("favCountStore") > 0 ? Alpine.store("favCountStore") : "";
+      return Alpine.store("favCountStore") > 0
+        ? Alpine.store("favCountStore")
+        : "";
     },
-  }
+  };
 }
