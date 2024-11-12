@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 100%;
   gap: 128px;
-  padding-block: 64px;
+  padding-block: var(--ep-spacer-64-fluid);
 
   &__item {
     position: relative;
@@ -46,7 +46,7 @@
     p {
       grid-area: text;
       align-self: end;
-      font-size: 18px;
+      font-size: var(--ep-font-18-fluid);
       font-weight: 300;
       text-wrap: balance;
     }

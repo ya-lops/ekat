@@ -1,5 +1,5 @@
 .iml-form-block {
-  padding-block: 64px;
+  padding-block: var(--ep-spacer-64-fluid);
 
   ._inner {
     border-radius: 44px;
@@ -21,7 +21,7 @@
 
   @media (width < 1024px) {
     grid-template-areas: "header image" "body body";
-    row-gap: 64px;
+    row-gap: var(--ep-spacer-64-fluid);
     padding: 32px;
 
     &.\+tiny {

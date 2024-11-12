@@ -1,3 +1,29 @@
+:root {
+  --ep-radius-24: 24px;
+  --ep-radius-24-fluid: clamp(18px, 2.5vw + 0.5rem, 24px);
+  --ep-radius-44: 44px;
+  --ep-radius-44-fluid: clamp(18px, 2.5vw + 0.5rem, 44px);
+
+  --ep-font-14: 14px;
+  --ep-font-14-fluid: clamp(12px, 1.2vw + 0.175rem, 14px);
+  --ep-font-16: 16px;
+  --ep-font-16-fluid: clamp(14px, 2.2vw + 0.135rem, 16px);
+  --ep-font-18: 18px;
+  --ep-font-18-fluid: clamp(14px, 2.3vw + 0.15rem, 18px);
+  --ep-font-20: 20px;
+  --ep-font-20-fluid: clamp(14px, 1.25vw + 0.5rem, 20px);
+
+  --ep-spacer-16: 16px;
+  --ep-spacer-16-fluid: clamp(0.75rem, 1.75vw + 0.25rem, 1rem);;
+  --ep-spacer-24: 24px;
+  --ep-spacer-24-fluid: clamp(0.75rem, 2vw + 0.135rem, 1.5rem);
+  --ep-spacer-32: 32px;
+  --ep-spacer-32-fluid: clamp(1.5rem, 2vw + 0.135rem, 2rem);
+  --ep-spacer-64: 64px;
+  --ep-spacer-64-fluid: clamp(32px, 5.5vw + 0.5rem, 64px);
+}
+
+
 .font-bold {
   font-weight: 700;
 }
@@ -11,11 +37,27 @@
 }
 
 .font-14 {
-  font-size: 14px;
+  font-size: var(--ep-font-14);
+}
+
+.font-14-fluid {
+  font-size: var(--ep-font-14-fluid);
 }
 
 .font-18 {
-  font-size: 18px;
+  font-size: var(--ep-font-18);
+}
+
+.font-18-fluid {
+  font-size: var(--ep-font-18-fluid);
+}
+
+.font-20 {
+  font-size: var(--ep-font-20);
+}
+
+.font-20-fluid {
+  font-size: var(--ep-font-20-fluid);
 }
 
 .font-24 {
@@ -38,7 +80,6 @@
   color: var(--ep-color-90);
 }
 
-
 .text-center {
   text-align: center;
 }
@@ -48,21 +89,21 @@
 }
 
 .text-page-header {
-  font-size: 34px;
+  font-size: clamp(1.625rem, 2vw + 1rem, 2.125rem); //34px;
   font-weight: 700;
 }
 
 .text-form-header {
-  font-size: 34px;
+  font-size: clamp(1.625rem, 2vw + 1rem, 2.125rem); //34px;
   font-weight: 700;
 }
 
 .text-form-subheader {
-  font-size: 18px;
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1.125rem); //18px;
   font-weight: 300;
 }
 
-.hide-on-pointer-fine {
+.hide-on-pointer-fine { 
   @media (pointer: fine) {
     display: none;
   }

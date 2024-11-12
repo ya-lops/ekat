@@ -1,8 +1,9 @@
 .app-dialog {
   position: relative;
   display: none;
-  padding: 32px;
-  border-radius: 44px;
+  max-width: 90vw;
+  padding: var(--ep-spacer-32-fluid);
+  border-radius: var(--ep-radius-44-fluid);
   background: var(--ep-color-surface-1);
   opacity: 1;
   box-shadow: 0 0 0px 10px #fffa;

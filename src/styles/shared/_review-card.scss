@@ -19,11 +19,12 @@
     padding: 40px 42px;
     border-radius: 44px;
     background-color: var(--ep-color-30);
+    font-size: var(--ep-font-16-fluid);
 
     p {
-      margin-bottom: 12px;
       position: relative;
       z-index: 2;
+      margin-bottom: 12px;
     }
   }
 }

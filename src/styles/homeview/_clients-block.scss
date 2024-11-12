@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 24px 64px;
+  gap: 24px var(--ep-spacer-64-fluid);
 
   .client-shortcut {
     display: inline-flex;

@@ -56,7 +56,7 @@ const { product } = Astro.props;
       <!-- Блок с полезной статьей -->
       {
         product.article && (
-          <section class="product-useful-article">
+          <section class="product-useful-article text-center">
             <header>Полезная статья</header>
             <a href={product.article.href}>{product.article.title}</a>
             <div class="_image">

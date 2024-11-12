@@ -76,6 +76,81 @@ const products = [
   },
 
   {
+    slug: "product4",
+    needDesign: true,
+    name: "Эстетичная упаковка для продуктов",
+    code: "ПВСО-15",
+    image: "/images/products/product-2.png",
+    imgs: [],
+    description: "Наша посуда для упаковки продуктов — это не только функциональность, но и стильный дизайн. Мы предлагаем широкий выбор изделий, которые подойдут к любому интерьеру. Высокое качество и доступная цена — наши главные преимущества!",
+    previewSpecs: [],
+    specs: [
+      { label: "Объем", value: "1500 мл" },
+      { label: "Форма", value: "Прямоугольная" },
+      { label: "Цвет", value: "Прозрачный" },
+      { label: "Метод декорации", value: "Пищевая" },
+    ],
+    props: [
+      { label: "Тултип для 20", icon: "/images/props/frost-25.png" },
+      { label: "Тултип для PP", icon: "/images/props/pp.png" },
+    ],
+    logistics: [
+      { label: "Вес коробки с банками (брутто)", value: "9,9 кг" },
+      { label: "Вес коробки с крышками (брутто)", value: "10,2" },
+    ],
+  },
+
+  {
+    slug: "product5",
+    needDesign: true,
+    name: "Стильная посуда для хранения",
+    code: "ПВСО-15",
+    image: "/images/products/product-1.png",
+    imgs: [],
+    description: "Если вы ищете надёжную и красивую посуду для упаковки продуктов, обратите внимание на нашу коллекцию. У нас вы найдёте посуду разных размеров и форм, которая станет отличным дополнением к вашей кухне.",
+    previewSpecs: [],
+    specs: [
+      { label: "Объем", value: "1500 мл" },
+      { label: "Форма", value: "Прямоугольная" },
+      { label: "Цвет", value: "Прозрачный" },
+      { label: "Метод декорации", value: "Пищевая" },
+    ],
+    props: [
+      { label: "Тултип для 20", icon: "/images/props/frost-25.png" },
+      { label: "Тултип для PP", icon: "/images/props/pp.png" },
+    ],
+    logistics: [
+      { label: "Вес коробки с банками (брутто)", value: "9,9 кг" },
+      { label: "Вес коробки с крышками (брутто)", value: "10,2" },
+    ],
+  },
+
+  {
+    slug: "product6",
+    needDesign: true,
+    name: "Красивая упаковка для вашего стола",
+    code: "ПВСО-15",
+    image: "",
+    imgs: [],
+    description: "Ищете удобную и практичную посуду для упаковки продуктов? Наша коллекция посуды для упаковки — идеальный выбор! Мы предлагаем широкий ассортимент качественных и стильных изделий, которые подойдут для любых нужд.",
+    previewSpecs: [],
+    specs: [
+      { label: "Объем", value: "1500 мл" },
+      { label: "Форма", value: "Прямоугольная" },
+      { label: "Цвет", value: "Прозрачный" },
+      { label: "Метод декорации", value: "Пищевая" },
+    ],
+    props: [
+      { label: "Тултип для 20", icon: "/images/props/frost-25.png" },
+      { label: "Тултип для PP", icon: "/images/props/pp.png" },
+    ],
+    logistics: [
+      { label: "Вес коробки с банками (брутто)", value: "9,9 кг" },
+      { label: "Вес коробки с крышками (брутто)", value: "10,2" },
+    ],
+  },
+
+  {
     slug: "product3",
     favorite: true,
     needDesign: true,

@@ -1,5 +1,6 @@
 ---
 import AddToFavorites from "./AddToFavorites.astro";
+import ImagePH from "./ImagePH.astro";
 import Tag from "./Tag.astro";
 
 const { product } = Astro.props;
@@ -8,7 +9,8 @@ const { product } = Astro.props;
 <div class="product-card">
   <div class="_wrap">
     <a class="_image fit-contain" href={"/catalog/" + product.slug}>
-      <img src={product.image} alt="" />
+      {product.image && <img src={product.image} alt="" />}
+      {!product.image && <ImagePH/>}
     </a>
 
     <div class="_props">

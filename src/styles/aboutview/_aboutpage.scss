@@ -19,7 +19,7 @@
 
   &.as-blogpost {
     header {
-      margin-bottom: 64px;
+      margin-bottom: var(--ep-spacer-64-fluid);
     }
 
     header + h2 {
@@ -35,7 +35,7 @@
     p,
     li {
       margin-bottom: 24px;
-      font-size: 18px;
+      font-size: var(--ep-font-18-fluid);
       line-height: 1.66;
       font-weight: 300;
     }

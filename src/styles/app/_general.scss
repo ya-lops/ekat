@@ -37,6 +37,7 @@ body {
 .app {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
+  font-size: var(--ep-font-16-fluid);
 }
 
 .app-page {
@@ -53,18 +54,22 @@ body {
   padding-block: 96px;
   background: var(--ep-color-surface-0);
 
+  @media (width < 768px) {
+    padding-block: var(--ep-spacer-64-fluid);
+  }
+
   &.has-dark-bg {
     background: var(--ep-color-surface-1);
   }
 
   .container > ._header {
-    margin-bottom: 64px;
+    margin-bottom: var(--ep-spacer-64-fluid);
   }
 
   .container > ._action {
     display: flex;
     justify-content: center;
-    margin-top: 64px;
+    margin-top: var(--ep-spacer-64-fluid);
   }
 }
 

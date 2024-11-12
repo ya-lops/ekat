@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
+  gap: var(--ep-spacer-24-fluid);
 
   .catalog-shortcut {
     display: inline-flex;
@@ -10,7 +10,7 @@
     gap: 12px;
     max-width: 190px;
     padding: 6px 24px;
-    border-radius: 22px;
+    border-radius: var(--ep-radius-24);
     background: var(--ep-color-surface-1);
     text-decoration: none;
     color: var(--ep-color-text-primary);
@@ -25,7 +25,7 @@
     }
 
     span {
-      font-size: 14px;
+      font-size: var(--ep-font-14-fluid);
       font-weight: 300;
     }
   }

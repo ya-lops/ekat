@@ -21,7 +21,7 @@
   }
 
   header:not([class]) {
-    margin-bottom: 64px;
+    margin-bottom: var(--ep-spacer-64-fluid);
   }
 
   header:not([class]) + h2:not([class]) {
@@ -36,7 +36,7 @@
 
   p:not([class]),
   li:not([class]) {
-    font-size: 18px;
+    font-size: var(--ep-font-18-fluid);
     line-height: 1.66;
     font-weight: 300;
 

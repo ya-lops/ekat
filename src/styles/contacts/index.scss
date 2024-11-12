@@ -11,7 +11,7 @@
 .contacts-page {
   display: grid;
   grid-template-columns: 100%;
-  gap: 64px;
+  gap: var(--ep-spacer-64-fluid);
 }
 
 .contact-block {
@@ -65,7 +65,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "map" "info";
-    column-gap: 64px;
+    column-gap: var(--ep-spacer-64-fluid);
 
     @media (width > 768px) {
       grid-template-columns: clamp(280px, 50%, 370px) 1fr;

@@ -10,9 +10,9 @@ const blogHref = "/blog/";
   <div class="blog-card__content">
     <div class="_date">{data.date}</div>
     <header class="_title font-bold">
-      <a href={blogHref + data.group + "/" + data.slug}>{data.title}</a>
+      <a class="font-20-fluid" href={blogHref + data.group + "/" + data.slug}>{data.title}</a>
     </header>
-    <p class="_description font-14 font-light">
+    <p class="_description font-14-fluid font-light">
       {data.description}
     </p>
   </div>

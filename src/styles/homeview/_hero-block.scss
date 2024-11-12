@@ -19,7 +19,7 @@
     display: grid;
     grid-template-columns: 100%;
     gap: 54px;
-    padding-block: 64px;
+    padding-block: var(--ep-spacer-64-fluid);
     padding-right: 10vw;
   }
 

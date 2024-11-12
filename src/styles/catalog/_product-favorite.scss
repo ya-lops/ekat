@@ -10,18 +10,21 @@
   background: rgba(180, 227, 229, 0.5);
   cursor: pointer;
   user-select: none;
-  opacity: 0;
 
-  .product & {
-    opacity: 1;
-  }
+  @media (hover: hover) {
+    opacity: 0;
 
-  .product-card:hover & {
-    opacity: 1;
-  }
+    .product & {
+      opacity: 1;
+    }
 
-  .product-card &.is-fav {
-    opacity: 1;
+    .product-card:hover & {
+      opacity: 1;
+    }
+
+    .product-card &.is-fav {
+      opacity: 1;
+    }
   }
 
   ._text {
