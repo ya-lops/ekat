@@ -24,8 +24,9 @@
     }
 
     img {
-      max-width: 100%;
+      max-width: 200px;
       aspect-ratio: 1;
+      justify-self: center;
 
       @container benefits (width <= 460px) {
         padding: 10px;

@@ -50,7 +50,7 @@
   ._menu {
     display: flex;
     flex-flow: column;
-    gap: 12px;
+    gap: 16px;
 
     @media (pointer: fine) {
       display: contents;
@@ -62,7 +62,7 @@
     color: var(--ep-color-text-primary-inverse);
 
     @media (pointer: coarse) {
-      padding-bottom: 12px;
+      padding-bottom: 16px;
       border-bottom: 1px solid var(--ep-color-80);
 
       > a {
@@ -75,8 +75,8 @@
     @media (pointer: coarse) {
       display: flex;
       flex-flow: column;
-      gap: 4px;
-      margin-top: 12px;
+      gap: 8px;
+      margin-top: 16px;
     }
 
     @media (pointer: fine) {

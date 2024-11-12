@@ -11,7 +11,7 @@
   cursor: pointer;
   user-select: none;
 
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     opacity: 0;
 
     .product & {

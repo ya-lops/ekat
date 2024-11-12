@@ -43,11 +43,11 @@
         grid-row: 1/2;
         padding-left: var(--_h-offset);
         padding-block: clamp(2.25rem, 3.5vw + 0.75rem, 3rem)
-          clamp(0.875rem, 5.5vw - 1rem, 2rem); // 48px 32px >> 36px 14px
+          clamp(0.875rem, 5.5vw - 1rem, 2rem);
         border-radius: var(--ep-radius-44-fluid);
         background: var(--ep-color-40);
         color: var(--ep-color-accent-dark);
-        font-size: clamp(1.5rem, 3.5vw + 0.45rem, 3.375rem); // 54px;
+        font-size: clamp(1.5rem, 3.5vw + 0.45rem, 3.375rem);
         font-weight: 700;
         line-height: inherit;
       }
@@ -57,9 +57,9 @@
   &__group-items {
     display: flex;
     flex-direction: column;
+    gap: 24px;
 
     @media (width > 959px) {
-      gap: 24px;
       padding-left: var(--_h-offset);
     }
 

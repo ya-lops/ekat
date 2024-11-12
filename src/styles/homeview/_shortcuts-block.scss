@@ -9,8 +9,9 @@
     align-items: center;
     gap: 12px;
     max-width: 190px;
-    padding: 6px 24px;
-    border-radius: var(--ep-radius-24);
+    width: min-content;
+    padding: 6px var(--ep-spacer-24-fluid);
+    border-radius: var(--ep-radius-24-fluid);
     background: var(--ep-color-surface-1);
     text-decoration: none;
     color: var(--ep-color-text-primary);

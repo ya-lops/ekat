@@ -7,14 +7,14 @@ import IconHamburger from "@/components/icons/IconHamburger.astro";
   <div class="_hamburger" tabindex="-1">
     <IconHamburger />
   </div>
-  <div class="_items" >
+  <div class="_items">
     <div class="_items-inner">
       <div class="_menu" tabindex="-1">
         {
           nav.map((menuitem) => (
             <div class="_item">
               <a href={menuitem.href}>{menuitem.label}</a>
-  
+
               {menuitem.sublinks && (
                 <div class="_submenu">
                   {menuitem.sublinks.map((subitem) => (
@@ -30,13 +30,16 @@ import IconHamburger from "@/components/icons/IconHamburger.astro";
       </div>
 
       <aside class="hide-on-pointer-fine">
-        <div class="app-button ghost">Оставить заявку</div>
-      </aside>
-      
-      <aside class="_footnotes hide-on-pointer-fine">
-        <div class="_copy">
-          © 2024г. ООО «Элитпласт+»
+        <div
+          class="app-button ghost"
+          x-on:click="requestCalcDialogOpen = true, btnLabel = 'Заказать', formTitle = 'Заявка на образцы'"
+        >
+          Оставить заявку
         </div>
+      </aside>
+
+      <aside class="_footnotes hide-on-pointer-fine">
+        <div class="_copy">© 2024г. ООО «Элитпласт+»</div>
         <div class="_sidelinks">
           <a href="#agreement">Пользовательское соглашение ООО «Элитпласт+»</a>
           <a href="#personal1">Конфиденциальность персональной информации</a>

@@ -1,6 +1,23 @@
 .reviews-block {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  align-items: start;
-  gap: 32px;
+  @media (width <= 640px) {
+    display: flex;
+    gap: 32px;
+    overflow-x: auto;
+    margin-inline: -24px;
+    padding-inline: 24px;
+    scroll-snap-type: x mandatory;
+
+    > * {
+      min-width: 70vw;
+      max-width: fit-content;
+      scroll-snap-align: center;
+    }
+  }
+
+  @media (width > 640px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    align-items: start;
+    gap: 32px;
+  }
 }

@@ -46,7 +46,7 @@ import GetForm from "@/components/forms/GetForm.astro";
         shortcuts.map((item) => (
           <a href={item.href} class="catalog-shortcut">
             <img src={"/images/categories/" + item.icon} alt="" />
-            <span>{item.name}</span>
+            <span set:html={item.name}></span>
           </a>
         ))
       }

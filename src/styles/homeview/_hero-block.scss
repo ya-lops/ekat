@@ -11,7 +11,7 @@
     background-position: calc(100% + 53px) center;
 
     @media (width < 640px) {
-      background-position: calc(100% + 10vw) center;
+      background-position: calc(50% + 35vw) 70%;
     }
   }
 
@@ -19,20 +19,20 @@
     display: grid;
     grid-template-columns: 100%;
     gap: 54px;
-    padding-block: var(--ep-spacer-64-fluid);
+    padding-block: var(--ep-spacer-64);
     padding-right: 10vw;
   }
 
   ._header {
     h1 {
       margin-bottom: 12px;
-      font-size: 48px;
+      font-size: var(--ep-font-48-fluid); // 48px;
       font-weight: 700;
     }
 
     h2 {
       color: var(--ep-color-60);
-      font-size: 24px;
+      font-size: var(--ep-font-24-fluid);
     }
   }
 

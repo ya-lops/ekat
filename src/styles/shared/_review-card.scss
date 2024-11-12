@@ -16,8 +16,8 @@
 
   ._content {
     margin-top: 32px;
-    padding: 40px 42px;
-    border-radius: 44px;
+    padding: var(--ep-spacer-44-fluid);
+    border-radius: var(--ep-radius-44-fluid);
     background-color: var(--ep-color-30);
     font-size: var(--ep-font-16-fluid);
 

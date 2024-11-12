@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: var(--ep-spacer-12-fluid);
 
     ._date {
       padding: 3px 7px;
@@ -33,7 +33,6 @@
 
     ._title {
       color: var(--ep-color-text-primary);
-      font-size: 20px;
 
       a {
         color: inherit;

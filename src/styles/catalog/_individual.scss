@@ -1,46 +1,78 @@
 .individual {
   display: grid;
   grid-template-columns: 100%;
-  gap: 128px;
+  gap: 12px;
   padding-block: var(--ep-spacer-64-fluid);
+
+  @media (width > 640px) {
+    gap: 128px;
+  }
 
   &__item {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0,2.15fr) minmax(0,3fr) minmax(0,2fr);
-    grid-template-areas: 'num image text';
-    gap: 24px;
-    height: 226px;
-    padding: 44px 64px 44px 22px;
-    border-radius: 44px;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    grid-template-areas: "image num" "image text";
+    gap: 6px;
+    height: auto;
+    padding: var(--ep-spacer-44-fluid) var(--ep-spacer-64-fluid)
+      var(--ep-spacer-44-fluid) var(--ep-spacer-24-fluid);
+    border-radius: var(--ep-radius-44-fluid);
     background: var(--ep-color-30);
 
+    @media (width > 640px) {
+      grid-template-columns: minmax(0, 2.15fr) minmax(0, 3fr) minmax(0, 2fr);
+      grid-template-areas: "num image text";
+      height: 226px;
+    }
+
     aside {
-      position: absolute;
-      bottom: 0px;
       grid-area: num;
+      font-size: 32px;
+      font-weight: bold;
+
+      @media (width > 640px) {
+        position: absolute;
+        bottom: 0px;
+      }
     }
 
     ._num {
       width: 0;
-      color: var(--ep-color-60);
-      font-size: 300px;
-      line-height: 44px;
-      font-weight: 700;
+      color: var(--ep-color-50);
+
+      @media (width > 640px) {
+        font-size: 300px;
+        line-height: 44px;
+        color: var(--ep-color-60);
+      }
     }
 
     ._stage {
-      font-size: 32px;
-      font-weight: 700;
-      writing-mode: vertical-rl;
-      rotate: 180deg;
-      color: var(--ep-color-80);
+      color: var(--ep-color-50);
+
+      @media (width > 640px) {
+        writing-mode: vertical-rl;
+        rotate: 180deg;
+        color: var(--ep-color-80);
+      }
     }
 
     ._image {
       grid-area: image;
-      position: absolute;
-      top: -84px;
+
+      @media (width <= 640px) {
+        margin-bottom: -27px;
+
+        img {
+          max-width: 150px;
+        }
+      }
+
+      @media (width > 640px) {
+        position: absolute;
+        top: -84px;
+      }
     }
 
     p {

@@ -11,8 +11,8 @@ const shortcuts = [
   { icon: "fasteners.svg", name: "Крепежные изделия", href: "#linkto" },
   { icon: "other.svg", name: "Строительные смеси", href: "#linkto" },
   { icon: "zoo.svg", name: "Зоотовары", href: "#linkto" },
-  { icon: "plants.svg", name: "Подкормки для растений", href: "#linkto" },
-  { icon: "handmade.svg", name: "Товары для рукоделия", href: "#linkto" },
+  { icon: "plants.svg", name: "Подкормки для растений", href: "#linkto" },
+  { icon: "handmade.svg", name: "Товары для рукоделия", href: "#linkto" },
   { icon: "other.svg", name: "Другое", href: "#linkto" },
 ];
 
