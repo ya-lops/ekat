@@ -12,6 +12,11 @@ export default defineConfig({
   vite: {
     css: {
       devSourcemap: true,
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler' // or "modern"
+        }
+      }
     },
     build: {
       minify: false,
