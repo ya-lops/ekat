@@ -1,8 +1,7 @@
-// Хлебные крошки
 .app-breadcrumbs {
   display: flex;
-  padding-bottom: 32px;
-  gap: 12px;
+  padding-bottom: var(--ep-spacer-32);
+  gap: var(--ep-spacer-12);
 
   @media (width < 768px) {
     display: none;
@@ -10,8 +9,8 @@
 
   > ._item {
     display: flex;
-    gap: 12px;
-    font-size: 14px;
+    gap: var(--ep-spacer-12);
+    font-size: var(--ep-font-16);
     max-width: min(25ch, 250px);
 
     &:not(:last-child)::after {

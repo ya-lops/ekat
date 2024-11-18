@@ -46,7 +46,7 @@ import GetForm from "@/components/forms/GetForm.astro";
         shortcuts.map((item) => (
           <a href={item.href} class="catalog-shortcut">
             <img src={"/images/categories/" + item.icon} alt="" />
-            <span set:html={item.name}></span>
+            <span set:html={item.name} />
           </a>
         ))
       }
@@ -72,15 +72,14 @@ import GetForm from "@/components/forms/GetForm.astro";
   </Section>
 
   <Section title="За что нас ценят">
-    <div class="reviews-block">
+    <div class="reviews-block js-carousel">
       {
-        reviews
-          .slice(Math.max(reviews.length - 3, 0))
-          .map((review) => <ReviewCard data={review} />)
+        reviews.map((review) => <ReviewCard data={review} />)
       }
     </div>
   </Section>
 
-  <!-- ФОРМА -->
   <GetForm />
 </article>
+
+

@@ -9,7 +9,15 @@
     gap: 24px;
 
     @media (width < 1024px) {
-      grid-template-columns: 100%;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+
+      > :not([type=text]) {
+        grid-column: 1/-1;
+      }
+
+      [type=text] {
+        order: 99;
+      }
     }
   }
 }

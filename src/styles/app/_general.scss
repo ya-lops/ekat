@@ -7,7 +7,6 @@
 html,
 body {
   min-height: 100dvh;
-  // height: 100%;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -23,22 +22,18 @@ body {
 }
 
 .container {
-  width: min(100%, 1024px);
+  width: clamp(320px, 100%, 967px);
   margin-inline: auto;
-  padding-inline: 24px;
-  max-width: 100%;
+
+  @media (width < 1024px) {
+    width: min(100%, 768px);
+    padding-inline: var(--ep-spacer-24);
+  }
 
   .app-content & {
-    @media (width <= 1440px) {
-      width: min(100%, 1000px);
-    }
-
-    @media (width <= 1024px) {
-      width: min(100%, 768px);
-    }
-
-    @media (width <= 768px) {
-      width: min(100%, 576px);
+    @media (width < 1024px) {
+      width: clamp(320px, 100%, 640px);
+      padding-inline: var(--ep-spacer-32);
     }
   }
 }
@@ -87,6 +82,7 @@ body {
 :where(h1, h2, h3) {
   font-size: inherit;
   font-weight: inherit;
+  text-wrap: balance;
 }
 
 .app-link {
@@ -97,6 +93,7 @@ body {
   }
 }
 
+// alpinejs
 [x-cloak] {
   display: none !important;
 }

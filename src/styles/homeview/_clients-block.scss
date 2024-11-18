@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 24px var(--ep-spacer-64-fluid);
+  gap: var(--ep-spacer-24) var(--ep-spacer-64-fluid);
 
   .client-shortcut {
     display: inline-flex;
@@ -11,6 +11,10 @@
 
     &:hover {
       scale: 1.05;
+    }
+
+    @media (width < 1024px) {
+      max-width: clamp(85px, 30%, 150px);
     }
   }
 }

@@ -1,7 +1,7 @@
 .preferred-contacts {
   display: flex;
   flex-flow: column;
-  gap: 12px;
+  gap: var(--ep-spacer-12);
   font-size: 14px;
   font-weight: 300;
 }

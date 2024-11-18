@@ -1,23 +1,55 @@
 .reviews-block {
-  @media (width <= 640px) {
-    display: flex;
-    gap: 32px;
-    overflow-x: auto;
-    margin-inline: -24px;
-    padding-inline: 24px;
-    scroll-snap-type: x mandatory;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: "prev dots next" "slide slide slide";
+  align-items: center;
+  row-gap: var(--ep-spacer-24);
+  overflow: hidden;
 
-    > * {
-      min-width: 70vw;
-      max-width: fit-content;
-      scroll-snap-align: center;
+  .slick-prev,
+  .slick-next {
+    position: initial;
+    width: 25px;
+    height: 25px;
+    transform: initial;
+    background: transparent;
+    color: rgba(51, 56, 72, 0.5);
+    border: 3px solid var(--ep-color-60);
+    border-bottom: 0;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      border-color: var(--ep-color-accent);
     }
   }
 
-  @media (width > 640px) {
+  .slick-prev {
+    grid-area: prev;
+    border-right: 0;
+    transform: rotate(-45deg) scale(0.75);
+  }
+
+  .slick-next {
+    grid-area: next;
+    border-left: 0;
+    transform: rotate(45deg) scale(0.75);
+  }
+
+  .slick-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    align-items: start;
+    grid-auto-flow: column;
+    align-items: center;
     gap: 32px;
+  }
+
+  .slick-track {
+    display: flex;
+    align-items: center;
+    gap: var(--ep-spacer-24);
   }
 }
