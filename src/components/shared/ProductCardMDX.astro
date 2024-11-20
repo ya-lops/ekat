@@ -1,0 +1,42 @@
+---
+import AddToFavorites from "./AddToFavorites.astro";
+import ImagePH from "./ImagePH.astro";
+import Tag from "./Tag.astro";
+
+const { product } = Astro.props;
+console.log(product.data.previewSpecs);
+---
+
+<div class="product-card">
+  <div class="_wrap">
+    <a class="_image fit-contain" href={"/catalog/" + product.slug}>
+      {product.data.image && <img src={product.data.image} alt="" />}
+      {!product.data.image && <ImagePH />}
+    </a>
+
+    {
+      product.data.previewSpecs && (
+        <div class="_props">
+          {product.data.previewSpecs?.map((l) => (
+            <Tag>
+              <span class="font-medium" title={l.label}>
+                {l.value}
+              </span>
+            </Tag>
+          ))}
+        </div>
+      )
+    }
+  </div>
+
+  <a class="_title" href={"/catalog/" + product.slug}>
+    {product.data.name}
+  </a>
+
+  {
+    product.data.description && (
+      <div class="_description">{product.data.description}</div>
+    )
+  }
+  <AddToFavorites product={product} />
+</div>

@@ -1,4 +1,6 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,12 +16,14 @@ export default defineConfig({
       devSourcemap: true,
       preprocessorOptions: {
         scss: {
-          api: 'modern-compiler' // or "modern"
-        }
-      }
+          api: "modern-compiler", // or "modern"
+        },
+      },
     },
     build: {
       minify: false,
-    }
-  }
+    },
+  },
+
+  integrations: [mdx()],
 });

@@ -3,15 +3,17 @@ import reviews from "@/data/reviews";
 import blog from "@/data/blog";
 import clients from "@/data/clients";
 import shortcuts from "@/data/shortcuts";
-import products from "@/data/products";
 import benefits from "@/data/benefits";
 
 import HeroBlock from "@/components/HeroBlock.astro";
 import Section from "@/components/shared/Section.astro";
-import ProductCard from "@/components/shared/ProductCard.astro";
 import ReviewCard from "@/components/shared/ReviewCard.astro";
 import BlogCard from "@/components/shared/BlogCard.astro";
 import GetForm from "@/components/forms/GetForm.astro";
+
+import { getCollection } from "astro:content";
+import ProductCardMDX from "../shared/ProductCardMDX.astro";
+const products = await getCollection("products");
 ---
 
 <article class="home-view">
@@ -23,7 +25,11 @@ import GetForm from "@/components/forms/GetForm.astro";
     actionLabel="Смотреть каталог"
   >
     <div class="catalog-block">
-      {products.slice(0, 6).map((product) => <ProductCard product={product} />)}
+      {
+        products.slice(0, 6).map((product) => (
+          <ProductCardMDX product={product} />
+        ))
+      }
     </div>
   </Section>
 

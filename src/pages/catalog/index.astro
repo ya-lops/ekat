@@ -1,7 +1,9 @@
 ---
 import ProductCard from "@/components/shared/ProductCard.astro";
+import ProductCardMDX from "@/components/shared/ProductCardMDX.astro";
 import CatalogView from "@/components/views/CatalogView.astro";
-import products from "@/data/products";
+import { getCollection } from "astro:content";
+const products = await getCollection("products");
 
 interface Props {
   pageTitle: string;
@@ -11,6 +13,6 @@ interface Props {
 
 <CatalogView pageTitle="Каталог" bottomForm="getform" thisPage="catalog">
   <div class="product-list">
-    {products.map((p) => <ProductCard product={p} />)}
+    {products.map((product) => <ProductCardMDX product={product} />)}
   </div>
 </CatalogView>
