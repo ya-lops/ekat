@@ -2,6 +2,7 @@
 import products from "@/data/products.js";
 import ProductView from "@/components/views/ProductView.astro";
 import AddToFavorites from "@/components/shared/AddToFavorites.astro";
+import Tag from "@/components/shared/Tag.astro";
 
 export async function getStaticPaths() {
   return products.map((product) => {
@@ -69,10 +70,23 @@ const { product } = Astro.props;
 
     <div class="_col">
       <section class="product-info">
-        <header class="_header">
+        <div class="_header">
           <h1 class="_title">{product.name}</h1>
           <div class="_code">Артикул: {product.code}</div>
-        </header>
+          <div class="_props">
+            {
+              product.previewSpecs.map((l) => (
+                <Tag>
+                  <span class="font-medium" title={l.label}>
+                    {l.label}: {l.value}
+                  </span>
+                </Tag>
+              ))
+            }
+          </div>
+        </div>
+
+        
 
         {
           product.description && (
