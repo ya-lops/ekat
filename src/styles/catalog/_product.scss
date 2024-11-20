@@ -14,6 +14,7 @@
     display: grid;
     grid-template-columns: 100%;
     gap: var(--ep-spacer-64-fluid);
+    align-content: start;
 
     @media (width < 1024px) {
       display: contents;
@@ -36,6 +37,7 @@
   background: var(--ep-color-surface-0);
 
   @media (width < 1024px) {
+    position: static;
     order: -10;
   }
 
@@ -150,6 +152,11 @@
       flex-direction: column;
     }
   }
+
+  ._description {
+    font-size: var(--ep-font-18-fluid);
+    line-height: 1.66;
+  }
 }
 
 .product-order {
@@ -161,9 +168,10 @@
 }
 
 .product-props {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, clamp(4rem, 5vw + 2rem, 5.875rem)));
+  justify-content: space-between;
+  gap: 6px;
 
   ._item {
     display: flex;

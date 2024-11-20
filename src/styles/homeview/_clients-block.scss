@@ -14,7 +14,7 @@
     }
 
     @media (width < 1024px) {
-      max-width: clamp(85px, 30%, 150px);
+      max-width: clamp(85px, 25%, 150px);
     }
   }
 }

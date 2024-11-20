@@ -10,7 +10,7 @@ $selectric-spacing: 10px !default; // Label left padding
 $selectric-border-width: 1px !default; // Outer border width
 $selectric-border-radius: 28px !default; // Border radius
 $selectric-inner-height: 50px !default; // Inner height
-$selectric-font-size: 12px !default; // Font size
+$selectric-font-size: var(--ep-font-16-fluid) !default; // Font size
 
 :root {
   --selectric-main-color: var(--ep-color-50);
@@ -23,7 +23,7 @@ $selectric-font-size: 12px !default; // Font size
   --selectric-border-width: 1px;
   --selectric-border-radius: 28px;
   --selectric-inner-height: 50px;
-  --selectric-font-size: 12px;
+  --selectric-font-size: var(--ep-font-16-fluid);
 }
 
 .selectric-wrapper {

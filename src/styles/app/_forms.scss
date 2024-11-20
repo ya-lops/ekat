@@ -16,6 +16,7 @@ input[type="text"] {
   background: var(--ep-color-surface-0);
   color: var(--ep-color-text-primary);
   font-family: var(--ep-font-family-primary);
+  font-size: var(--ep-font-16-fluid);
   caret-color: var(--ep-color-accent);
 
   &::placeholder {
@@ -43,6 +44,7 @@ input[type="text"] {
 
     &::before {
       content: "";
+      flex-shrink: 0;
       width: 1em;
       height: 1em;
       border: 1px solid var(--ep-color-50);
