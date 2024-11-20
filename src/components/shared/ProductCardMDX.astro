@@ -4,7 +4,6 @@ import ImagePH from "./ImagePH.astro";
 import Tag from "./Tag.astro";
 
 const { product } = Astro.props;
-console.log(product.data.previewSpecs);
 ---
 
 <div class="product-card">
@@ -15,7 +14,7 @@ console.log(product.data.previewSpecs);
     </a>
 
     {
-      product.data.previewSpecs && (
+      product.data.previewSpecs.length > 0 && (
         <div class="_props">
           {product.data.previewSpecs?.map((l) => (
             <Tag>

@@ -1,10 +1,14 @@
 ---
-import products from "@/data/products.js";
+import { getCollection } from "astro:content";
+
 import ProductView from "@/components/views/ProductView.astro";
 import AddToFavorites from "@/components/shared/AddToFavorites.astro";
 import Tag from "@/components/shared/Tag.astro";
+import ImagePH from "@/components/shared/ImagePH.astro";
 
 export async function getStaticPaths() {
+  const products = await getCollection("products");
+
   return products.map((product) => {
     return {
       params: { product: product.slug },
@@ -14,68 +18,82 @@ export async function getStaticPaths() {
 }
 
 const { product } = Astro.props;
+const { Content } = await product.render();
 ---
 
-<ProductView pageTitle={product.name} bottomForm="subscribe">
+<ProductView pageTitle={product.data.name} bottomForm="subscribe">
   <article class="product" x-data="product()">
     <div class="_col">
-      <section class="product-gallery">
-        <div class="_main-image">
-          <AddToFavorites product={product} />
+      <div class="_sticky">
+        <section class="product-gallery">
+          <div
+            class="_main-image"
+            class:list={[!product.data.image && "has-no-image"]}
+          >
+            <AddToFavorites product={product} />
 
-          <img src={product.image} alt={product.name} />
-        </div>
+            {
+              product.data.image && (
+                <img src={product.data.image} alt={product.data.name} />
+              )
+            }
+
+            {!product.data.image && <ImagePH />}
+          </div>
+          {
+            product.data.imgs.map((i) => (
+              <div class="_item">
+                <img src={i.img} alt="" />
+              </div>
+            ))
+          }
+        </section>
+
+        <!-- Блок про необходимость дизайна -->
         {
-          product.imgs.map((i) => (
-            <div class="_item">
-              <img src={i.img} alt="" />
-            </div>
-          ))
+          product.data.needDesign && (
+            <section class="product-notice">
+              <p>Для данного типа упаковки необходимо разработать дизайн.</p>
+              <p>
+                Мы может разработать его по Вашим требованиям или использовать
+                подготовленный Вами.
+              </p>
+              <p>
+                Подробнее в нашей
+                <a class="app-link" href="#linktoarticle">
+                  статье о разработке дизайна упаковки
+                </a>
+                .
+              </p>
+            </section>
+          )
         }
-      </section>
 
-      <!-- Блок про необходимость дизайна -->
-      {
-        product.needDesign && (
-          <section class="product-notice">
-            <p>Для данного типа упаковки необходимо разработать дизайн.</p>
-            <p>
-              Мы может разработать его по Вашим требованиям или использовать
-              подготовленный Вами.
-            </p>
-            <p>
-              Подробнее в нашей
-              <a class="app-link" href="#linktoarticle">
-                статье о разработке дизайна упаковки
+        <!-- Блок с полезной статьей -->
+        {
+          product.data.article && (
+            <section class="product-useful-article text-center">
+              <header>Полезная статья</header>
+              <a href={product.data.article.href}>
+                {product.data.article.title}
               </a>
-              .
-            </p>
-          </section>
-        )
-      }
-
-      <!-- Блок с полезной статьей -->
-      {
-        product.article && (
-          <section class="product-useful-article text-center">
-            <header>Полезная статья</header>
-            <a href={product.article.href}>{product.article.title}</a>
-            <div class="_image">
-              <img src={product.article.img} alt="" />
-            </div>
-          </section>
-        )
-      }
+              <div class="_image">
+                <img src={product.data.article.img} alt="" />
+              </div>
+            </section>
+          )
+        }
+      </div>
     </div>
 
     <div class="_col">
       <section class="product-info">
         <div class="_header">
-          <h1 class="_title">{product.name}</h1>
-          <div class="_code">Артикул: {product.code}</div>
+          <h1 class="_title">{product.data.name}</h1>
+          <div class="_code">Артикул: {product.data.code}</div>
           <div class="_props">
             {
-              product.previewSpecs.map((l) => (
+              product.data.previewSpecs.map((l) => (
                 <Tag>
                   <span class="font-medium" title={l.label}>
                     {l.label}: {l.value}
@@ -86,11 +104,9 @@ const { product } = Astro.props;
           </div>
         </div>
 
-        
-
         {
-          product.description && (
-            <p class="_description font-light">{product.description}</p>
+          product.data.description && (
+            <p class="_description font-light">{product.data.description}</p>
           )
         }
 
@@ -105,9 +121,9 @@ const { product } = Astro.props;
 
         <!-- Блок характеристик, если указаны -->
         {
-          product.specs && (
+          product.data.specs && (
             <div class="product-specs">
-              {product.specs.map((spec) => (
+              {product.data.specs.map((spec) => (
                 <div class="_item">
                   <span class="_label">{spec.label}:</span>
                   <span class="_value">{spec.value}</span>
@@ -128,9 +144,9 @@ const { product } = Astro.props;
 
       <!-- Блок пропсов-иконок, если есть -->
       {
-        product.props && (
+        product.data.props && (
           <section class="product-props">
-            {product.props.map((prop) => (
+            {product.data.props.map((prop) => (
               <div class="_item">
                 <img src={prop.icon} title={prop.label} />
               </div>
@@ -141,11 +157,11 @@ const { product } = Astro.props;
 
       <!-- Блок логистики, если есть -->
       {
-        product.logistics && (
+        product.data.logistics && (
           <section class="product-logistics">
             <div class="product-specs">
               <div class="_title">Логистика</div>
-              {product.logistics.map((l) => (
+              {product.data.logistics.map((l) => (
                 <div class="_item">
                   <span class="_label">{l.label}:</span>
                   <span class="_value">{l.value}</span>
@@ -159,45 +175,7 @@ const { product } = Astro.props;
 
     <div class="_full">
       <div class="product-description">
-        <p>
-          Пластиковые круглые банки серии «Шайба», изготавливаемые под крышку
-          диаметром 120 мм, представлены в ассортименте компании «ЭлитУпаковка»
-          следующими объемами: 150 мл, 160 мл, 200 мл, 450 мл и 600 мл.
-          Пластиковая банка «Шайба» D120мм/200 мл производится из высокопрочного
-          полипропилена и отличается небольшим весом (вес 1 банки приблизительно
-          22 гр). Это бюджетный вариант качественной герметичной пластиковой
-          упаковки, производимой по технологии тонкостенного литья.
-        </p>
-        <p>
-          В соответствии с потребностями заказчика, банки могут быть как
-          прозрачными, так и цветными, крышка может отличаться по цвету от
-          корпуса банки. Способ декорации – самоклеящийся этикет, что
-          значительно снижает затраты при заказе изготовления упаковки этого
-          вида.
-        </p>
-        <p>
-          Области применения: пищевая – пластиковая банка «Шайба» D120мм/200мл
-          подходит для упаковки пресервов, икры, разносолов, меда, также может
-          использоваться для порционной фасовки салатов для доставки еды или
-          продаже в отделах готовой пищи в супермаркетах
-        </p>
-        <p>Преимущества:</p>
-        <ul>
-          <li>
-            готовое решение в случае, если упаковка на объем 200 мл нужна в
-            кратчайшие сроки;
-          </li>
-          <li>высокая степень герметичности;</li>
-          <li>
-            может быть выполнена в разных цветах либо материал может быть по
-            умолчанию прозрачным;
-          </li>
-          <li>
-            банки серии «Шайба» не деформируются при транспортировке, держат
-            форму и стопируются за счет небольшого конуса в конструкции изделия,
-            что значительно облегчает задачи логистики.
-          </li>
-        </ul>
+        <Content />
       </div>
     </div>
   </article>

@@ -24,6 +24,20 @@
   ._full {
     grid-column: 1/-1;
   }
+
+  ._sticky {
+    @media (height < 566px) {
+      display: contents;
+    }
+
+    @media (height >= 566px) {
+      position: sticky;
+      top: calc(var(--ep-header-height) + var(--ep-spacer-24));
+      display: grid;
+      grid-template-columns: 100%;
+      gap: var(--ep-spacer-64-fluid);
+    }
+  }
 }
 
 .product-gallery {
@@ -44,9 +58,18 @@
     align-items: center;
     justify-content: center;
     max-height: 320px;
-    padding: 44px;
+    padding: var(--ep-spacer-32);
     background: rgba(0, 0, 0, 0.03);
     border-radius: var(--ep-radius-44-fluid);
+
+    &.has-no-image {
+      padding: var(--ep-spacer-16-fluid);
+      background: transparent;
+      
+      .image-ph {
+        filter: brightness(0.5);
+      }
+    }
   }
 
   ._item {
@@ -199,15 +222,15 @@
   gap: 8px;
 
   ._title {
-    font-size: 24px;
+    font-size: var(--ep-font-24);
     font-weight: 700;
   }
 
   ._item {
     display: flex;
     justify-content: space-between;
-    gap: 16px;
-    font-size: 14px;
+    gap: var(--ep-spacer-16);
+    font-size: var(--ep-font-14);
   }
 
   ._label {
@@ -226,24 +249,28 @@
   }
 
   h2 {
-    font-size: 28px;
+    margin-block: var(--ep-spacer-32-fluid) var(--ep-spacer-24-fluid);
+    font-size: var(--ep-font-24-fluid);
     font-weight: 500;
-    margin-block: 32px 24px;
   }
 
   p,
   li {
-    margin-bottom: 24px;
+    margin-bottom: var(--ep-spacer-24-fluid);
     font-size: var(--ep-font-15-fluid);
     line-height: 1.66;
     font-weight: 300;
+  }
+
+  p:has(+ :where(ul, ol)) {
+    margin-bottom: var(--ep-spacer-16-fluid);
   }
 
   ul {
     list-style-position: inside;
 
     li {
-      margin-bottom: 24px;
+      margin-bottom: var(--ep-spacer-16);
 
       &::marker {
         color: var(--ep-color-70);

@@ -1,8 +1,10 @@
 ---
+import { getCollection } from "astro:content";
+const products = await getCollection("products");
+
 import IconSadSmile from "@/components/icons/IconSadSmile.astro";
-import ProductCard from "@/components/shared/ProductCard.astro";
+import ProductCardMDX from "@/components/shared/ProductCardMDX.astro";
 import CatalogView from "@/components/views/CatalogView.astro";
-import products from "@/data/products";
 
 const empty = true;
 
@@ -17,11 +19,11 @@ interface Props {
     {
       !empty &&
         products.map((product) => (
-          <ProductCard
+          <ProductCardMDX
             slug={product.slug}
-            name={product.name}
-            image={product.image}
-            description={product.description}
+            name={product.data.name}
+            image={product.data.image}
+            description={product.data.description}
           />
         ))
     }

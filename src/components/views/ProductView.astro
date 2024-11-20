@@ -1,11 +1,12 @@
 ---
-import products from "@/data/products";
+import { getCollection } from "astro:content";
+const products = await getCollection("products");
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import GetForm from "../forms/GetForm.astro";
 import SubscribeForm from "../forms/SubscribeForm.astro";
 import Section from "../shared/Section.astro";
-import ProductCard from "@/components/shared/ProductCard.astro";
+import ProductCardMDX from "../shared/ProductCardMDX.astro";
 
 interface Props {
   pageTitle: string;
@@ -42,7 +43,7 @@ const { pageTitle, bottomForm } = Astro.props;
         products
           .slice(0, 3)
           .map((product) => (
-            <ProductCard
+            <ProductCardMDX
               product={product}
             />
           ))

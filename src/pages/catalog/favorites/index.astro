@@ -1,11 +1,7 @@
 ---
 import IconHeart from "@/components/icons/IconHeart.astro";
 import IconStar from "@/components/icons/IconStar.astro";
-import ProductCard from "@/components/shared/ProductCard.astro";
 import CatalogView from "@/components/views/CatalogView.astro";
-import products from "@/data/products";
-
-const empty = true;
 
 interface Props {
   pageTitle: string;
@@ -19,8 +15,13 @@ interface Props {
       <template x-for="product in products">
         <div class="product-card">
           <div class="_wrap">
-            <a class="_image fit-contain" :href={"/catalog/ + product.slug"}>
-              <img :src="product.image" alt="" />
+            <a style="display: flex; align-items: center; justify-content: center;" class="_image fit-contain" :href={"/catalog/ + product.slug"}>
+              <template x-if="product.image">
+                <img :src="product.image" alt="" />
+              </template>
+              <template x-if="!product.image">
+                <svg style="opacity: .5" width="104" height="131" viewBox="0 0 104 131" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M95.7578 0.180131C103.071 1.67369 102.922 6.90115 103.071 8.69343C103.071 34.084 102.176 86.2093 102.026 88.599C101.131 112.197 76.952 130.269 53.221 130.867C24.2661 131.464 0.68424 109.359 0.236484 80.3844C-0.211272 57.2342 0.0872317 33.9346 0.236484 10.7844C0.236484 5.40759 3.22152 1.82305 8.44535 0.329485C8.74385 0.180128 11.7289 -0.118584 13.3707 0.329485C19.0422 2.27111 21.1318 6.60244 20.9825 12.4273C20.8333 22.2848 20.9825 32.1423 20.9825 41.9998C20.9825 55.1432 20.684 68.2865 21.1318 81.4299C21.7288 97.2616 35.46 109.957 51.2807 110.106C67.1014 110.256 80.8326 97.7097 81.8774 82.1766C82.3251 75.4556 82.0266 68.5852 82.0266 61.8642C82.0266 44.987 82.0266 28.1097 82.0266 11.3818C82.0266 8.09601 83.0714 4.95952 85.4594 2.56983C88.5937 -0.417296 91.8773 -0.118581 95.7578 0.180131Z" fill="white"></path><path d="M61.877 50.6623C61.877 60.8185 61.877 70.9747 61.877 81.1309C61.877 86.5078 57.8473 90.8391 52.7727 91.2872C47.2504 91.7352 42.6235 88.5987 41.4295 83.3713C41.2803 82.7739 41.2803 82.1764 41.2803 81.579C41.2803 61.1172 41.2803 40.6554 41.2803 20.1936C41.2803 14.9662 45.4593 10.7842 50.3846 10.3361C55.7577 9.88806 60.5338 13.1739 61.7278 18.4014C62.0263 19.4468 62.0263 20.6417 62.0263 21.6872C62.0263 31.246 61.877 40.9541 61.877 50.6623Z" fill="white"></path></svg>
+              </template>
             </a>
           </div>
           <a
