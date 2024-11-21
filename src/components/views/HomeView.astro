@@ -51,7 +51,7 @@ const products = await getCollection("products");
       {
         shortcuts.map((item) => (
           <a href={item.href} class="catalog-shortcut">
-            <img src={"/images/categories/" + item.icon} alt="" />
+            <img src={"/images/categories/" + item.icon} alt="" loading="lazy" />
             <span set:html={item.name} />
           </a>
         ))
@@ -64,7 +64,7 @@ const products = await getCollection("products");
       {
         clients.map((item) => (
           <a href={item.href} class="client-shortcut">
-            <img src={"/images/logos/" + item.logo} title={item.name} alt="" />
+            <img src={"/images/logos/" + item.logo} title={item.name} alt="" loading="lazy" />
           </a>
         ))
       }

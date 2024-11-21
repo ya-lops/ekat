@@ -17,13 +17,15 @@ import IconCross from "../icons/IconCross.astro";
         </div>
       </header>
 
-      <iframe
-        src="https://rutube.ru/play/embed/c6cc4d620b1d4338901770a44b3e82f4"
-        frameBorder="0"
-        allow="clipboard-write; autoplay"
-        webkitAllowFullScreen
-        mozallowfullscreen
-        allowFullScreen></iframe>
+      <template x-if="companyVideoDialog">
+        <iframe
+          src="https://rutube.ru/play/embed/c6cc4d620b1d4338901770a44b3e82f4"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen></iframe>
+      </template>
     </div>
   </div>
 </div>

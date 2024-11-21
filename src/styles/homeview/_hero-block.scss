@@ -1,5 +1,6 @@
 .hero-section {
   background: url(/images/hero-bg.jpg);
+  background-color: rgb(0 116 129);
   background-position: right center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,7 +27,7 @@
   ._header {
     h1 {
       margin-bottom: 12px;
-      font-size: var(--ep-font-48-fluid); // 48px;
+      font-size: var(--ep-font-48-fluid);
       font-weight: 700;
     }
 

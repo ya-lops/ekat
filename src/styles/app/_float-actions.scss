@@ -1,0 +1,118 @@
+.app-float-actions {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+
+  > * {
+    flex-shrink: 0;
+    translate: 0 -30px;
+  }
+}
+
+.container:has(.app-float-actions) {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 0;
+}
+
+.app-contacts-btn {
+  position: relative;
+
+  ._btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--ep-color-text-primary-inverse);
+
+    &._call {
+      background: hsl(182, 57%, 42%);
+
+      svg {
+        scale: 1.5;
+      }
+    }
+
+    &._whatsapp {
+      background: hsl(198, 100%, 45%);
+
+      svg {
+        scale: 1.6;
+      }
+    }
+
+    &._telegram {
+      background: hsl(125, 59%, 61%);
+
+      svg {
+        scale: 1.6;
+      }
+    }
+  }
+
+  ._open {
+    background: var(--ep-color-70);
+  }
+
+  ._close {
+    background: var(--ep-color-50);
+  }
+
+  ._menu {
+    display: none;
+
+    ._c {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(6px);
+      border-radius: 50%;
+    }
+
+    &.is-opened {
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 0;
+      display: flex;
+      flex-flow: column-reverse;
+      gap: 6px;
+      border-radius: var(--ep-radius-24);
+
+      ._c {
+        animation: showin 0.25s forwards;
+        animation-delay: calc(var(--_i) * 0.075s);
+      }
+    }
+
+    @keyframes showin {
+      to {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
+}
+
+.app-to-top-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(180, 227, 229, 1);
+  opacity: 0.5;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}

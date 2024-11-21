@@ -6,6 +6,10 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   compressHTML: false,
 
+  devToolbar: {
+    enabled: false
+  },
+
   build: {
     assets: "static",
     inlineStylesheets: "never",
