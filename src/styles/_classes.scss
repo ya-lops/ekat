@@ -4,6 +4,7 @@
   --ep-radius-44: 44px;
   --ep-radius-44-fluid: clamp(18px, 2.5vw + 0.5rem, 44px);
 
+  --ep-font-12: 12px;
   --ep-font-14: 14px;
   --ep-font-14-fluid: clamp(12px, 1.2vw + 0.175rem, 14px);
   --ep-font-16: 16px;
@@ -49,6 +50,10 @@
 
 .font-light {
   font-weight: 300;
+}
+
+.font-12 {
+  font-size: var(--ep-font-12);
 }
 
 .font-14 {

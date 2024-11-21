@@ -2,6 +2,7 @@ const blog = [
   {
     slug: "production-startup",
     group: "cases",
+    groupLabel: "кейс",
     date: "01.07.2024",
     title: "Продуктовый стартап",
     image: "/images/blog/blog-case-1.jpg",
@@ -11,6 +12,7 @@ const blog = [
   {
     slug: "article-iml",
     group: "articles",
+    groupLabel: "статья",
     date: "01.07.2024",
     title: "Преимущества IML упаковки",
     image: "/images/blog/blog-case-2.jpg",
@@ -19,6 +21,7 @@ const blog = [
   {
     slug: "article-iml",
     group: "cases",
+    groupLabel: "кейс",
     date: "01.07.2024",
     title: "КЕЙС Новый дизайн — новый уровень продаж",
     image: "/images/blog/blog-case-3.jpg",
@@ -27,6 +30,7 @@ const blog = [
   {
     slug: "blog-case-3",
     group: "news",
+    groupLabel: "новость",
     date: "01.07.2024",
     title: "НОВОСТЬ Новый дизайн — новый уровень продаж",
     image: "/images/blog/blog-case-3.jpg",
@@ -35,6 +39,7 @@ const blog = [
   {
     slug: "blog-case-3",
     group: "cases",
+    groupLabel: "кейс",
     date: "01.07.2024",
     title: "Новый дизайн — новый уровень продаж",
     image: "/images/blog/blog-case-3.jpg",

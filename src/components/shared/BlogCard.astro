@@ -1,14 +1,19 @@
 ---
+import Tag from "./Tag.astro";
+
 const { data } = Astro.props;
 const blogHref = "/blog/";
 ---
 
 <article class="blog-card">
-  <div class="blog-card__image image-wrap fit-cover">
+  <a class="blog-card__image image-wrap fit-cover" href={blogHref + data.group + "/" + data.slug}>
     <img src={data.image} alt="" />
-  </div>
+  </a>
   <div class="blog-card__content">
-    <div class="_date">{data.date}</div>
+    <aside class="_meta">
+      <Tag>{data.groupLabel}</Tag>
+      <div class="font-12">{data.date}</div>
+    </aside>
     <header class="_title font-bold">
       <h2>
         <a class="font-20-fluid" href={blogHref + data.group + "/" + data.slug}
