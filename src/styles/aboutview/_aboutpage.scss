@@ -11,9 +11,14 @@
   }
 
   ._float-side {
+    position: sticky;
+
     @media (width > 900px) {
-      position: sticky;
       top: calc(var(--ep-header-height) + 56px);
+    }
+
+    @media (width < 900px) {
+      bottom: 32px;
     }
   }
 

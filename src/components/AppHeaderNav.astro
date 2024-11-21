@@ -3,12 +3,12 @@ import nav from "@/data/nav";
 import IconHamburger from "@/components/icons/IconHamburger.astro";
 ---
 
-<div class="app-header-nav">
-  <div class="_hamburger" tabindex="-1">
+<div class="app-header-nav" x-data="{headerNavOpened: false}" :class="{'is-opened' : headerNavOpened}">
+  <div class="_hamburger" tabindex="-1" x-on:click="headerNavOpened = true">
     <IconHamburger />
   </div>
-  <div class="_items">
-    <div class="_items-inner">
+  <div class="_items" x-on:click.self="headerNavOpened = false">
+    <div class="_items-inner" >
       <div class="_menu" tabindex="-1">
         {
           nav.map((menuitem) => (

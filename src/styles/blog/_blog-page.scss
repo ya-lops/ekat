@@ -31,4 +31,14 @@
       }
     }
   }
+
+  ._action-btn {
+    display: flex;
+    justify-content: center;
+    margin-block: var(--ep-spacer-64-fluid) var(--ep-spacer-24-fluid);
+
+    .app-button {
+      width: min(320px, 100%);
+    }
+  }
 }

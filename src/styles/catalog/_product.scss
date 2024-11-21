@@ -26,11 +26,17 @@
   }
 
   ._sticky {
-    @media (height < 566px) {
+    @media (width < 1024px) {
+      display: contents;
+    }
+  }
+
+  ._sticky {
+    @media (height < 566px) and (width > 1023px) {
       display: contents;
     }
 
-    @media (height >= 566px) {
+    @media (height >= 566px) and (width > 1023px) {
       position: sticky;
       top: calc(var(--ep-header-height) + var(--ep-spacer-24));
       display: grid;

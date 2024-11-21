@@ -71,7 +71,7 @@
 }
 
 .font-24 {
-  font-size: 24px;
+  font-size: var(--ep-font-24);
 }
 
 .font-34 {
@@ -124,7 +124,7 @@
 }
 
 .image-wrap {
-  border-radius: 44px;
+  border-radius: var(--ep-radius-44-fluid);
   overflow: hidden;
 }
 

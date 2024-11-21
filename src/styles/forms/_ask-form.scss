@@ -1,7 +1,7 @@
 .ask-form-block {
   width: 100%;
-  padding: 32px;
-  border-radius: 44px;
+  padding: var(--ep-spacer-32);
+  border-radius: var(--ep-radius-44-fluid);
   background-image: linear-gradient(
     165deg,
     var(--ep-color-60),
@@ -12,11 +12,11 @@
 
 .ask-form {
   display: grid;
-  gap: 24px;
+  gap: var(--ep-spacer-24);
 
   ._body {
     display: flex;
-    gap: 16px;
+    gap: var(--ep-spacer-16);
     justify-content: center;
   }
 

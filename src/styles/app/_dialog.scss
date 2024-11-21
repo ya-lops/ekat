@@ -6,7 +6,7 @@
   border-radius: var(--ep-radius-44-fluid);
   background: var(--ep-color-surface-1);
   opacity: 1;
-  box-shadow: 0 0 0px 10px #fffa;
+  box-shadow: 0 0 0 100vw rgba(0,0,0,.3);
   transition-property: opacity, display;
   transition-duration: 0.25s;
 
@@ -21,4 +21,8 @@
   &__body {
     height: 100%;
   }
+}
+
+body:has(.app-dialog.is-shown) {
+  overflow: hidden;
 }

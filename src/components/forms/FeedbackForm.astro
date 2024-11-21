@@ -7,22 +7,28 @@ import IconWhatsapp from "../icons/IconWhatsapp.astro";
 <div class="feedback-form">
   <div class="_title">Мы всегда готовы ответить на ваши вопросы</div>
 
-  <button class="app-button accent">Хочу задать вопрос</button>
+  <div class="_wrap">
+    <button
+      class="app-button accent"
+      x-on:click="requestCalcDialogOpen = true, btnLabel = 'Отправить', formTitle = 'Задать вопрос'"
+      >Хочу задать вопрос</button
+    >
 
-  <div class="_subtitle">Позвоните нам</div>
+    <div class="_subtitle">Позвоните нам</div>
 
-  <div class="_contacts">
-    <a href="tel:+79039310365">
-      <IconPhone />
-      <span>+7 (903) 931-03-65</span>
-    </a>
-    <a href="#whatsapp">
-      <IconWhatsapp />
-      <span>Написать в WhatsApp</span>
-    </a>
-    <a href="#telegram">
-      <IconTelegram />
-      <span>Написать в Telegram</span>
-    </a>
+    <div class="_contacts">
+      <a href="#tel" class="app-button accent _call">
+        <IconPhone />
+        <span class="_btn-label">+7 (903) 931-03-65</span>
+      </a>
+      <a href="#tel" class="app-button accent _whatsapp">
+        <IconWhatsapp />
+        <span class="_btn-label">Написать в WhatsApp</span>
+      </a>
+      <a href="#tel" class="app-button accent _telegram">
+        <IconTelegram />
+        <span class="_btn-label">Написать в Telegram</span>
+      </a>
+    </div>
   </div>
 </div>

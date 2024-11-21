@@ -26,8 +26,8 @@
   &__switcher-label {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 16px 24px;
+    gap: var(--ep-spacer-12);
+    padding: var(--ep-spacer-16) var(--ep-spacer-24);
     border-radius: 20px;
     background: var(--ep-color-30);
     color: var(--ep-color-accent-dark);
@@ -44,11 +44,12 @@
       align-items: center;
       justify-content: center;
       margin-left: auto;
+      scale: 1.5;
     }
 
     :checked + & {
       ._icon {
-        scale: -1;
+        transform: rotate(180deg);
       }
     }
   }
@@ -73,7 +74,8 @@
     }
 
     @media (width < 768px) {
-      padding-block: 24px;
+      padding-block: var(--ep-spacer-24);
+      gap: var(--ep-spacer-16)
     }
   }
 
@@ -81,7 +83,7 @@
     grid-area: info;
 
     header {
-      margin-bottom: 24px;
+      margin-bottom: var(--ep-spacer-24);
     }
   }
 
@@ -97,7 +99,7 @@
   &__info-item {
     display: grid;
     grid-template-columns: 48px 1fr;
-    column-gap: 24px;
+    column-gap: var(--ep-spacer-24);
     font-size: 14px;
 
     & + & {

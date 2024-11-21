@@ -30,6 +30,15 @@
     }
   }
 
+  &.accent.light {
+    background: var(--ep-color-60);
+
+    &:focus,
+    &:hover {
+      background: var(--ep-color-80);
+    }
+  }
+
   &.accent.dark {
     background: var(--ep-color-80);
 
