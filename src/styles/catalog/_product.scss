@@ -185,8 +185,8 @@
   }
 
   ._description {
-    font-size: var(--ep-font-16-fluid);
-    line-height: 1.66;
+    font-size: var(--ep-font-14-fluid);
+    line-height: 1.5;
   }
 }
 
@@ -246,42 +246,5 @@
 
   ._value {
     color: var(--ep-color-accent-dark);
-  }
-}
-
-.product-description {
-  header + h2 {
-    margin-top: 0;
-  }
-
-  h2 {
-    margin-block: var(--ep-spacer-32-fluid) var(--ep-spacer-24-fluid);
-    font-size: var(--ep-font-24-fluid);
-    font-weight: 500;
-  }
-
-  p,
-  li {
-    margin-bottom: var(--ep-spacer-24-fluid);
-    font-size: var(--ep-font-15-fluid);
-    line-height: 1.66;
-    font-weight: 300;
-  }
-
-  p:has(+ :where(ul, ol)) {
-    margin-bottom: var(--ep-spacer-12-fluid);
-  }
-
-  ul {
-    list-style-position: inside;
-    margin-bottom: var(--ep-spacer-24-fluid);
-
-    li {
-      margin-bottom: 0;
-
-      &::marker {
-        color: var(--ep-color-70);
-      }
-    }
   }
 }

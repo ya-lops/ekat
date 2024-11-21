@@ -101,3 +101,55 @@ body {
 [x-cloak] {
   display: none !important;
 }
+
+.app-general-content {
+  header:not([class]) {
+    margin-bottom: var(--ep-spacer-64-fluid);
+  }
+
+  header:not([class]) + h2:not([class]) {
+    margin-top: 0;
+  }
+
+  h2:not([class]) {
+    font-size: 28px;
+    font-weight: 500;
+    margin-block: 32px var(--ep-spacer-24);
+  }
+
+  p:not([class]),
+  li:not([class]) {
+    margin-bottom: var(--ep-spacer-24);
+    font-size: var(--ep-font-18-fluid);
+    line-height: 1.66;
+    font-weight: 300;
+  }
+
+  :where(ol, ul):not([class]) {
+    list-style-position: inside;
+
+    &:not(:last-child) {
+      margin-bottom: var(--ep-spacer-24-fluid);
+    }
+
+    li:not([class]) {
+      margin-bottom: 0;
+
+      &::marker {
+        color: var(--ep-color-70);
+      }
+    }
+  }
+
+  img:not([class]) {
+    border-radius: var(--ep-radius-44-fluid);
+
+    &:not(:last-child) {
+      margin-block: var(--ep-spacer-44-fluid);
+    }
+  }
+
+  iframe {
+    border-radius: var(--ep-radius-24);
+  }
+}

@@ -22,40 +22,4 @@
       z-index: 10;
     }
   }
-
-  &.as-blogpost {
-    header {
-      margin-bottom: var(--ep-spacer-64-fluid);
-    }
-
-    header + h2 {
-      margin-top: 0;
-    }
-
-    h2 {
-      font-size: 28px;
-      font-weight: 500;
-      margin-block: 32px var(--ep-spacer-24);
-    }
-
-    p,
-    li {
-      margin-bottom: var(--ep-spacer-24);
-      font-size: var(--ep-font-18-fluid);
-      line-height: 1.66;
-      font-weight: 300;
-    }
-
-    ul {
-      list-style-position: inside;
-
-      li {
-        margin-bottom: 0;
-
-        &::marker {
-          color: var(--ep-color-70);
-        }
-      }
-    }
-  }
 }
