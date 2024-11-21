@@ -1,4 +1,5 @@
 ---
+import IconBigOk from "../icons/IconBigOk.astro";
 import IconCross from "../icons/IconCross.astro";
 import PreferredContacts from "../shared/PreferredContacts.astro";
 ---
@@ -11,41 +12,40 @@ import PreferredContacts from "../shared/PreferredContacts.astro";
   x-on:click.outside="requestCalcDialogOpen = false, submit = false"
 >
   <div class="app-dialog__body">
-    <form class="request-calc-dialog" :class="{'is-hidden' : submit}">
-      <header class="_header">
-        <h3 class="text-form-header" x-text="formTitle">Заявка на расчет</h3>
-        <div
-          class="_close"
-          x-on:click="requestCalcDialogOpen = false, submit = false"
-        >
-          <IconCross />
+    <template x-if="requestCalcDialogOpen">
+      <form class="request-calc-dialog" :class="{'is-hidden' : submit}">
+        <header class="_header">
+          <h3 class="text-form-header" x-text="formTitle">Заявка на расчет</h3>
+          <div
+            class="_close"
+            x-on:click="requestCalcDialogOpen = false, submit = false"
+          >
+            <IconCross />
+          </div>
+        </header>
+        <div class="_body">
+          <input type="text" placeholder="Ваше имя" required />
+          <input type="text" placeholder="Email" required />
         </div>
-      </header>
-      <div class="_body">
-        <input type="text" placeholder="Ваше имя" required />
-        <input type="text" placeholder="Email" required />
-      </div>
 
-      <PreferredContacts />
-      <button
-        type="button"
-        class="app-button accent"
-        x-on:click="submit = !submit"
-        x-text="btnLabel">Оставить заявку</button
-      >
-    </form>
-
+        <PreferredContacts />
+        <button
+          type="button"
+          class="app-button accent"
+          x-on:click="submit = !submit"
+          x-text="btnLabel">Оставить заявку</button
+        >
+      </form>
+    </template>
     <!-- после сабмита -->
     <div class="form-submit-message" :class="{'is-shown' : submit}">
-      <div>
-        <div class="font-24 color-70 font-bold text-center">
-          Ваша заявка отправлена!
-        </div>
-        <p class="font-light text-center">
-          С вами свяжется первый освободившийся менеджер.
-        </p>
+      <IconBigOk />
+      <div class="font-24 color-70 font-bold text-center">
+        Ваша заявка отправлена!
       </div>
-
+      <p class="font-light text-center">
+        С вами свяжется первый освободившийся менеджер.
+      </p>
       <button
         class="app-button ghost accent"
         x-on:click="requestCalcDialogOpen = false, submit = false"

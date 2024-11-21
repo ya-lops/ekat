@@ -25,4 +25,8 @@
 
 body:has(.app-dialog.is-shown) {
   overflow: hidden;
+  
+  > :where(.app-header, .app-content, .app-footer) {
+    padding-right: var(--_get-scrollbar-width); // app.js
+  }
 }
