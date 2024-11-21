@@ -269,14 +269,15 @@
   }
 
   p:has(+ :where(ul, ol)) {
-    margin-bottom: var(--ep-spacer-16-fluid);
+    margin-bottom: var(--ep-spacer-12-fluid);
   }
 
   ul {
     list-style-position: inside;
+    margin-bottom: var(--ep-spacer-24-fluid);
 
     li {
-      margin-bottom: var(--ep-spacer-16);
+      margin-bottom: 0;
 
       &::marker {
         color: var(--ep-color-70);

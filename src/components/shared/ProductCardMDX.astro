@@ -14,7 +14,7 @@ const { product } = Astro.props;
     </a>
 
     {
-      product.data.previewSpecs.length > 0 && (
+      product.data.previewSpecs?.length > 0 && (
         <div class="_props">
           {product.data.previewSpecs?.map((l) => (
             <Tag>
