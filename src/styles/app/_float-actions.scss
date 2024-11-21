@@ -97,17 +97,19 @@
   height: 44px;
   border-radius: 50%;
   background: rgba(180, 227, 229, 1);
-  visibility: hidden;
   opacity: 0;
   transform: translateY(6px);
   cursor: pointer;
+  transition-property: opacity, transform, visibility;
+  transition-duration: .25s;
 
   &:hover {
     opacity: 0.75;
   }
 
   &.is-shown {
-    animation: showin 0.25s forwards;
+    opacity: .5;
+    transform: translateY(0px);
   }
 }
 

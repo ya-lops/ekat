@@ -17,20 +17,14 @@ import FloatActions from "@/components/shared/FloatActions.astro";
   </head>
   <body class="app" x-data="ekat()">
     <AppHeader />
-
     <div class="app-content">
       <slot />
-
       <div class="container">
         <FloatActions/>
       </div>
     </div>
-
     <AppFooter />
-
     <AppFooterScripts />
-
-    <!-- Форма "Заявка на расчет" -->
     <RequestCalcDialog />
   </body>
 </html>

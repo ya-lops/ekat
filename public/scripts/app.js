@@ -19,7 +19,6 @@ function ekat() {
 
     scrollOffset(x) {
       this.scrolled = window.scrollY > x;
-      console.log(this.scrolled);
     },
 
     scrollToTop() {
