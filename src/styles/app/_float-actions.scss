@@ -103,13 +103,13 @@
   transition-property: opacity, transform, visibility;
   transition-duration: .25s;
 
-  &:hover {
-    opacity: 0.75;
-  }
-
   &.is-shown {
     opacity: .5;
     transform: translateY(0px);
+
+    &:hover {
+      opacity: .75;
+    }
   }
 }
 
