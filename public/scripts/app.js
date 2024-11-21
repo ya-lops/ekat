@@ -7,6 +7,7 @@ function ekat() {
     requestCalcDialogOpen: false,
     btnLabel: "Заказать",
     formTitle: "Заявка",
+    scrolled: false,
     
     init() {
       items = JSON.parse(localStorage.favorites || "[]");
@@ -14,6 +15,15 @@ function ekat() {
 
       Alpine.store("favStore", items);
       Alpine.store("favCountStore", count);
+    },
+
+    scrollOffset(x) {
+      this.scrolled = window.scrollY > x;
+      console.log(this.scrolled);
+    },
+
+    scrollToTop() {
+      window.scrollTo(0,0);
     },
 
     product() {

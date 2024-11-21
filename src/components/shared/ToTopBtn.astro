@@ -2,7 +2,12 @@
 
 ---
 
-<div class="app-to-top-btn" onclick="window.scrollTo(0,0)">
+<div
+  class="app-to-top-btn"
+  x-on:click="scrollToTop()"
+  x-on:scroll.window="scrollOffset(100)"
+  :class="{'is-shown': scrolled}"
+>
   <svg
     width="18"
     height="11"

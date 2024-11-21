@@ -11,14 +11,14 @@ body {
 }
 
 body {
-  overflow-y: scroll;
+  overflow-y: overlay;
   color: var(--ep-color-text-primary);
   accent-color: var(--ep-color-accent);
   font-family: var(--ep-font-family-primary);
   font-size: 16px;
-  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
 }
 
 .container {
