@@ -76,11 +76,10 @@
 .form-submit-message {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  align-self: center;
+  display: grid;
+  place-items: center;
   gap: 24px;
+  padding-block: var(--ep-spacer-32-fluid);
   visibility: hidden;
 
   &.is-shown {

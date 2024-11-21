@@ -22,15 +22,3 @@
     height: 100%;
   }
 }
-
-body:has(.app-dialog.is-shown) {
-  overflow: hidden;
-  
-  :where(.app-header, .app-content, .app-footer, .hero-section) {
-    padding-right: var(--_get-scrollbar-width);
-  }
-
-  .hero-section {
-    margin-right: calc(var(--_get-scrollbar-width) * -1);
-  }
-}

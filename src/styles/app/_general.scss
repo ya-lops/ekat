@@ -4,6 +4,17 @@
   --ep-header-height: 65px;
 }
 
+html {
+  overflow-y: overlay;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ep-color-90) var(--ep-color-50);
+
+  &:has(.app-dialog.is-shown) {
+    overflow: hidden;
+    scrollbar-gutter: stable; 
+  }
+}
+
 html,
 body {
   min-height: 100dvh;
@@ -11,7 +22,6 @@ body {
 }
 
 body {
-  overflow-y: overlay;
   color: var(--ep-color-text-primary);
   accent-color: var(--ep-color-accent);
   font-family: var(--ep-font-family-primary);

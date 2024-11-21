@@ -16,17 +16,17 @@ function ekat() {
       Alpine.store("favStore", items);
       Alpine.store("favCountStore", count);
 
-      // получаем ширину скроллбара
-      const outer = document.createElement('div');
-      outer.style.visibility = 'hidden';
-      outer.style.overflow = 'scroll';
-      outer.style.msOverflowStyle = 'scrollbar';
-      document.body.appendChild(outer);
-      const inner = document.createElement('div');
-      outer.appendChild(inner);
-      const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
-      outer.parentNode.removeChild(outer);
-      document.documentElement.style.setProperty('--_get-scrollbar-width', scrollbarWidth+'px');
+      // получаем ширину скроллбара (отключил, сделал на css)
+      // const outer = document.createElement('div');
+      // outer.style.visibility = 'hidden';
+      // outer.style.overflow = 'scroll';
+      // outer.style.msOverflowStyle = 'scrollbar';
+      // document.body.appendChild(outer);
+      // const inner = document.createElement('div');
+      // outer.appendChild(inner);
+      // const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+      // outer.parentNode.removeChild(outer);
+      // document.documentElement.style.setProperty('--_get-scrollbar-width', scrollbarWidth+'px');
     },
 
     scrollOffset(x) {
