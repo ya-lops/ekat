@@ -43,11 +43,11 @@
       }
 
       &._whatsapp {
-        background: hsl(198, 100%, 45%);
+        background: var(--color-brand-whatsapp);
       }
 
       &._telegram {
-        background: hsl(125, 59%, 61%);
+        background: var(--color-brand-telegram);
       }
 
       svg {
