@@ -1,0 +1,32 @@
+---
+import ContactsBtn from "./ContactsBtn.astro";
+import ToTopBtn from "./ToTopBtn.astro";
+---
+
+<div class="app-float-actions">
+  <ToTopBtn />
+  <ContactsBtn />
+</div>
+
+<style lang="scss" is:global>
+  .app-float-actions {
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+
+    > * {
+      flex-shrink: 0;
+      translate: 0 -30px;
+    }
+  }
+
+  .container:has(.app-float-actions) {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 0;
+  }
+</style>

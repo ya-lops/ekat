@@ -4,6 +4,7 @@ import AppFooter from "@/components/AppFooter.astro";
 import AppHeader from "@/components/AppHeader.astro";
 import AppFooterScripts from "@/components/AppFooterScripts.astro";
 import RequestCalcDialog from "@/components/dialogs/RequestCalcDialog.astro";
+import FloatActions from "@/components/shared/FloatActions.astro";
 ---
 
 <html lang="ru">
@@ -19,6 +20,10 @@ import RequestCalcDialog from "@/components/dialogs/RequestCalcDialog.astro";
 
     <div class="app-content">
       <slot />
+
+      <div class="container">
+        <FloatActions/>
+      </div>
     </div>
 
     <AppFooter />

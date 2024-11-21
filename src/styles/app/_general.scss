@@ -52,7 +52,11 @@ body {
 }
 
 .app-view {
-  padding-block: 56px 64px;
+  padding-block: 56px var(--ep-spacer-96-fluid);
+
+  @media (width < 1024px) {
+    padding-block: var(--ep-spacer-96-fluid);
+  }
 }
 
 .app-section {

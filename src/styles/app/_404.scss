@@ -3,7 +3,7 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    padding-block: 96px;
+    padding-block: var(--ep-spacer-96-fluid);
     gap: var(--ep-spacer-32-fluid);
   }
 
@@ -11,11 +11,12 @@
     display: flex;
     flex-flow: column;
     gap: var(--ep-spacer-12);
+    text-wrap: balance;
   }
 
   ._code {
     color: var(--ep-color-40);
-    font-size: 196px;
+    font-size: clamp(116px, 25vw, 196px);
     font-weight: 700;
     line-height: 1;
     margin-bottom: var(--ep-spacer-32-fluid);

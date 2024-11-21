@@ -1,0 +1,123 @@
+---
+import IconCross from "../icons/IconCross.astro";
+import IconPhone from "../icons/IconPhone.astro";
+import IconSupport from "../icons/IconSupport.astro";
+import IconTelegram from "../icons/IconTelegram.astro";
+import IconWhatsapp from "../icons/IconWhatsapp.astro";
+---
+
+<div class="app-contacts-btn" x-data="{contactsOpen: false}">
+  <div class="_trigger" x-on:click.outside="contactsOpen = false">
+    <template x-if="!contactsOpen">
+      <div class="_btn _open" x-on:click="contactsOpen = true">
+        <IconSupport />
+      </div>
+    </template>
+    <template x-if="contactsOpen">
+      <div class="_btn _close" x-on:click="contactsOpen = false">
+        <IconCross />
+      </div>
+    </template>
+    <div class="_menu" :class="{'is-opened': contactsOpen }">
+      <div class="_c" style="--_i: 1">
+        <a href="#tel" class="_btn _call">
+          <IconPhone />
+        </a>
+      </div>
+      <div class="_c" style="--_i: 2">
+        <a href="#tel" class="_btn _whatsapp">
+          <IconWhatsapp />
+        </a>
+      </div>
+      <div class="_c" style="--_i: 3">
+        <a href="#tel" class="_btn _telegram">
+          <IconTelegram />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <style lang="scss" is:global>
+    .app-contacts-btn {
+      position: relative;
+
+      ._btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: var(--ep-color-text-primary-inverse);
+
+        &._call {
+          background: hsl(182, 57%, 42%);
+
+          svg {
+            scale: 1.5;
+          }
+        }
+
+        &._whatsapp {
+          background: hsl(198, 100%, 45%);
+
+          svg {
+            scale: 1.6;
+          }
+        }
+
+        &._telegram {
+          background: hsl(125, 59%, 61%);
+
+          svg {
+            scale: 1.6;
+          }
+        }
+      }
+
+      ._open {
+        background: var(--ep-color-70);
+      }
+
+      ._close {
+        background: var(--ep-color-50);
+      }
+
+      ._menu {
+        display: none;
+
+        ._c {
+          visibility: hidden;
+          opacity: 0;
+          transform: translateY(6px);
+          border-radius: 50%;
+        }
+
+        &.is-opened {
+          position: absolute;
+          bottom: calc(100% + 6px);
+          left: 0;
+          display: flex;
+          flex-flow: column-reverse;
+          gap: 6px;
+          border-radius: var(--ep-radius-24);
+
+          ._c {
+            animation: showin 0.25s forwards;
+            animation-delay: calc(var(--_i) * 0.075s);
+          }
+        }
+
+        @keyframes showin {
+          to {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0px);
+          }
+        }
+      }
+    }
+  </style>
+</div>
