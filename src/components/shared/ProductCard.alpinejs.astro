@@ -1,0 +1,33 @@
+---
+import IconHeart from "../icons/IconHeart.astro";
+import ImagePH from "./ImagePH.astro";
+
+
+---
+
+<div class="product-card">
+  <div class="_wrap">
+    <a style="display: flex; align-items: center; justify-content: center;" class="_image fit-contain" :href={"/catalog/ + product.slug"}>
+      <template x-if="product.image">
+        <img :src="product.image" alt="" />
+      </template>
+      <template x-if="!product.image">
+        <ImagePH />
+      </template>
+    </a>
+  </div>
+  <a
+    class="_title"
+    :href={"/catalog/ + product.slug"}
+    x-text="product.name"></a>
+
+  <div
+    class="product-favorite is-fav"
+    :data-slug="product.slug"
+    @click=`toFav()`
+  >
+    <div class="_icon">
+      <IconHeart />
+    </div>
+  </div>
+</div>
