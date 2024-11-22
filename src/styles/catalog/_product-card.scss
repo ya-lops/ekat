@@ -19,11 +19,14 @@
   }
 
   ._wrap {
-    max-height: 200px;
-    aspect-ratio: 1;
+    height: 200px;
     padding: 12px;
     border-radius: 18px;
     background-color: var(--_product-card-bg);
+
+    @media (width >= 394px) {
+      aspect-ratio: 1;
+    }
 
     @media (width > 768px) {
       display: contents;
@@ -37,7 +40,10 @@
   ._image {
     order: -1;
     max-height: 200px;
-    aspect-ratio: 1;
+    
+    @media (width >= 394px) {
+      aspect-ratio: 1;
+    }
   }
 
   ._props {

@@ -44,5 +44,9 @@
     display: flex;
     flex-flow: column;
     gap: 24px;
+
+    @media (width < 768px) {
+      width: 100%;
+    }
   }
 }
