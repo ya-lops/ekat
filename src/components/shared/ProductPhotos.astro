@@ -1,0 +1,71 @@
+---
+import ImagePH from "./ImagePH.astro";
+
+const { photos } = Astro.props;
+---
+
+<div class:list={["product-photos", photos.length < 1 ? "has-no-image" : ""]}>
+  {
+    photos.length > 0 && (
+      <div class="_pri js-product-photos-big" id="lightgallery">
+        {photos.map((photo) => (
+          <div class="_photo" data-src={photo.img} >
+            <img src={photo.img} alt="" />
+          </div>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    photos.length > 1 && (
+      <div class="_sec js-product-photos-small">
+        {photos.map((photo) => (
+          <div class="_photo">
+            <img src={photo.img} alt="" />
+          </div>
+        ))}
+      </div>
+    )
+  }
+
+  {photos.length < 1 && <ImagePH />}
+</div>
+
+<style lang="scss" is:global>
+  .product-photos {
+    ._photo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--ep-spacer-32);
+      background: rgba(0, 0, 0, 0.03);
+      border-radius: var(--ep-radius-44-fluid);
+
+      img {
+        max-height: 256px;
+      }
+    }
+
+    ._sec ._photo {
+      margin-right: 8px;
+      padding: 8px;
+      border-radius: var(--ep-radius-24-fluid);
+    }
+
+    &.has-no-image {
+      aspect-ratio: 1.5;
+
+      .image-ph {
+        filter: brightness(0.5);
+      }
+    }
+
+    ._sec {
+      display: flex;
+      gap: 8px;
+      margin-top: var(--ep-spacer-16);
+    }
+  }
+</style>
+

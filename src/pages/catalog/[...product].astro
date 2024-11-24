@@ -5,6 +5,7 @@ import ProductView from "@/components/views/ProductView.astro";
 import AddToFavorites from "@/components/shared/AddToFavorites.astro";
 import Tag from "@/components/shared/Tag.astro";
 import ImagePH from "@/components/shared/ImagePH.astro";
+import ProductPhotos from "@/components/shared/ProductPhotos.astro";
 
 export async function getStaticPaths() {
   const products = await getCollection("products");
@@ -26,27 +27,8 @@ const { Content } = await product.render();
     <div class="_col">
       <div class="_sticky">
         <section class="product-gallery">
-          <div
-            class="_main-image"
-            class:list={[!product.data.image && "has-no-image"]}
-          >
-            <AddToFavorites product={product} />
-
-            {
-              product.data.image && (
-                <img src={product.data.image} alt={product.data.name} />
-              )
-            }
-
-            {!product.data.image && <ImagePH />}
-          </div>
-          {
-            product.data.imgs.map((i) => (
-              <div class="_item">
-                <img src={i.img} alt="" />
-              </div>
-            ))
-          }
+          <AddToFavorites product={product} />
+          <ProductPhotos photos={product.data.imgs} />
         </section>
 
         <!-- Блок про необходимость дизайна -->
@@ -180,3 +162,5 @@ const { Content } = await product.render();
     </div>
   </article>
 </ProductView>
+
+

@@ -9,6 +9,7 @@ html {
   scrollbar-width: thin;
   scrollbar-color: var(--ep-color-90) var(--ep-color-50);
 
+  &.lg-on,
   &:has(.app-dialog.is-shown) {
     overflow: hidden;
     scrollbar-gutter: stable; 
