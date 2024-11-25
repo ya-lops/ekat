@@ -51,25 +51,43 @@
 
 <script is:inline>
   $(".js-product-photos-big").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
     arrows: false,
-    fade: true,
-    asNavFor: ".js-product-photos-small",
+    responsive: [
+      {
+        breakpoint: 2500,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          fade: true,
+          asNavFor: ".js-product-photos-small",
+        },
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          asNavFor: null,
+          arrows: false,
+        },
+      },
+    ],
   });
   $(".js-product-photos-small").slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     asNavFor: ".js-product-photos-big",
     focusOnSelect: true,
+    arrows: true,
+    infinite: false,
   });
 </script>
 
 <script is:inline>
   lightGallery(document.getElementById("lightgallery"), {
     speed: 500,
-    selector: '._photo',
+    selector: "._photo:not(.slick-cloned)",
     download: false,
-    backgroundColor: 'rgba(0,0,0,0.3)'
+    backgroundColor: "rgba(0,0,0,0.3)",
   });
 </script>

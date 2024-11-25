@@ -9,7 +9,7 @@ const { photos } = Astro.props;
     photos.length > 0 && (
       <div class="_pri js-product-photos-big" id="lightgallery">
         {photos.map((photo) => (
-          <div class="_photo" data-src={photo.img} >
+          <div class="_photo" data-src={photo.img}>
             <img src={photo.img} alt="" />
           </div>
         ))}
@@ -48,7 +48,6 @@ const { photos } = Astro.props;
     }
 
     ._sec ._photo {
-      margin-right: 8px;
       padding: 8px;
       border-radius: var(--ep-radius-24-fluid);
     }
@@ -65,7 +64,55 @@ const { photos } = Astro.props;
       display: flex;
       gap: 8px;
       margin-top: var(--ep-spacer-16);
+
+      @media (width < 769px) {
+        display: none;
+      }
+
+      ._photo.slick-current {
+        outline: 1px solid var(--ep-color-60);
+        outline-offset: -3px;
+      }
+    }
+
+    .slick-track {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slick-arrow {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+      z-index: 2;
+
+      &::before {
+        font-size: 14px;
+      }
+
+      &.slick-disabled {
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      &.slick-next {
+        right: -20px;
+      }
+
+      &.slick-prev {
+        left: -20px;
+      }
+    }
+
+    .slick-dots li {
+      margin: 0;
+      scale: 5;
+      pointer-events: none;
+
+      &::before {
+        color: var(--ep-color-90);
+      }
     }
   }
 </style>
-
