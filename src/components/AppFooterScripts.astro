@@ -15,7 +15,7 @@
   // https://selectric.js.org/
   $(function () {
     $("select").selectric({
-      disableOnMobile: false,
+      nativeOnMobile: false,
     });
   });
 </script>
@@ -84,6 +84,7 @@
 </script>
 
 <script is:inline>
+  // https://www.lightgalleryjs.com/
   lightGallery(document.getElementById("lightgallery"), {
     speed: 500,
     selector: "._photo:not(.slick-cloned)",
