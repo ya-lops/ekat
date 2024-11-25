@@ -45,4 +45,9 @@
       font-size: 32px;
     }
   }
+
+  .slick-slider:has(.slick-slide.slick-current:last-child) .slick-next,
+  .slick-slider:has(.slick-slide.slick-current:first-child) .slick-prev {
+    display: none;
+  }
 }

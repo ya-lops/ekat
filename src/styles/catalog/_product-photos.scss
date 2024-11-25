@@ -25,6 +25,14 @@
     }
   }
 
+  ._pri {
+    .slick-slide {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
   ._sec {
     display: flex;
     gap: 8px;
@@ -37,6 +45,12 @@
     ._photo.slick-current {
       outline: 1px solid var(--ep-color-60);
       outline-offset: -3px;
+    }
+
+    .slick-slide:not(.slick-current) {
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
