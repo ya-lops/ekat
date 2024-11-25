@@ -6,6 +6,7 @@
 @import "vendor/slick/slick.scss";
 @import "vendor/slick/slick-theme.scss";
 @import "vendor/lightgallery/css/lightgallery-bundle.min.css";
+@import "vendor/vendor-overrides";
 @import "app";
 @import "shared";
 @import "forms";
@@ -19,7 +20,3 @@
 @import "animations";
 @import "classes";
 
-.lg-backdrop {
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(5px) ;
-}

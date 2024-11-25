@@ -1,0 +1,48 @@
+// Lightgallery
+.lg-backdrop {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+// Slick
+:is(.app, #override) {
+  .slick-prev,
+  .slick-next {
+    width: 25px;
+    height: 25px;
+    transform: initial;
+    background: transparent;
+    color: rgba(51, 56, 72, 0.5);
+    border: 3px solid var(--ep-color-60);
+    border-bottom: 0;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      border-color: var(--ep-color-accent);
+    }
+  }
+
+  .slick-prev {
+    border-right: 0;
+    left: -20px;
+    transform: var(--_t, translatey(-50%) rotate(-45deg) scale(0.75));
+  }
+
+  .slick-next {
+    border-left: 0;
+    transform: var(--_t, translatey(-50%) rotate(45deg) scale(0.75));
+  }
+
+  .slick-dots li {
+    margin: 0;
+    pointer-events: none;
+
+    ::before {
+      color: var(--ep-color-90);
+      font-size: 32px;
+    }
+  }
+}

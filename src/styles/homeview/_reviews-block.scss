@@ -10,13 +10,6 @@
   .slick-prev,
   .slick-next {
     position: initial;
-    width: 25px;
-    height: 25px;
-    transform: initial;
-    background: transparent;
-    color: rgba(51, 56, 72, 0.5);
-    border: 3px solid var(--ep-color-60);
-    border-bottom: 0;
 
     &::before {
       display: none;
@@ -29,14 +22,12 @@
 
   .slick-prev {
     grid-area: prev;
-    border-right: 0;
-    transform: rotate(-45deg) scale(0.75);
+    --_t: rotate(-45deg) scale(0.75);
   }
 
   .slick-next {
     grid-area: next;
-    border-left: 0;
-    transform: rotate(45deg) scale(0.75);
+    --_t: rotate(45deg) scale(0.75);
   }
 
   .slick-list {
