@@ -24,10 +24,6 @@
     border-radius: 18px;
     background-color: var(--_product-card-bg);
 
-    @media (width >= 394px) {
-      aspect-ratio: 1;
-    }
-
     @media (width > 768px) {
       display: contents;
     }
