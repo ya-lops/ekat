@@ -40,10 +40,6 @@
   ._image {
     order: -1;
     max-height: 200px;
-    
-    @media (width >= 394px) {
-      aspect-ratio: 1;
-    }
   }
 
   ._props {
